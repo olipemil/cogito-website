@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COGITO Workflow</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>COGITO Workflow</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Workflow Overview</h2>
+            <p>The COGITO workflow involves a series of steps that start from the VASP calculations and proceed through the tight-binding model construction to the plotting of band structures and densities of states (DOS).</p>
+            <figure>
+                <img src="workflow_image.png" alt="COGITO Workflow">
+                <figcaption>Figure 1: COGITO Workflow Diagram</figcaption>
+            </figure>
+        </section>
+        <section>
+            <h2>1. Static VASP Calculation</h2>
+            <p>Initial calculations are performed using VASP with an indelible uniform grid. This provides the necessary data for generating the tight-binding model.</p>
+        </section>
+        <section>
+            <h2>2. COGITO Main</h2>
+            <p>The main COGITO code generates the basis and constructs the tight-binding model using the input from the VASP calculations.</p>
+        </section>
+        <section>
+            <h2>3. COGITO TB</h2>
+            <p>COGITO TB module reads all inputs and constructs the tight-binding model. This includes calculating overlaps and plotting the crystal bonds for comparison with the DFT calculations.</p>
+        </section>
+        <section>
+            <h2>4. Band Structure & DOS</h2>
+            <p>Using the TB model, the band structure and density of states are calculated. The plots can be projected onto the crystal bonds or displayed as a standard band structure plot.</p>
+        </section>
+        <section>
+            <h2>5. Post-processing & Visualization</h2>
+            <p>COGITO allows for plotting and post-processing of the results, including projecting the band structure or calculating the projected ICO band structure. This step enables the final analysis and interpretation of the results.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 COGITO Team</p>
+    </footer>
+</body>
+</html>
+
