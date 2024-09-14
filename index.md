@@ -18,6 +18,10 @@ Your welcome statement and introduction goes here...
 
 The core of COGITO is responsible for generating the basis and constructing the tight-binding (TB) model. This is the foundational step in the workflow, where the primary calculations and basis functions are established.
 
+
+<iframe src="./workflow_diagram.html" width="800" height="400" style="border:none;"></iframe>
+
+
 ## Plot Wannier Functions
 
 COGITO provides the functionality to visualize Wannier functions, allowing users to gain insights into the electronic structure and orbital interactions within the material.
