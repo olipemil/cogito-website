@@ -18,9 +18,24 @@ Your welcome statement and introduction goes here...
 
 The core of COGITO is responsible for generating the basis and constructing the tight-binding (TB) model. This is the foundational step in the workflow, where the primary calculations and basis functions are established.
 
+### Workflow
 
 <iframe src="./workflow_diagram.html" width="800" height="400" style="border:none;"></iframe>
 
+# Run VASP
+
+First, run a static VASP calculation with a irreducible uniform k-point grid.
+
+A couple things to keep in mind for the VASP calculation:
+
+* Must be a static run (NSW=0)
+* Use an irreducible grid (ISYM=1,2,3)
+* Use more bands (NBANDS=(8-16)*natoms)
+* No spin-orbit coupling (LSORBIT=False, but magnetism is supported (ISPIN=2)
+
+# Run COGITO
+
+This is the section on COGITO
 
 ## Plot Wannier Functions
 
