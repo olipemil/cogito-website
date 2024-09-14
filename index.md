@@ -18,24 +18,35 @@ Your welcome statement and introduction goes here...
 
 The core of COGITO is responsible for generating the basis and constructing the tight-binding (TB) model. This is the foundational step in the workflow, where the primary calculations and basis functions are established.
 
-### Workflow
+# Workflow
 
 <iframe src="./workflow_diagram.html" width="800" height="400" style="border:none;"></iframe>
 
-# Run VASP
+## Quick Guide 
 
-First, run a static VASP calculation with a irreducible uniform k-point grid.
+### Run VASP
 
 A couple things to keep in mind for the VASP calculation:
 
 * Must be a static run (NSW=0)
 * Use an irreducible grid (ISYM=1,2,3)
+* Save the wavefunctions (LWAVE=True)
 * Use more bands (NBANDS=(8-16)*natoms)
 * No spin-orbit coupling (LSORBIT=False, but magnetism is supported (ISPIN=2)
 
-# Run COGITO
+### Run COGITO
 
-This is the section on COGITO
+COGITO reads the INCAR, POSCAR, POTCAR, and WAVECAR files from the VASP calculation. The only required input when calling the COGITOmain class from the user is if the VASP calculation has ISPIN=2 set spin_polar=True. Otherwise, just pass the directory and let the default values handle everything!
+
+COGITO generates the atomic basis and save the tight binding model in three files which will be used to initialize the next step.
+
+* tb_input.txt
+* TBparams.txt
+* overlaps.txt
+
+### Run COGITO tight binding
+
+This is where things start to get fun!
 
 ## Plot Wannier Functions
 
