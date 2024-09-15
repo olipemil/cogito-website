@@ -59,7 +59,7 @@ COGITO provides the functionality to visualize Wannier functions, allowing users
 
 The COGITO workflow involves a series of steps that start from the VASP calculations and proceed through the tight-binding model construction to the plotting of band structures and densities of states (DOS).
 
-![COGITO Workflow](./compareDFT.pdf)
+![COGITO Workflow](./compareDFT.png)
 *Figure 1: COGITO Workflow Diagram*
 
 <iframe src="./compareDFT.pdf" width="100%" height="600px">
