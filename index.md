@@ -71,12 +71,49 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
 *Figure 1: COGITO Workflow Diagram*
 
 
-<div style="display: flex; justify-content: space-around;">
-    <img src="./overlaps_decay.png" alt="Image 1" width="30%">
-    <img src="./tbparams_decay.png" alt="Image 2" width="30%">
-    <img src="./compareDFT.png" alt="Image 3" width="30%">
-</div>
+<style>
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
 
+    .image-hover {
+        transition: opacity 0.3s ease;
+        display: block;
+    }
+
+    .image-hover:hover {
+        opacity: 0.5;
+    }
+
+    .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .image-container:hover .overlay-text {
+        opacity: 1;
+    }
+</style>
+
+<div style="display: flex; justify-content: space-around;">
+    <div class="image-container">
+        <img src="path/to/your/image1.png" alt="Image 1" width="45%" class="image-hover">
+        <div class="overlay-text">Image 1</div>
+    </div>
+    <div class="image-container">
+        <img src="path/to/your/image2.png" alt="Image 2" width="45%" class="image-hover">
+        <div class="overlay-text">Image 2</div>
+    </div>
+</div>
 
 ## 1. Static VASP Calculation
 
