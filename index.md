@@ -24,6 +24,8 @@ The core of COGITO is responsible for generating the basis and constructing the 
 
 ## Quick Guide 
 
+Click link for more detailed example in the tutorial page.
+
 ### Run VASP
 
 A couple things to keep in mind for the VASP calculation:
@@ -57,7 +59,7 @@ COGITO provides the functionality to visualize Wannier functions, allowing users
 
 The COGITO workflow involves a series of steps that start from the VASP calculations and proceed through the tight-binding model construction to the plotting of band structures and densities of states (DOS).
 
-![COGITO Workflow](workflow_image.png)
+![COGITO Workflow](./compareDFT.pdf)
 *Figure 1: COGITO Workflow Diagram*
 
 ## 1. Static VASP Calculation
