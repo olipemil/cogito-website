@@ -3,6 +3,44 @@ layout: default
 title: COGITO - Home
 ---
 
+<style>
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .image-hover {
+        transition: opacity 0.3s ease;
+        display: block;
+    }
+
+    .image-hover:hover {
+        opacity: 0.3;
+    }
+
+    .overlay-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; 
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        color: black;
+        font-size: 16px;
+        font-weight: bold;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .image-container:hover .overlay-text {
+        opacity: 1;
+    }
+</style>
+
+
 ## Welcome to COGITO
 
 Your welcome statement and introduction goes here...
@@ -51,6 +89,20 @@ COGITO generates the atomic basis and save the tight binding model in three file
 This is where things start to get fun!
 Here are some capabilities to plot and verify the COGITO run.
 
+<div style="display: flex; justify-content: space-around;">
+    <div class="image-container">
+        <img src="./overlaps_decay.png" alt="Image 1" width="90%" class="image-hover">
+    <div class="overlay-text">Plot overlap decay</div>
+    </div>
+    <div class="image-container">
+        <img src="./tbparams_decay.png" alt="Image 2" width="90%" class="image-hover">
+        <div class="overlay-text">Plot hopping decay</div>
+    </div>
+    <div class="image-container">
+        <img src="./compareDFT.png" alt="Image 2" width="90%" class="image-hover">
+        <div class="overlay-text">Compare COGITO bands<br>to VASP</div>
+    </div>
+</div>
 
 <div style="display: flex; justify-content: space-around;">
     <img src="./overlaps_decay.png" alt="Image 1" width="30%">
@@ -69,44 +121,6 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
 
 ![COGITO Workflow](./compareDFT.png)
 *Figure 1: COGITO Workflow Diagram*
-
-
-<style>
-    .image-container {
-        position: relative;
-        display: inline-block;
-    }
-
-    .image-hover {
-        transition: opacity 0.3s ease;
-        display: block;
-    }
-
-    .image-hover:hover {
-        opacity: 0.5;
-    }
-
-    .overlay-text {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-	height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: black;
-        font-size: 20px;
-        font-weight: bold;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-    }
-
-    .image-container:hover .overlay-text {
-        opacity: 1;
-    }
-</style>
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container">
