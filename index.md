@@ -7,6 +7,9 @@ title: COGITO - Home
     .image-container {
         position: relative;
         display: inline-block;
+        --scale-value: 1; /* Default scale value */
+        transform: scale(var(--scale-value));
+        transform-origin: top left;
     }
 
     .image-hover {
@@ -120,15 +123,15 @@ COGITO provides the functionality to visualize Wannier functions, allowing users
 The COGITO workflow involves a series of steps that start from the VASP calculations and proceed through the tight-binding model construction to the plotting of band structures and densities of states (DOS).
 
 <div style="display: flex; justify-content: space-around;">
-    <div class="image-container">
+    <div class="image-container" style="--scale-value: 0.5;">
         <iframe src="./COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 300px; border: 0;" class="image-hover"></iframe>
     <div class="overlay-text">Plot overlap decay</div>
     </div>
-    <div class="image-container">
+    <div class="image-container" style="--scale-value: 0.5;">
         <iframe src="./COOP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 300px; border: 0;" class="image-hover"></iframe>
         <div class="overlay-text">Plot hopping decay</div>
     </div>
-    <div class="image-container">
+    <div class="image-container" style="--scale-value: 0.5;">
         <iframe src="./projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 300px; border: 0;" class="image-hover"></iframe>
         <div class="overlay-text">Compare COGITO bands<br>to VASP</div>
     </div>
