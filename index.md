@@ -62,9 +62,12 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
 ![COGITO Workflow](./compareDFT.png)
 *Figure 1: COGITO Workflow Diagram*
 
-<iframe src="./compareDFT.pdf" width="100%" height="600px">
-    This browser does not support PDFs. Please download the PDF to view it: <a href="path/to/your/file.pdf">Download PDF</a>.
-</iframe>
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="./compareDFT.png" alt="Image 1" width="45%">
+    <img src="./compareDFT.png" alt="Image 2" width="45%">
+</div>
+
 
 ## 1. Static VASP Calculation
 
