@@ -49,6 +49,14 @@ COGITO generates the atomic basis and save the tight binding model in three file
 ### Run COGITO tight binding
 
 This is where things start to get fun!
+Here are some capabilities to plot and verify the COGITO run.
+
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="./overlaps_decay.png" alt="Image 1" width="30%">
+    <img src="./tbparams_decay.png" alt="Image 2" width="30%">
+    <img src="./compareDFT.png" alt="Image 3" width="30%">
+</div>
 
 ## Plot Wannier Functions
 
@@ -64,8 +72,9 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
 
 
 <div style="display: flex; justify-content: space-around;">
-    <img src="./compareDFT.png" alt="Image 1" width="45%">
-    <img src="./compareDFT.png" alt="Image 2" width="45%">
+    <img src="./overlaps_decay.png" alt="Image 1" width="30%">
+    <img src="./tbparams_decay.png" alt="Image 2" width="30%">
+    <img src="./compareDFT.png" alt="Image 3" width="30%">
 </div>
 
 
