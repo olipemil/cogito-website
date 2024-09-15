@@ -88,11 +88,12 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
 
     .overlay-text {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        font-size: 16px;
+        top: 0;
+        left: 0;
+        width: 100%;
+	height: 100%;
+        color: black;
+        font-size: 20px;
         font-weight: bold;
         opacity: 0;
         pointer-events: none;
