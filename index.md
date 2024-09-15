@@ -62,6 +62,10 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
 ![COGITO Workflow](./compareDFT.pdf)
 *Figure 1: COGITO Workflow Diagram*
 
+<iframe src="./compareDFT.pdf" width="100%" height="600px">
+    This browser does not support PDFs. Please download the PDF to view it: <a href="path/to/your/file.pdf">Download PDF</a>.
+</iframe>
+
 ## 1. Static VASP Calculation
 
 Initial calculations are performed using VASP with an indelible uniform grid. This provides the necessary data for generating the tight-binding model.
