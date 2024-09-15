@@ -115,7 +115,7 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
     </div>
     <div class="image-container">
         <img src="./compareDFT.png" alt="Image 2" width="45%" class="image-hover">
-        <div class="overlay-text">Image 2</div>
+        <div class="overlay-text">Image 22</div>
     </div>
 </div>
 
