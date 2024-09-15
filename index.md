@@ -119,19 +119,21 @@ COGITO provides the functionality to visualize Wannier functions, allowing users
 
 The COGITO workflow involves a series of steps that start from the VASP calculations and proceed through the tight-binding model construction to the plotting of band structures and densities of states (DOS).
 
-![COGITO Workflow](./compareDFT.png)
-*Figure 1: COGITO Workflow Diagram*
-
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container">
-        <img src="./overlaps_decay.png" alt="Image 1" width="90%" class="image-hover">
-        <div class="overlay-text">Image 1</div>
+        <iframe src="./COHP_BS.html" width="90%" height="600" class="image-hover"></iframe>
+    <div class="overlay-text">Plot overlap decay</div>
+    </div>
+    <div class="image-container">
+        <img src="./tbparams_decay.png" alt="Image 2" width="90%" class="image-hover">
+        <div class="overlay-text">Plot hopping decay</div>
     </div>
     <div class="image-container">
         <img src="./compareDFT.png" alt="Image 2" width="90%" class="image-hover">
-        <div class="overlay-text">Image 2</div>
+        <div class="overlay-text">Compare COGITO bands<br>to VASP</div>
     </div>
 </div>
+
 
 ## 1. Static VASP Calculation
 
