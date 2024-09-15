@@ -92,6 +92,9 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
         left: 0;
         width: 100%;
 	height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: black;
         font-size: 20px;
         font-weight: bold;
