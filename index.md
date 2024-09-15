@@ -106,11 +106,11 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container">
-        <img src="path/to/your/image1.png" alt="Image 1" width="45%" class="image-hover">
+        <img src="./overlaps_decay.png" alt="Image 1" width="45%" class="image-hover">
         <div class="overlay-text">Image 1</div>
     </div>
     <div class="image-container">
-        <img src="path/to/your/image2.png" alt="Image 2" width="45%" class="image-hover">
+        <img src="./compareDFT.png" alt="Image 2" width="45%" class="image-hover">
         <div class="overlay-text">Image 2</div>
     </div>
 </div>
