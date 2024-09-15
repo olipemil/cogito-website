@@ -124,11 +124,11 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="--scale-value: 1.0;">
-        <iframe src="./COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 300%; border: 0;" class="image-hover"></iframe>
+        <iframe src="./COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" height=300px class="image-hover"></iframe>
     <div class="overlay-text">Plot projected COHP/COOP</div>
     </div>
     <div class="image-container" style="--scale-value: 1.0;">
-        <iframe src="./projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 300%; border: 0;" class="image-hover"></iframe>
+        <iframe src="./projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" height=300px class="image-hover"></iframe>
         <div class="overlay-text">Plot orbital projected<br>band structure</div>
     </div>
 </div>
