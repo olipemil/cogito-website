@@ -121,15 +121,15 @@ The COGITO workflow involves a series of steps that start from the VASP calculat
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container">
-        <iframe src="./COHP_BS.html" width="90%" height="600" class="image-hover"></iframe>
+        <iframe src="./COHP_BS.html" width="90%" class="image-hover"></iframe>
     <div class="overlay-text">Plot overlap decay</div>
     </div>
     <div class="image-container">
-        <img src="./tbparams_decay.png" alt="Image 2" width="90%" class="image-hover">
+        <iframe src="./COOP_BS.html" width="90%" class="image-hover"></iframe>
         <div class="overlay-text">Plot hopping decay</div>
     </div>
     <div class="image-container">
-        <img src="./compareDFT.png" alt="Image 2" width="90%" class="image-hover">
+        <iframe src="./projectedBS.html" alt="Image 2" width="90%" class="image-hover"></iframe>
         <div class="overlay-text">Compare COGITO bands<br>to VASP</div>
     </div>
 </div>
