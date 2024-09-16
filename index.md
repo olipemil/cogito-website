@@ -43,6 +43,10 @@ title: COGITO - Home
 
 ## Welcome to COGITO
 
+<div style="display: flex; justify-content: space-around;">
+    <div class="image-container" style="height: 300px;">
+        <iframe src="./PbOcrystal_bonds.html" style="transform: scale(1.0); transform-origin: top left; width: 100%; height: 100%; border: 0;" class="image-hover"></iframe>
+
 Your welcome statement and introduction goes here...
 
 [Home](./index.md)
@@ -115,6 +119,9 @@ This class is for generates a band structure from a default high symmetry line f
     </div>
 </div>
 
+### Run Uniform generator
+
+This generates a uniform k-point grid, able to perform DOS and itegrated band energy analysis.
 
 ## 1. Static VASP Calculation
 
