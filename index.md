@@ -53,11 +53,7 @@ Observe the bonding in the α-PbO structure by hovering over the bond lines. Sol
     </div>
 </div>
 
-## Main Code
-
-The core of COGITO is responsible for generating the basis and constructing the tight-binding (TB) model. This is the foundational step in the workflow, where the primary calculations and basis functions are established.
-
-# Workflow
+## Workflow
 
 <iframe src="./workflow_diagram.html" style="transform: scale(0.9); transform-origin: top left;" width="800px" height="500px"></iframe>
 
