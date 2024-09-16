@@ -49,12 +49,6 @@ title: COGITO - Home
 
 Your welcome statement and introduction goes here...
 
-[Home](./index.md)
-
-[Functionality](./functionality.md)
-
-[Workflow](./workflow.md)
-
 
 ## Main Code
 
