@@ -43,14 +43,15 @@ title: COGITO - Home
 
 ## Welcome to COGITO
 
+Crystal Orbital Guided Iteration To atomic-Orbitals (COGITO) is a tool for obtaining quantum chemistry from plane wave DFT calculations. The code maps the plane wave basis to our COGITO basis. With this we can trace back which bonds are contributing to the total independent particle energy. Leverging this, we can plot the crystal structure with their actual quantum chemical covalent bonds, determine origins of electronic structure, charge transfer, and more!
+
+Observe the bonding in the α-PbO structure by hovering over the bond lines. Solid lines indicate bonding while dashed lines indictate antibonding. The width of the line is proprotional to the magnitude of the bond energy.
+
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="height: 400px; wigth: 400px">
         <iframe src="./PbOcrystal_bonds.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
     </div>
 </div>
-
-Your welcome statement and introduction goes here...
-
 
 ## Main Code
 
