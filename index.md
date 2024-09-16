@@ -45,7 +45,7 @@ title: COGITO - Home
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="height: 300px;">
-        <iframe src="./PbOcrystal_bonds.html" style="transform: scale(1.0); transform-origin: top left; width: 100%; height: 100%; border: 0;" class="image-hover"></iframe>
+        <iframe src="./PbOcrystal_bonds.html" style="transform: scale(2.0); transform-origin: top left; width: 50%; height: 50%; border: 0;" class="image-hover"></iframe>
 
 Your welcome statement and introduction goes here...
 
