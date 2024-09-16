@@ -55,7 +55,7 @@ Observe the bonding in the α-PbO structure by hovering over the bond lines. Sol
 
 ## Workflow
 
-<iframe src="./workflow_diagram.html" style="transform: scale(0.9); transform-origin: top left;" width="800px" height="500px"></iframe>
+<iframe src="./workflow_diagram.html" style="transform: scale(0.9); transform-origin: top left;" width="800px" height="450px"></iframe>
 
 ## Quick Guide 
 
