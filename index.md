@@ -59,7 +59,7 @@ The core of COGITO is responsible for generating the basis and constructing the 
 
 # Workflow
 
-<iframe src="./workflow_diagram.html" style="transform: scale(1.33); transform-origin: top left; width: 75%; height: 75%;" width="600px" height="300px" style="border:none;"></iframe>
+<iframe src="./workflow_diagram.html" style="transform: scale(0.8); transform-origin: top left; width: 100%; height: 100%;" width="700px" height="400px" style="border:none;"></iframe>
 
 ## Quick Guide 
 
