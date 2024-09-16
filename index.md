@@ -49,7 +49,7 @@ Observe the bonding in the α-PbO structure by hovering over the bond lines. Sol
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="height: 400px; wigth: 400px">
-        <iframe src="./PbOcrystal_bonds.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
+        <iframe src="./PbOcrystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;"></iframe>
     </div>
 </div>
 
