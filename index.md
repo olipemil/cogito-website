@@ -48,8 +48,8 @@ Crystal Orbital Guided Iteration To atomic-Orbitals (COGITO) is a tool for obtai
 Observe the bonding in the α-PbO structure by hovering over the bond lines. Solid lines indicate bonding while dashed lines indictate antibonding. The width of the line is proprotional to the magnitude of the bond energy.
 
 <div style="display: flex; justify-content: space-around;">
-    <div class="image-container" style="height: 400px; wigth: 400px">
-        <iframe src="./PbOcrystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;"></iframe>
+    <div class="image-container" style="height: 400px; wigth: 700px">
+        <iframe src="./PbOcrystal_bonds.html" style="transform: scale(1.0); transform-origin: top left; width: 100%; height: 100%; border: 0;"></iframe>
     </div>
 </div>
 
