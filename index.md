@@ -116,9 +116,4 @@ This class is for generates a band structure from a default high symmetry line f
 
 This generates a uniform k-point grid, able to perform DOS and itegrated band energy analysis.
 
-## 1. Static VASP Calculation
-
-Initial calculations are performed using VASP with an indelible uniform grid. This provides the necessary data for generating the tight-binding model.
-
-
 
