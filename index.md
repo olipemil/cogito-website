@@ -90,24 +90,14 @@ This is where things start to get fun!
 Here are some capabilities to plot and verify the COGITO run.
 
 <div style="display: flex; justify-content: space-around;">
-    <div class="image-container">
-        <img src="./overlaps_decay.png" alt="Image 1" width="90%" class="image-hover">
-    <div class="overlay-text">Plot overlap decay</div>
-    </div>
-    <div class="image-container">
-        <img src="./tbparams_decay.png" alt="Image 2" width="90%" class="image-hover">
-        <div class="overlay-text">Plot hopping decay</div>
-    </div>
-    <div class="image-container">
+    <div class="image-container" style="height: 250px;">
         <img src="./compareDFT.png" alt="Image 2" width="90%" class="image-hover">
         <div class="overlay-text">Compare COGITO bands<br>to VASP</div>
     </div>
-</div>
-
-<div style="display: flex; justify-content: space-around;">
-    <img src="./overlaps_decay.png" alt="Image 1" width="30%">
-    <img src="./tbparams_decay.png" alt="Image 2" width="30%">
-    <img src="./compareDFT.png" alt="Image 3" width="30%">
+    <div class="image-container" style="height: 250px;">
+        <img src="./tbparams_decay.png" alt="Image 2" width="90%" class="image-hover">
+        <div class="overlay-text">Plot parameter decay</div>
+    </div>
 </div>
 
 ### Run Bandstructure generator
