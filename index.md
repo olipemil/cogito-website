@@ -115,11 +115,11 @@ Here are some capabilities to plot and verify the COGITO run.
 This class is for generates a band structure from a default high symmetry line from pymatgen. 
 
 <div style="display: flex; justify-content: space-around;">
-    <div class="image-container">
+    <div class="image-container" style="height: 600px;">
         <iframe src="./COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
     <div class="overlay-text">Plot projected COHP/COOP</div>
     </div>
-    <div class="image-container">
+    <div class="image-container" style="height: 600px;">
         <iframe src="./projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
         <div class="overlay-text">Plot orbital projected<br>band structure</div>
     </div>
