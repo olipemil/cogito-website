@@ -9,3 +9,16 @@ just_the_docs:
   # Sidebar navigation
   collections:
     - pages
+
+
+# Navigation links in the sidebar
+nav:
+  - title: "Home"
+    url: "/"
+    nav_order: 1
+  - title: "Functionality"
+    url: "/pages/functionality"
+    nav_order: 2
+  - title: "Workflow"
+    url: "/pages/workflow"
+    nav_order: 3
