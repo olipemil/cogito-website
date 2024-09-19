@@ -116,13 +116,13 @@ This class is for generates a band structure from a default high symmetry line f
 
 This generates a uniform k-point grid, able to perform DOS and itegrated band energy analysis.
 
-<div style="display: flex; justify-content: space-around;">
+<div style="display: flex;">
     <div class="image-container" style="width: 100px;">
-        <img src="./docs/Si/SiprojectedDOS.png" alt="Image 2" style="border: 0;" class="image-hover">
+        <img src="./docs/Si/SiprojectedDOS.png" alt="Image 2" style="border: 0;" width="100%" class="image-hover">
         <div class="overlay-text">Plot orbital<br>projected DOS</div>
     </div>
     <div class="image-container" style="width: 70px;">
-        <img src="./docs/Si/COHP_DOS.png" alt="Image 2" style="border: 0;" class="image-hover">
+        <img src="./docs/Si/COHP_DOS.png" alt="Image 2" style="border: 0;" width="100%" class="image-hover">
         <div class="overlay-text">Plot COHP/COOP<br>energy density</div>
     </div>
     <div class="image-container" style="width: 200px;">
