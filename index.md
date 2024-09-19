@@ -121,12 +121,12 @@ This generates a uniform k-point grid, able to perform DOS and itegrated band en
         <img src="./docs/Si/SiprojectedDOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;" class="image-hover">
         <div width="100%" class="overlay-text">Plot orbital<br>projected DOS</div>
     </div>
-    <div class="image-container" style="width: 160px;">
-        <img src="./docs/Si/COHP_DOS.png" alt="Image 2" style="width: 100%; height: 95%; border: 0;" class="image-hover">
+    <div class="image-container" style="width: 170px;">
+        <img src="./docs/Si/COHP_DOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;" class="image-hover">
         <div class="overlay-text">Plot COHP/COOP energy density</div>
     </div>
     <div class="image-container" style="width: 380px;">
-	<iframe src="docs/PbO/crystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;" class="image-hover"></iframe>
+	<iframe src="docs/Si/crystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;" class="image-hover"></iframe>
         <div class="overlay-text">Plot crytstal with COGITO bonds</div>
     </div>
 </div>  
