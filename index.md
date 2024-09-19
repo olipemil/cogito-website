@@ -117,17 +117,17 @@ This class is for generates a band structure from a default high symmetry line f
 This generates a uniform k-point grid, able to perform DOS and itegrated band energy analysis.
 
 <div style="display: flex; justify-content: space-around;">
-    <div class="image-container" style="height: 300px; width: 100px;">
-        <img src="./docs/Si/SiprojectedDOS.png" alt="Image 2" width="100%" style="border: 0;" class="image-hover">
+    <div class="image-container" style="width: 100px;">
+        <img src="./docs/Si/SiprojectedDOS.png" alt="Image 2" style="border: 0;" class="image-hover">
         <div class="overlay-text">Plot orbital<br>projected DOS</div>
     </div>
-    <div class="image-container" style="height: 300px; width: 70px;">
-        <img src="./docs/Si/COHP_DOS.png" alt="Image 2" width="100%" style="border: 0;" class="image-hover">
+    <div class="image-container" style="width: 70px;">
+        <img src="./docs/Si/COHP_DOS.png" alt="Image 2" style="border: 0;" class="image-hover">
         <div class="overlay-text">Plot COHP/COOP<br>energy density</div>
     </div>
-    <div class="image-container" style="height: 300px; width: 200px;">
+    <div class="image-container" style="width: 200px;">
 	<iframe src="docs/PbO/crystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;" class="image-hover"></iframe>
-       <div class="overlay-text">Plot crytstal with<br>COGITO bonds</div>
+        <div class="overlay-text">Plot crytstal with<br>COGITO bonds</div>
     </div>
 </div>  
 
