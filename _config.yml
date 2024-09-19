@@ -2,3 +2,10 @@ remote_theme: just-the-docs
 title: "COGITO Website"
 
 
+# Sidebar navigation settings
+just_the_docs:
+  # Enables a sidebar on all pages
+  show_sidebar: true
+  # Sidebar navigation
+  collections:
+    - pages

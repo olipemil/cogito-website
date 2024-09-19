@@ -1,6 +1,7 @@
 ---
-layout: home
+layout: default
 title: COGITO - Home
+nav_order: 1
 ---
 
 <style>
