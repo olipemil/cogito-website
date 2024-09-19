@@ -108,7 +108,7 @@ This class is for generates a band structure from a default high symmetry line f
     </div>
     <div class="image-container" style="height: 300px;">
         <iframe src="./docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
-        <div class="overlay-text">Plot orbital projected<br>band structures</div>
+        <div class="overlay-text">Plot orbital projected<br>band structure</div>
     </div>
 </div>
 
