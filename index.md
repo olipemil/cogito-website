@@ -49,7 +49,7 @@ Observe the bonding in the α-PbO structure by hovering over the bond lines. Sol
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="height: 400px; width: 500px">
-        <iframe src="./PbOcrystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;"></iframe>
+        <iframe src="docs/PbO/crystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;"></iframe>
     </div>
 </div>
 
@@ -88,11 +88,11 @@ Here are some capabilities to plot and verify the COGITO run.
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="height: 250px;">
-        <img src="./compareDFT.png" alt="Image 2" width="90%" class="image-hover">
+        <img src="./docs/Si/compareDFT.png" alt="Image 2" width="90%" class="image-hover">
         <div class="overlay-text">Compare COGITO bands<br>to VASP</div>
     </div>
     <div class="image-container" style="height: 250px;">
-        <img src="./tbparams_decay.png" alt="Image 2" width="90%" class="image-hover">
+        <img src="./docs/Si/tbparams_decay.png" alt="Image 2" width="90%" class="image-hover">
         <div class="overlay-text">Plot parameter decay</div>
     </div>
 </div>
@@ -103,11 +103,11 @@ This class is for generates a band structure from a default high symmetry line f
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="height: 300px;">
-        <iframe src="./COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
+        <iframe src="./docs/Si/COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
     <div class="overlay-text">Plot projected COHP/COOP</div>
     </div>
     <div class="image-container" style="height: 300px;">
-        <iframe src="./projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
+        <iframe src="./docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
         <div class="overlay-text">Plot orbital projected<br>band structures</div>
     </div>
 </div>
