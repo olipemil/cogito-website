@@ -116,4 +116,20 @@ This class is for generates a band structure from a default high symmetry line f
 
 This generates a uniform k-point grid, able to perform DOS and itegrated band energy analysis.
 
+<div style="display: flex; justify-content: space-around;">
+    <div class="image-container" style="height: 300px;">
+	<div class="image-container" style="height: 250px;">
+        	<img src="./docs/Si/projectedDOS.png" alt="Image 2" width="90%" class="image-hover">
+        	<div class="overlay-text">Plot orbital<br>projected DOS</div>
+    	</div>
+    	<div class="image-container" style="height: 300px;">
+        	<img src="./docs/Si/COHP_DOS.png" alt="Image 2" width="90%" class="image-hover">
+        	<div class="overlay-text">Plot COHP/COOP<br>energy density</div>
+    	</div>
+    </div>
+    <div class="image-container" style="height: 300px;">
+	<iframe src="docs/PbO/crystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;"></iframe>
+       <div class="overlay-text">Plot crytstal with<br>COGITO bonds</div>
+    </div>
+</div>  
 
