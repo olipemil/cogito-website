@@ -118,11 +118,11 @@ This generates a uniform k-point grid, able to perform DOS and itegrated band en
 
 <div style="display: flex;">
     <div class="image-container" style="width: 200px;">
-        <img src="./docs/Si/SiprojectedDOS.png" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover; border: 0;" class="image-hover">
+        <img src="./docs/Si/SiprojectedDOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;" class="image-hover">
         <div width="100%" class="overlay-text">Plot orbital<br>projected DOS</div>
     </div>
     <div class="image-container" style="width: 150px;">
-        <img src="./docs/Si/COHP_DOS.png" alt="Image 2" style="width: 100%; height: 100%; object-fit: cover; border: 0;" class="image-hover">
+        <img src="./docs/Si/COHP_DOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;" class="image-hover">
         <div width="100%" class="overlay-text">Plot COHP/COOP<br>energy density</div>
     </div>
     <div class="image-container" style="width: 400px;">
