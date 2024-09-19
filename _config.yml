@@ -1,9 +1,4 @@
 theme: jekyll-theme-dinky
+title: "COGITO Website"
 
-<nav>
-  <ul>
-    <li><a href="./index.md">Home</a></li>
-    <li><a href="./functionality.md">Functionality</a></li>
-    <li><a href="./workflow.md">Workflow</a></li>
-  </ul>
-</nav>
+
