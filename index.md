@@ -107,16 +107,14 @@ This class is for generates a band structure from a default high symmetry line f
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="height: 300px;">
+        <iframe src="./docs/Si/COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
         <a href="{{ site.baseurl }}/tutorial/#COHPBS">
-            <iframe src="./docs/Si/COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
             <div class="overlay-text">Plot projected COHP/COOP</div>
         </a>
     </div>
     <div class="image-container" style="height: 300px;">
-        <a href="{{ site.baseurl }}/tutorial/#projectBS">
-            <iframe src="./docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
-            <div class="overlay-text">Plot orbital projected<br>band structure</div>
-        </a>
+        <iframe src="./docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
+        <div class="overlay-text"><a href="{{ site.baseurl }}/tutorial/#projectBS">Plot orbital projected<br>band structure</a></div>
     </div>
 </div>
 
