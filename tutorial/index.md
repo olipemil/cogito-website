@@ -238,7 +238,7 @@ my_CoUN.get_COHP(orbs_dict)
     </div>
 </div>
 
-**Use COGITO to plot crystal bonds!**<br>
+<h3 id="bonds">Use COGITO to plot crystal bonds!</h3>
 The accurate TB model from COGITO allows for calculation of COHP energies which almost perfectly reflect the true DFT values.
 This can be used to confidently and precisely trace back the crystal covalent bonding!
 
