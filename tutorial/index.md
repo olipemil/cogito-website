@@ -18,7 +18,7 @@ A couple things to keep in mind for the VASP calculation:
 
 COGITO reads the INCAR, POSCAR, POTCAR, and WAVECAR files from the VASP calculation.
 
-Step 1: Install COGITO from link<br>
+**Step 1: Install COGITO**<br>
 Run the code below. Because this is a private repository, you will need to use the key I sent via email.
 
 ~~~ bash
@@ -27,7 +27,7 @@ git clone https://github.com/olipemil/cogito-website.git
 export PYTHONPATH="${PYTHONPATH}:/COGITO"
 ~~~
 
-Step 2: Install necessary python packages
+**Step 2: Install necessary python packages**
 
 ~~~ bash
 pip install pymatgen
@@ -39,7 +39,7 @@ pip install plotly
 pip install seekpath
 ~~~
 
-Step 3: Run python code to run COGITO<br>
+**Step 3: Run COGITO!**<br>
 The code below generates the COGITO basis and saves the tight binding model parameters in three files which will be used to initialize the next step.<br>
 * tb_input.txt
 * TBparams.txt
@@ -56,6 +56,40 @@ COGITOmodel.generate_TBmodel(verbose = 0, plot_orbs = True, plot_projBS = True)
 ~~~
 
 <h3 id="tight">Run COGITO tight binding</h3>
+
+Now we can work with our COGITO tight binding model. The first step is to verify the quality of the COGITO TB model. 
+
+**Create the tight binding class**<br>
+This code will need to be run before any use of the bandstructure or uniform classes.<br>
+
+~~~ python
+from COGITOpost_newspin import COGITO_TB_Model as CoTB
+
+direct = "Si/"
+# create TB class from a directory that has run COGITO
+COGITOTB = CoTB(direct)
+# optionally, restrict the TB parameters to improve speed
+COGITOTB.restrict_params(maximum_dist=15, minimum_value=0.00001)
+
+# plot the overlap and hopping parameters to check decay
+COGITOTB.plot_hopping(COGITOTB)
+COGITOTB.plot_overlaps(COGITOTB)
+~~~
+
+Note: The overlap and hopping plots should show a rough linear decay
+
+<div style="display: flex; justify-content: space-around;">
+    <div style="height: 250px;">
+        <img src="{{ site.baseurl }}/docs/Si/overlaps_decay.png" alt="Image 2" height="100%" width="90%" style="border: 0;">
+    </div>
+    <div style="height: 250px;">
+        <img src="{{ site.baseurl }}/docs/Si/tbparams_decay.png" alt="Image 2" height="100%" width="90%" style="border: 0;">
+    </div>
+</div>
+
+
+**Compare COGITO band energies to DFT band energies**
+
 
 This is where things start to get fun!
 Here are some capabilities to plot and verify the COGITO run.
