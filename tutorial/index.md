@@ -16,13 +16,7 @@ A couple things to keep in mind for the VASP calculation:
 
 <h3 id="COGITO">Run COGITO</h3>
 
-COGITO reads the INCAR, POSCAR, POTCAR, and WAVECAR files from the VASP calculation. The only required input when calling the COGITOmain class from the user is if the VASP calculation has ISPIN=2 set spin_polar=True. Otherwise, just pass the directory and let the default values handle everything!
-
-COGITO generates the atomic basis and save the tight binding model in three files which will be used to initialize the next step.
-
-* tb_input.txt
-* TBparams.txt
-* overlaps.txt
+COGITO reads the INCAR, POSCAR, POTCAR, and WAVECAR files from the VASP calculation.
 
 Step 1: Install COGITO from link<br>
 Run the code below. Because this is a private repository, you will need to use the key I sent via email.
@@ -45,7 +39,11 @@ pip install plotly
 pip install seekpath
 ~~~
 
-Step 3: Run python code to run COGITO
+Step 3: Run python code to run COGITO<br>
+The code below generates the COGITO basis and saves the tight binding model parameters in three files which will be used to initialize the next step.<br>
+* tb_input.txt
+* TBparams.txt
+* overlaps.txt
 
 ~~~ python
 from COGITOmain import COGITO
