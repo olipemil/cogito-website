@@ -31,7 +31,7 @@ Install necessary python packages
 Step 3:
 Run python code to run COGITO
 
-```python
+~~~ python
 from COGITOmain import COGITO
 
 direct = "Si/"
@@ -39,7 +39,7 @@ direct = "Si/"
 COGITOmodel = COGITO(direct) # set "spin_polar = True" for magnetic calculations
 # do full algorithm and generate input files for TB model
 COGITOmodel.generate_TBmodel()
-
+~~~
 
 <h3 id="tight">Run COGITO tight binding</h3>
 
