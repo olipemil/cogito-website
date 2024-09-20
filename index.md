@@ -41,7 +41,7 @@ title: COGITO - Home
 </style>
 
 
-## Welcome to COGITO
+## Welcome to COGITO!
 
 Crystal Orbital Guided Iteration To atomic-Orbitals (COGITO) is a tool for obtaining quantum chemistry from plane wave DFT calculations. The code maps the plane wave basis to our COGITO basis. With this we can trace back which bonds are contributing to the independent particle energies. Leverging this, we can plot the crystal structure with their actual quantum chemical covalent bonds, determine origins of electronic structure, charge transfer, and more!
 
