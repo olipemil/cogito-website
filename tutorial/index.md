@@ -147,7 +147,7 @@ my_CoBS.get_projectedBS({"Si":["s"]})
 ~~~
 
 <div style="display: flex; justify-content: space-around;">
-    <div style="height: 300px;">
+    <div style="height: 500px;">
         <iframe src="{{ site.baseurl }}/docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
     </div>
 </div>
@@ -172,7 +172,7 @@ my_CoBS.make_COHP_dashapp()
 ~~~
 
 <div style="display: flex; justify-content: space-around;">
-    <div style="height: 300px;">
+    <div style="height: 500px;">
         <iframe src="{{ site.baseurl }}/docs/Si/COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
     </div>
 </div>
@@ -235,10 +235,22 @@ my_CoUN.get_COHP(orbs_dict)
     </div>
     <div style="width: 250px;">
         <img src="{{ site.baseurl }}/docs/Si/COHP_DOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;">
-    </div>]
+    </div>
 </div>
 
-
-**Use COGITO for COHP/COOP projected DOS**<br>
+**Use COGITO to plot crystal bonds!**<br>
 The accurate TB model from COGITO allows for calculation of COHP energies which almost perfectly reflect the true DFT values.
-This can be used to confidently and precisely trace back the crystal chemical origins of electronic structure!
+This can be used to confidently and precisely trace back the crystal covalent bonding!
+
+~~~ python 
+# plot the crystal structure with real bonds!
+# if a bond energy magnitude is > energy_cutoff it will be plotted
+# if the bond length is > bond_max it will not be plotted if an atom is outside the primitive cell 
+my_CoUN.get_bonds_figure(energy_cutoff=0.05,bond_max=3)
+~~~
+
+<div style="display: flex; justify-content: space-around;">
+    <div class="image-container" style="height: 400px; width: 500px">
+        <iframe src="{{ site.baseurl }}/docs/Si/crystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;"></iframe>
+    </div>
+</div>
