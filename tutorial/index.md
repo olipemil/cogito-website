@@ -24,6 +24,23 @@ COGITO generates the atomic basis and save the tight binding model in three file
 * TBparams.txt
 * overlaps.txt
 
+Step 1:
+install COGITO from link
+Step 2:
+Install necessary python packages
+Step 3:
+Run python code to run COGITO
+
+```python
+from COGITOmain import COGITO
+
+direct = "Si/"
+# create an instance of the COGITO class
+COGITOmodel = COGITO(direct) # set "spin_polar = True" for magnetic calculations
+# do full algorithm and generate input files for TB model
+COGITOmodel.generate_TBmodel()
+
+
 <h3 id="tight">Run COGITO tight binding</h3>
 
 This is where things start to get fun!
