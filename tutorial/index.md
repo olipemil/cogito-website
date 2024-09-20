@@ -148,7 +148,7 @@ my_CoBS.get_projectedBS({"Si":["s"]})
 
 <div style="display: flex; justify-content: space-around;">
     <div style="height: 500px; width: 500px;">
-        <iframe src="{{ site.baseurl }}/docs/Si/projectedBS.html" style="width: 100%; height: 90%; border: 0;"></iframe>
+        <iframe src="{{ site.baseurl }}/docs/Si/projectedBS.html" style="width: 100%; height: 95%; border: 0;"></iframe>
     </div>
 </div>
 
@@ -173,10 +173,10 @@ my_CoBS.make_COHP_dashapp()
 
 <div style="display: flex; justify-content: space-around;">
     <div style="height: 500px; width: 500px;">
-        <iframe src="{{ site.baseurl }}/docs/Si/COHP_BS.html" style="width: 100%; height: 90%; border: 0;"></iframe>
+        <iframe src="{{ site.baseurl }}/docs/Si/COHP_BS.html" style="width: 100%; height: 95%; border: 0;"></iframe>
     </div>
 </div>
-<br>
+
 <h2 id="uniform">Run uniform class</h2>
 Last, but not least, this class works with a uniform grid of k-points. The uniform grid gives us access to integrated 
 properties like: atomic charge, covalent bond energy (ICOHP), projected density of states (DOS), etc.
@@ -242,6 +242,16 @@ The accurate TB model from COGITO allows for calculation of COHP energies which 
 This can be used to confidently and precisely trace back the crystal covalent bonding!
 
 ~~~ python 
+# must create TB class instance first
+from COGITOpost_newspin import COGITO_TB_Model as CoTB
+direct = "Si/"
+my_CoTB = CoTB(direct) # create TB class from a directory that has run COGITO
+my_CoTB.restrict_params(maximum_dist=15, minimum_value=0.00001) # restrict the TB parameters to improve speed
+
+# now create band structure
+from COGITOpost_newspin import COGITO_UNIFORM as CoUN
+my_CoUN = CoUN(COGITOTB,grid=(10,10,10))
+
 # plot the crystal structure with real bonds!
 # if a bond energy magnitude is > energy_cutoff it will be plotted
 # if the bond length is > bond_max it will not be plotted if an atom is outside the primitive cell 
