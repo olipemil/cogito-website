@@ -54,38 +54,11 @@ Observe the bonding in the α-PbO structure by hovering over the bond lines. Sol
     </div>
 </div>
 
-## Workflow
-
-<iframe src="{{ site.baseurl }}/workflow_diagram.html" style="transform: scale(0.9); transform-origin: top left;" width="800px" height="450px"></iframe>
-
 ## Quick Guide 
 
-Click link for more detailed example in the tutorial page.
+Click image for more detailed example in the tutorial page.
 
-<h3 id="VASP">Run VASP</h3>
-
-A couple things to keep in mind for the VASP calculation:
-
-* Must be a static run (NSW=0)
-* Use an irreducible grid (ISYM=1,2,3)
-* Save the wavefunctions (LWAVE=True)
-* Use more bands (NBANDS=(8-16)*natoms)
-* No spin-orbit coupling (LSORBIT=False, but magnetism is supported (ISPIN=2)
-
-<h3 id="COGITO">Run COGITO</h3>
-
-COGITO reads the INCAR, POSCAR, POTCAR, and WAVECAR files from the VASP calculation. The only required input when calling the COGITOmain class from the user is if the VASP calculation has ISPIN=2 set spin_polar=True. Otherwise, just pass the directory and let the default values handle everything!
-
-COGITO generates the atomic basis and save the tight binding model in three files which will be used to initialize the next step.
-
-* tb_input.txt
-* TBparams.txt
-* overlaps.txt
-
-<h3 id="tight">Run COGITO tight binding</h3>
-
-This is where things start to get fun!
-Here are some capabilities to plot and verify the COGITO run.
+<h3 id="tight">Verify quality of COGITO run</h3>
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="height: 250px;">
@@ -102,9 +75,7 @@ Here are some capabilities to plot and verify the COGITO run.
     </div>
 </div>
 
-<h3 id="bandstruc">Run Bandstructure generator</h3>
-
-This class is for generates a band structure from a default high symmetry line from pymatgen. 
+<h3 id="bandstruc">Plot with band structure k-grid</h3>
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="height: 300px;">
@@ -121,9 +92,7 @@ This class is for generates a band structure from a default high symmetry line f
     </div>
 </div>
 
-<h3 id="uniform">Run Uniform generator</h3>
-
-This generates a uniform k-point grid, able to perform DOS and itegrated band energy analysis.
+<h3 id="uniform">Plot with uniform k-grid</h3>
 
 <div style="display: flex;">
     <div class="image-container" style="width: 200px;">
