@@ -137,7 +137,7 @@ my_CoBS.plotBS()
 
 <p id="projectBS"></p>
 
-**Use COGITO basis to get projected band structure**<br>
+**Use COGITO for orbital projected band structure**<br>
 Because COGITO forms a nearly complete basis for the charge density, we can accurately determine the percent of each
 atomic orbital in the band wavefunction. Mulliken population analysis is used here to resolve the inherit ambiguity in assigning two-center terms to one orbital.
 
@@ -152,7 +152,20 @@ my_CoBS.get_projectedBS({"Si":["s"]})
     </div>
 </div>
 
+**Use COGITO for COHP/COOP projected band structure**
+The accurate TB model from COGITO allows for calculation of COHP energies which nearly perfectly reflect the true DFT values.
+This can be used to rigorously trace back the crystal chemical origins of electronic structure!
 
+Any COHP requires specifying two sets of orbitals. The bonds between any orbital in set 1 with any orbital in set 2 is included in end COHP.
+
+~~~ python
+# specify the two sets as a list of two dictionaries
+# in the dictionary, the keys are elements, and the values are the orbitals included for that atom
+# each dictionary can have multiple atoms as keys
+orbs_dict = [{"Si":["s","p","d"]},{"Si":["s","p","d"]}] # for silicon
+#orbs_dict = [{"Pb":["s","p","d"],"O":["s","p","d"]},{"Pb":["s","p","d"],"O":["s","p","d"]}] # for PbO
+my_CoBS.get_COHP(orbs_dict)
+~~~
 
 <div style="display: flex; justify-content: space-around;">
     <div style="height: 300px;">
