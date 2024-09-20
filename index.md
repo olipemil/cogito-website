@@ -18,7 +18,7 @@ title: COGITO - Home
         opacity: 0.3;
     }
 
-    .image-container:hover {
+    .image-hover:hover {
         opacity: 0.3;
     }
 
@@ -43,6 +43,10 @@ title: COGITO - Home
     .image-container:hover .overlay-text {
         opacity: 1;
         pointer-events: auto;
+    }
+
+    .overlay-text a:hover {
+        background-color: #45a049;
     }
 </style>
 
