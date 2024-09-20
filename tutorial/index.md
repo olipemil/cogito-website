@@ -31,10 +31,10 @@ Here are some capabilities to plot and verify the COGITO run.
 
 <div style="display: flex; justify-content: space-around;">
     <div style="height: 250px;">
-        <img src="./docs/Si/compareDFT.png" alt="Image 2" width="90%">
+        <img src="{{ site.baseurl }}/docs/Si/compareDFT.png" alt="Image 2" width="90%">
     </div>
     <div style="height: 250px;">
-        <img src="./docs/Si/tbparams_decay.png" alt="Image 2" width="90%">
+        <img src="{{ site.baseurl }}/docs/Si/tbparams_decay.png" alt="Image 2" width="90%">
     </div>
 </div>
 
@@ -44,10 +44,10 @@ This class is for generates a band structure from a default high symmetry line f
 
 <div style="display: flex; justify-content: space-around;">
     <div style="height: 300px;">
-        <iframe src="./docs/Si/COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
+        <iframe src="{{ site.baseurl }}/docs/Si/COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
     </div>
     <div style="height: 300px;">
-        <iframe src="./docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
+        <iframe src="{{ site.baseurl }}/docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
     </div>
 </div>
 
@@ -57,12 +57,12 @@ This generates a uniform k-point grid, able to perform DOS and itegrated band en
 
 <div style="display: flex;">
     <div style="width: 200px;">
-        <img src="./docs/Si/SiprojectedDOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;">
+        <img src="{{ site.baseurl }}/docs/Si/SiprojectedDOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;">
     </div>
     <div style="width: 170px;">
-        <img src="./docs/Si/COHP_DOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;">
+        <img src="{{ site.baseurl }}/docs/Si/COHP_DOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;">
     </div>
     <div style="width: 380px;">
-        <iframe src="docs/Si/crystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;"></iframe>
+        <iframe src="{{ site.baseurl }}/docs/Si/crystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;"></iframe>
     </div>
 </div>
