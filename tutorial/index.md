@@ -26,11 +26,15 @@ COGITO generates the atomic basis and save the tight binding model in three file
 
 Step 1: Install COGITO from link<br>
 Run the code below. Because this is a private repository, you will need to use the key I sent via email.
+
 ~~~ bash
 git clone https://github.com/olipemil/cogito-website.git
+# copy COGITO to python path
+export PYTHONPATH="${PYTHONPATH}:/COGITO"
 ~~~
 
 Step 2: Install necessary python packages
+
 ~~~ bash
 pip install pymatgen
 pip install matplotlib
@@ -42,6 +46,7 @@ pip install seekpath
 ~~~
 
 Step 3: Run python code to run COGITO
+
 ~~~ python
 from COGITOmain import COGITO
 
@@ -49,7 +54,7 @@ direct = "Si/"
 # create an instance of the COGITO class
 COGITOmodel = COGITO(direct) # set "spin_polar = True" for magnetic calculations
 # do full algorithm and generate input files for TB model
-COGITOmodel.generate_TBmodel()
+COGITOmodel.generate_TBmodel(verbose = 0, plot_orbs = True, plot_projBS = True)
 ~~~
 
 <h3 id="tight">Run COGITO tight binding</h3>
