@@ -152,6 +152,8 @@ my_CoBS.get_projectedBS({"Si":["s"]})
     </div>
 </div>
 
+<p id="COHPBS"></p>
+
 **Use COGITO for COHP/COOP projected band structure**<br>
 The accurate TB model from COGITO allows for calculation of COHP energies which almost perfectly reflect the true DFT values.
 This can be used to confidently and precisely trace back the crystal chemical origins of electronic structure!
