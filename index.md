@@ -61,7 +61,7 @@ Observe the bonding in the α-PbO structure by hovering over the bond lines. Sol
 
 Click link for more detailed example in the tutorial page.
 
-### Run VASP
+<h3 id="VASP">Run VASP</h3>
 
 A couple things to keep in mind for the VASP calculation:
 
@@ -71,7 +71,7 @@ A couple things to keep in mind for the VASP calculation:
 * Use more bands (NBANDS=(8-16)*natoms)
 * No spin-orbit coupling (LSORBIT=False, but magnetism is supported (ISPIN=2)
 
-### Run COGITO
+<h3 id="COGITO">Run COGITO</h3>
 
 COGITO reads the INCAR, POSCAR, POTCAR, and WAVECAR files from the VASP calculation. The only required input when calling the COGITOmain class from the user is if the VASP calculation has ISPIN=2 set spin_polar=True. Otherwise, just pass the directory and let the default values handle everything!
 
@@ -81,7 +81,7 @@ COGITO generates the atomic basis and save the tight binding model in three file
 * TBparams.txt
 * overlaps.txt
 
-### Run COGITO tight binding
+<h3 id="tight">Run COGITO tight binding</h3>
 
 This is where things start to get fun!
 Here are some capabilities to plot and verify the COGITO run.
@@ -97,7 +97,7 @@ Here are some capabilities to plot and verify the COGITO run.
     </div>
 </div>
 
-### Run Bandstructure generator
+<h3 id="bandstruc">Run Bandstructure generator</h3>
 
 This class is for generates a band structure from a default high symmetry line from pymatgen. 
 
@@ -112,7 +112,7 @@ This class is for generates a band structure from a default high symmetry line f
     </div>
 </div>
 
-### Run Uniform generator
+<h3 id="uniform">Run Uniform generator</h3>
 
 This generates a uniform k-point grid, able to perform DOS and itegrated band energy analysis.
 
