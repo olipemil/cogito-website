@@ -147,8 +147,19 @@ my_CoBS.get_projectedBS({"Si":["s"]})
 ~~~
 
 <div style="display: flex; justify-content: space-around;">
-      <iframe src="{{ site.baseurl }}/docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
+    <div style="height: 300px;">
+        <iframe src="{{ site.baseurl }}/docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
+    </div>
 </div>
+
+
+
+<div style="display: flex; justify-content: space-around;">
+    <div style="height: 300px;">
+        <iframe src="{{ site.baseurl }}/docs/Si/COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
+    </div>
+</div>
+
 
 <h3 id="uniform">Run Uniform generator</h3>
 
