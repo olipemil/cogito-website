@@ -24,16 +24,13 @@ COGITO generates the atomic basis and save the tight binding model in three file
 * TBparams.txt
 * overlaps.txt
 
-Step 1: Install COGITO from link
-
-Run the code below. Because this is a private repository, you will need to use the key I sent via email.
-
+Step 1: Install COGITO from link<br>
+Run the code below. Because this is a private repository, you will need to use the key I sent via email<br>.
 ~~~ bash
 git clone https://github.com/olipemil/cogito-website.git
 ~~~
 
-Step 2: Install necessary python packages
-
+Step 2: Install necessary python packages<br>
 ~~~ bash
 pip install pymatgen
 pip install matplotlib
@@ -44,8 +41,7 @@ pip install plotly
 pip install seekpath
 ~~~
 
-Step 3: Run python code to run COGITO
-
+Step 3: Run python code to run COGITO<br>
 ~~~ python
 from COGITOmain import COGITO
 
