@@ -2,7 +2,9 @@
 
 These are structured to follow everything you need! The workflow below gives the outline. Click the file labels to quickly get to each section. 
 
-## Insert workflow figure
+## Workflow
+
+<iframe src="{{ site.baseurl }}/workflow_diagram.html" style="transform: scale(0.9); transform-origin: top left;" width="800px" height="450px"></iframe>
 
 <h2 id="VASP">Run VASP</h2>
 
