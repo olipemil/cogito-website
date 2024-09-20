@@ -31,7 +31,8 @@ title: COGITO - Home
         font-size: 16px;
         font-weight: bold;
         opacity: 0;
-        pointer-events: none;
+        /* pointer-events: none; */
+        pointer-events: auto; /* Ensures the div can receive click events */
         transition: opacity 0.3s ease;
     }
 
@@ -114,7 +115,9 @@ This class is for generates a band structure from a default high symmetry line f
     </div>
     <div class="image-container" style="height: 300px;">
         <iframe src="./docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;" class="image-hover"></iframe>
-        <div class="overlay-text"><a href="{{ site.baseurl }}/tutorial/#projectBS">Plot orbital projected<br>band structure</a></div>
+        <div class="overlay-text" style="color: black; text-decoration: none;">
+            <a href="{{ site.baseurl }}/tutorial/#projectBS">
+            Plot orbital projected<br>band structure</a></div>
     </div>
 </div>
 
