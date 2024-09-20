@@ -76,7 +76,8 @@ COGITOTB.plot_hopping(COGITOTB)
 COGITOTB.plot_overlaps(COGITOTB)
 ~~~
 
-Note: The overlap and hopping plots should show a rough linear decay<br>
+Note: The overlap and hopping plots should show a rough linear decay
+
 <div style="display: flex; justify-content: space-around;">
     <div>
         <img src="{{ site.baseurl }}/docs/Si/overlaps_decay.png" alt="Image 2" height="90%" width="90%" style="border: 0;">
@@ -86,19 +87,17 @@ Note: The overlap and hopping plots should show a rough linear decay<br>
     </div>
 </div>
 
+**Compare COGITO band energies to DFT band energies**<br>
+To verify the interpolation of COGITO, the function 'compare_to_DFT' is used to determine the error between the interpolating COITO band energies and DFT band energies. This function reads the DFT energies from an EIGENVAL file from a VASP (band structure) calculation.
 
-**Compare COGITO band energies to DFT band energies**
-
-
-This is where things start to get fun!
-Here are some capabilities to plot and verify the COGITO run.
+~~~ python
+eig_file = COGITOTB.directory + "EIGENVAL"
+[band_dist, max_error, band_error] = COGITOTB.compare_to_DFT( COGITOTB, EIG_file)
+~~~
 
 <div style="display: flex; justify-content: space-around;">
-    <div style="height: 250px;">
-        <img src="{{ site.baseurl }}/docs/Si/compareDFT.png" alt="Image 2" width="90%">
-    </div>
-    <div style="height: 250px;">
-        <img src="{{ site.baseurl }}/docs/Si/tbparams_decay.png" alt="Image 2" width="90%">
+    <div>
+        <img src="{{ site.baseurl }}/docs/Si/compareDFT.png" alt="Image 2" width="90%" height="90%" style="border: 0;">
     </div>
 </div>
 
