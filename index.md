@@ -31,8 +31,8 @@ title: COGITO - Home
         font-size: 16px;
         font-weight: bold;
         opacity: 0;
-        /* pointer-events: none; */
-        pointer-events: auto; /* Ensures the div can receive click events */
+        pointer-events: none; 
+        /*pointer-events: auto;  Ensures the div can receive click events */
         transition: opacity 0.3s ease;
     }
 
