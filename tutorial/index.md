@@ -116,7 +116,7 @@ average error in Conduc Bands: 0.357561 eV
     </div>
 </div>
 
-<h2 id="bandstruc">Run band structure generator</h2>
+<h2 id="bandstruc">Run band structure class</h2>
 
 This class generates the band structure for high symmetry path determined with pymatgen. Importantly, this class
 requires an instance of the tight binding class in initialization. 
@@ -152,9 +152,9 @@ my_CoBS.get_projectedBS({"Si":["s"]})
     </div>
 </div>
 
-**Use COGITO for COHP/COOP projected band structure**
-The accurate TB model from COGITO allows for calculation of COHP energies which nearly perfectly reflect the true DFT values.
-This can be used to rigorously trace back the crystal chemical origins of electronic structure!
+**Use COGITO for COHP/COOP projected band structure**<br>
+The accurate TB model from COGITO allows for calculation of COHP energies which almost perfectly reflect the true DFT values.
+This can be used to confidently and precisely trace back the crystal chemical origins of electronic structure!
 
 Any COHP requires specifying two sets of orbitals. The bonds between any orbital in set 1 with any orbital in set 2 is included in end COHP.
 
@@ -165,6 +165,10 @@ Any COHP requires specifying two sets of orbitals. The bonds between any orbital
 orbs_dict = [{"Si":["s","p","d"]},{"Si":["s","p","d"]}] # for silicon
 #orbs_dict = [{"Pb":["s","p","d"],"O":["s","p","d"]},{"Pb":["s","p","d"],"O":["s","p","d"]}] # for PbO
 my_CoBS.get_COHP(orbs_dict)
+
+# bonus points for running the interactive dash app
+# this populates the autogenerates options for orbs_dict for the user to choose from
+my_CoBS.make_COHP_dashapp()
 ~~~
 
 <div style="display: flex; justify-content: space-around;">
@@ -174,18 +178,67 @@ my_CoBS.get_COHP(orbs_dict)
 </div>
 
 
-<h3 id="uniform">Run Uniform generator</h3>
+<h2 id="uniform">Run uniform class</h2>
+Last, but not least, this class works with a uniform grid of k-points. The uniform grid gives us access to integrated 
+properties like: atomic charge, covalent bond energy (ICOHP), projected density of states (DOS), etc.
 
-This generates a uniform k-point grid, able to perform DOS and itegrated band energy analysis.
+Like the band structure class, the uniform class requires the input of a TB class instance. 
+
+~~~ python
+# must create TB class instance first
+from COGITOpost_newspin import COGITO_TB_Model as CoTB
+direct = "Si/"
+my_CoTB = CoTB(direct) # create TB class from a directory that has run COGITO
+my_CoTB.restrict_params(maximum_dist=15, minimum_value=0.00001) # restrict the TB parameters to improve speed
+
+# now create band structure
+from COGITOpost_newspin import COGITO_UNIFORM as CoUN
+my_CoUN = CoUN(COGITOTB,grid=(10,10,10))
+my_CoUN.get_occupation()
+~~~
+
+Running the get_occupation function prints the output below. The first line shows how many electrons are in each orbital with Mulliken population analysis.
+The second line 'sum' should be the total number of valence electrons. The third line is the electrons in each orbital without Mulliken.
+The final line is the electrons for each atom with Mulliken population analysis.
+
+~~~ text
+Where are the electrons?
+orbital + overlap occupation: [1.36334891 0.87881112 0.87891999 0.87891997 1.36334891 0.87881113 0.87891997 0.87892   ]
+sum:  8.0
+orbital occupation without bonds: [1.09389053 0.56850573 0.56864044 0.56864041 1.09389055 0.56850573 0.56864041 0.56864043]
+The electron occupation for the atoms  ['Si' 'Si']  is  [3.99999999 4.00000001]
+~~~
+
+<p id="projectDOS"></p>
+
+**Use COGITO for orbital/COHP/COOP projected DOS**<br>
+Because COGITO forms a nearly complete basis for the charge density, we can accurately determine the percent of each
+atomic orbital in the band wavefunction. Mulliken population analysis is used here to resolve the inherit ambiguity in assigning two-center terms to one orbital.
+
+Any COHP requires specifying two sets of orbitals. The bonds between any orbital in set 1 with any orbital in set 2 is included in end COHP.
+
+~~~ python
+# Get orbital/element projected DOS for an element
+my_CoUN.get_projectedDOS("Si",ylim=(-10,5),sigma=0.09) # sigma is gaussian smearing, adjust with initial k-grid
+
+# specify the two sets as a list of two dictionaries
+# in the dictionary, the keys are elements, and the values are the orbitals included for that atom
+# each dictionary can have multiple atoms as keys
+orbs_dict = [{"Si":["s","p","d"]},{"Si":["s","p","d"]}] # for silicon
+#orbs_dict = [{"Pb":["s","p","d"],"O":["s","p","d"]},{"Pb":["s","p","d"],"O":["s","p","d"]}] # for PbO
+my_CoUN.get_COHP(orbs_dict)
+~~~
 
 <div style="display: flex;">
-    <div style="width: 200px;">
+    <div style="width: 300px;">
         <img src="{{ site.baseurl }}/docs/Si/SiprojectedDOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;">
     </div>
-    <div style="width: 170px;">
+    <div style="width: 250px;">
         <img src="{{ site.baseurl }}/docs/Si/COHP_DOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;">
-    </div>
-    <div style="width: 380px;">
-        <iframe src="{{ site.baseurl }}/docs/Si/crystal_bonds.html" style="transform: scale(0.75); transform-origin: top left; width: 150%; height: 150%; border: 0;"></iframe>
-    </div>
+    </div>]
 </div>
+
+
+**Use COGITO for COHP/COOP projected DOS**<br>
+The accurate TB model from COGITO allows for calculation of COHP energies which almost perfectly reflect the true DFT values.
+This can be used to confidently and precisely trace back the crystal chemical origins of electronic structure!
