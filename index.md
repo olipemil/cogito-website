@@ -38,6 +38,7 @@ title: COGITO - Home
 
     .image-container:hover .overlay-text {
         opacity: 1;
+        pointer-events: auto;
     }
 </style>
 
