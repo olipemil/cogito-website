@@ -48,7 +48,7 @@ The code below generates the COGITO basis and saves the tight binding model para
 * overlaps.txt
 
 ~~~ python
-from COGITOmain import COGITO
+from COGITO import COGITO
 
 direct = "Si/"
 # create an instance of the COGITO class
@@ -65,7 +65,7 @@ Now we can work with our COGITO tight binding model. The first step is to verify
 This code will need to be run before any use of the bandstructure or uniform classes.<br>
 
 ~~~ python
-from COGITOpost_newspin import COGITO_TB_Model as CoTB
+from COGITOpost import COGITO_TB_Model as CoTB
 
 direct = "Si/"
 # create TB class from a directory that has run COGITO
@@ -125,13 +125,13 @@ requires an instance of the tight binding class in initialization.
 
 ~~~ python
 # must create TB class instance first
-from COGITOpost_newspin import COGITO_TB_Model as CoTB
+from COGITOpost import COGITO_TB_Model as CoTB
 direct = "Si/"
 my_CoTB = CoTB(direct) # create TB class from a directory that has run COGITO
 my_CoTB.restrict_params(maximum_dist=15, minimum_value=0.00001) # restrict the TB parameters to improve speed
 
 # now create band structure
-from COGITOpost_newspin import COGITO_BAND as CoBS
+from COGITOpost import COGITO_BAND as CoBS
 my_CoBS = CoBS( my_CoTB, num_kpts = 10) # num_kpts is actually num per line, so set low
 # optionally, plot band structure
 my_CoBS.plotBS()
@@ -189,13 +189,13 @@ Like the band structure class, the uniform class requires the input of a TB clas
 
 ~~~ python
 # must create TB class instance first
-from COGITOpost_newspin import COGITO_TB_Model as CoTB
+from COGITOpost import COGITO_TB_Model as CoTB
 direct = "Si/"
 my_CoTB = CoTB(direct) # create TB class from a directory that has run COGITO
 my_CoTB.restrict_params(maximum_dist=15, minimum_value=0.00001) # restrict the TB parameters to improve speed
 
 # now create band structure
-from COGITOpost_newspin import COGITO_UNIFORM as CoUN
+from COGITOpost import COGITO_UNIFORM as CoUN
 my_CoUN = CoUN(COGITOTB,grid=(10,10,10))
 my_CoUN.get_occupation()
 ~~~
@@ -247,13 +247,13 @@ This can be used to confidently and precisely trace back the crystal covalent bo
 
 ~~~ python 
 # must create TB class instance first
-from COGITOpost_newspin import COGITO_TB_Model as CoTB
+from COGITOpost import COGITO_TB_Model as CoTB
 direct = "Si/"
 my_CoTB = CoTB(direct) # create TB class from a directory that has run COGITO
 my_CoTB.restrict_params(maximum_dist=15, minimum_value=0.00001) # restrict the TB parameters to improve speed
 
 # now create band structure
-from COGITOpost_newspin import COGITO_UNIFORM as CoUN
+from COGITOpost import COGITO_UNIFORM as CoUN
 my_CoUN = CoUN(COGITOTB,grid=(10,10,10))
 
 # plot the crystal structure with real bonds!
