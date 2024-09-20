@@ -4,7 +4,7 @@ These are structured to follow everything you need! The workflow below gives the
 
 ## Insert workflow figure
 
-<h3 id="VASP">Run VASP</h3>
+<h2 id="VASP">Run VASP</h2>
 
 A couple things to keep in mind for the VASP calculation:
 
@@ -14,7 +14,7 @@ A couple things to keep in mind for the VASP calculation:
 * Use more bands (NBANDS=(8-16)*natoms)
 * No spin-orbit coupling (LSORBIT=False, but magnetism is supported (ISPIN=2)
 
-<h3 id="COGITO">Run COGITO</h3>
+<h2 id="COGITO">Run COGITO</h2>
 
 COGITO reads the INCAR, POSCAR, POTCAR, and WAVECAR files from the VASP calculation.
 
@@ -55,7 +55,7 @@ COGITOmodel = COGITO(direct) # set "spin_polar = True" for magnetic calculations
 COGITOmodel.generate_TBmodel(verbose = 0, plot_orbs = True, plot_projBS = True)
 ~~~
 
-<h3 id="tight">Run COGITO tight binding</h3>
+<h2 id="tight">Run COGITO tight binding</h2>
 
 Now we can work with our COGITO tight binding model. The first step is to verify the quality of the COGITO TB model. 
 
@@ -67,13 +67,13 @@ from COGITOpost_newspin import COGITO_TB_Model as CoTB
 
 direct = "Si/"
 # create TB class from a directory that has run COGITO
-COGITOTB = CoTB(direct)
+my_CoTB = CoTB(direct)
 # optionally, restrict the TB parameters to improve speed
-COGITOTB.restrict_params(maximum_dist=15, minimum_value=0.00001)
+my_CoTB.restrict_params(maximum_dist=15, minimum_value=0.00001)
 
 # plot the overlap and hopping parameters to check decay
-COGITOTB.plot_overlaps(COGITOTB) # generates overlaps_decay.png
-COGITOTB.plot_hoppings(COGITOTB) # generates tbparams_decay.png
+my_CoTB.plot_overlaps(my_CoTB) # generates overlaps_decay.png
+my_CoTB.plot_hoppings(my_CoTB) # generates tbparams_decay.png
 ~~~
 
 Note: The overlap and hopping plots should show a rough linear decay
@@ -87,14 +87,16 @@ Note: The overlap and hopping plots should show a rough linear decay
     </div>
 </div>
 
+<p id="compareDFT"></p>
+
 **Compare COGITO band energies to DFT band energies**<br>
 To verify the interpolation of COGITO, the function 'compare_to_DFT' is used to determine the error between the interpolating COITO band energies and DFT band energies. This function reads the DFT energies from an EIGENVAL file from a VASP (band structure) calculation.
 
 ~~~ python
 # the EIGENVAL file you want to compare to
-eig_file = COGITOTB.directory + "EIGENVAL"
+eig_file = my_CoTB.directory + "EIGENVAL"
 # generates compareDFT.png and DFT_band_error.txt
-[band_dist, max_error, band_error] = COGITOTB.compare_to_DFT( COGITOTB, EIG_file)
+[band_dist, max_error, band_error] = my_CoTB.compare_to_DFT( my_CoTB, eig_file)
 ~~~
 
 Metrics for the fit quality will be printed and written to the DFT_band_error.txt as below.
@@ -114,17 +116,38 @@ average error in Conduc Bands: 0.357561 eV
     </div>
 </div>
 
-<h3 id="bandstruc">Run Bandstructure generator</h3>
+<h2 id="bandstruc">Run band structure generator</h2>
 
-This class is for generates a band structure from a default high symmetry line from pymatgen.
+This class generates the band structure for high symmetry path determined with pymatgen. Importantly, this class
+requires an instance of the tight binding class in initialization. 
+
+~~~ python
+# must create TB class instance first
+from COGITOpost_newspin import COGITO_TB_Model as CoTB
+direct = "Si/"
+my_CoTB = CoTB(direct) # create TB class from a directory that has run COGITO
+my_CoTB.restrict_params(maximum_dist=15, minimum_value=0.00001) # restrict the TB parameters to improve speed
+
+# now create band structure
+from COGITOpost_newspin import COGITO_BAND as CoBS
+my_CoBS = CoBS( my_CoTB, num_kpts = 10) # num_kpts is actually num per line, so set low
+# optionally, plot band structure
+my_CoBS.plotBS()
+~~~
+
+<p id="projectBS"></p>
+
+**Use COGITO basis to get projected band structure**<br>
+Because COGITO forms a nearly complete basis for the charge density, we can accurately determine the percent of each
+atomic orbital in the band wavefunction. Mulliken population analysis is used here to resolve the inherit ambiguity in assigning two-center terms to one orbital.
+
+~~~ python
+# plot the projected band structure of Si s orbitals
+my_CoBS.get_projectedBS({"Si":["s"]})
+~~~
 
 <div style="display: flex; justify-content: space-around;">
-    <div style="height: 300px;">
-        <iframe src="{{ site.baseurl }}/docs/Si/COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
-    </div>
-    <div style="height: 300px;">
-        <iframe src="{{ site.baseurl }}/docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
-    </div>
+      <iframe src="{{ site.baseurl }}/docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
 </div>
 
 <h3 id="uniform">Run Uniform generator</h3>
