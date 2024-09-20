@@ -76,14 +76,13 @@ COGITOTB.plot_hopping(COGITOTB)
 COGITOTB.plot_overlaps(COGITOTB)
 ~~~
 
-Note: The overlap and hopping plots should show a rough linear decay
-
+Note: The overlap and hopping plots should show a rough linear decay<br>
 <div style="display: flex; justify-content: space-around;">
-    <div style="height: 250px;">
-        <img src="{{ site.baseurl }}/docs/Si/overlaps_decay.png" alt="Image 2" height="100%" width="90%" style="border: 0;">
+    <div>
+        <img src="{{ site.baseurl }}/docs/Si/overlaps_decay.png" alt="Image 2" height="90%" width="90%" style="border: 0;">
     </div>
-    <div style="height: 250px;">
-        <img src="{{ site.baseurl }}/docs/Si/tbparams_decay.png" alt="Image 2" height="100%" width="90%" style="border: 0;">
+    <div>
+        <img src="{{ site.baseurl }}/docs/Si/tbparams_decay.png" alt="Image 2" height="90%" width="90%" style="border: 0;">
     </div>
 </div>
 
