@@ -18,6 +18,10 @@ title: COGITO - Home
         opacity: 0.3;
     }
 
+    .image-container:hover {
+        opacity: 0.3;
+    }
+
     .overlay-text {
         position: absolute;
         top: 0;
