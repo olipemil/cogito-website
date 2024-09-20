@@ -88,12 +88,16 @@ Here are some capabilities to plot and verify the COGITO run.
 
 <div style="display: flex; justify-content: space-around;">
     <div class="image-container" style="height: 250px;">
-        <img src="./docs/Si/compareDFT.png" alt="Image 2" width="90%" class="image-hover">
-        <div class="overlay-text">Compare COGITO bands<br>to VASP</div>
+        <a href="{{ site.baseurl }}/tutorial/#compareDFT">
+            <img src="./docs/Si/compareDFT.png" alt="Image 2" width="90%" class="image-hover">
+            <div class="overlay-text">Compare COGITO bands<br>to VASP</div>
+        </a>
     </div>
     <div class="image-container" style="height: 250px;">
-        <img src="./docs/Si/tbparams_decay.png" alt="Image 2" width="90%" class="image-hover">
-        <div class="overlay-text">Plot parameter decay</div>
+        <a href="{{ site.url }}/tutorial/#tight">
+            <img src="./docs/Si/tbparams_decay.png" alt="Image 2" width="90%" class="image-hover">
+            <div class="overlay-text">Plot parameter decay</div>
+        </a>
     </div>
 </div>
 
