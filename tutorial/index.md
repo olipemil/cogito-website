@@ -147,7 +147,7 @@ my_CoBS.get_projectedBS({"Si":["s"]})
 ~~~
 
 <div style="display: flex; justify-content: space-around;">
-    <div style="height: 500px;">
+    <div style="height: 500px; width: 500px;">
         <iframe src="{{ site.baseurl }}/docs/Si/projectedBS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
     </div>
 </div>
@@ -172,7 +172,7 @@ my_CoBS.make_COHP_dashapp()
 ~~~
 
 <div style="display: flex; justify-content: space-around;">
-    <div style="height: 500px;">
+    <div style="height: 500px; width: 500px;">
         <iframe src="{{ site.baseurl }}/docs/Si/COHP_BS.html" style="transform: scale(0.5); transform-origin: top left; width: 200%; height: 200%; border: 0;"></iframe>
     </div>
 </div>
@@ -230,11 +230,11 @@ my_CoUN.get_COHP(orbs_dict)
 ~~~
 
 <div style="display: flex;">
-    <div style="width: 300px;">
-        <img src="{{ site.baseurl }}/docs/Si/SiprojectedDOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;">
+    <div style="width: 300px; height: 300px;">
+        <img src="{{ site.baseurl }}/docs/Si/SiprojectedDOS.png" alt="Image 2" style="width: 90%; height: 90%; border: 0;">
     </div>
-    <div style="width: 250px;">
-        <img src="{{ site.baseurl }}/docs/Si/COHP_DOS.png" alt="Image 2" style="width: 100%; height: 100%; border: 0;">
+    <div style="width: 250px; height: 300px;">
+        <img src="{{ site.baseurl }}/docs/Si/COHP_DOS.png" alt="Image 2" style="width: 90%; height: 90%; border: 0;">
     </div>
 </div>
 
