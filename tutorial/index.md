@@ -1,6 +1,7 @@
 # COGITO Tutorials
 
-These are structured to follow everything you need! The workflow below gives the outline. Click the file labels to quickly get to each section. 
+These tutorials cover everything from installing the code, to running the main COGITO code, and analyzing bonding with 
+the COGITO tight binding model. The workflow below provides the general outline. Click the section labels to quickly get to each section. 
 
 ## Workflow
 
@@ -21,15 +22,17 @@ A couple things to keep in mind for the VASP calculation:
 COGITO reads the INCAR, POSCAR, POTCAR, and WAVECAR files from the VASP calculation.
 
 **Step 1: Install COGITO**<br>
-Run the code below. Because this is a private repository, you will need to use the key I sent via email.
+The COGITO code is not yet public, although it will be shortly. If you have access to the private repository, execute 
+the code below to install COGITO and set up your environment.
 
 ~~~ bash
-git clone https://github.com/olipemil/cogito-website.git
+git clone https://github.com/olipemil/COGITO.git
 # copy COGITO to python path
 export PYTHONPATH="${PYTHONPATH}:/COGITO"
 ~~~
 
-**Step 2: Install necessary python packages**
+**Step 2: Setup python environment**<br>
+The following python packages can be pip installed:
 
 ~~~ bash
 pip install pymatgen
@@ -39,6 +42,14 @@ pip install scipy
 pip install lmfit
 pip install plotly
 pip install seekpath
+pip install dash
+~~~
+
+***OR***<br>
+For more reliable results, create a new conda environment for the yaml file in COGITO with conda
+
+~~~ bash
+conda env create -f COGITO_env.yml
 ~~~
 
 **Step 3: Run COGITO!**<br>
