@@ -23,7 +23,7 @@ COGITO reads the INCAR, POSCAR, POTCAR, and WAVECAR files from the VASP calculat
 
 **Step 1: Install COGITO**<br>
 The COGITO code is not yet public, although it will be shortly. If you have access to the private repository, execute 
-the code below to install COGITO and set up your environment.
+the code below to install COGITO and save its directly to the python path.
 
 ~~~ bash
 git clone https://github.com/olipemil/COGITO.git
