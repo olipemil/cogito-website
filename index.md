@@ -3,6 +3,7 @@ layout: default
 title: COGITO - Home
 ---
 
+
 <style>
     .image-container {
         position: relative;
