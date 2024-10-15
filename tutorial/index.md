@@ -1,6 +1,6 @@
 # COGITO Tutorials
 
-These tutorials cover everything from installing the code, to running the main COGITO code, and analyzing bonding with 
+These tutorials cover installing the COGITO code, running the main COGITO code, and analyzing bonding with 
 the COGITO tight binding model. The workflow below provides the general outline. Click the section labels to quickly get to each section. 
 
 ## Workflow
