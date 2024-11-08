@@ -9,14 +9,14 @@ title: Examples
     display: flex;
     height: 100vh;
     max_width: none;
-    width: 100%;
+    width: 135%;
     margin: 0;
     padding: 0;
 }
 
 /* Left sidebar styling */
 #sideSelect {
-    width: 17%;
+    width: 15%;
     background-color: #f0f0f0;
     border-right: 1px solid #ccc;
     overflow-y: auto;
@@ -46,7 +46,7 @@ title: Examples
 
 /* Right content area styling */
 #content {
-    width: 100%;
+    width: 85%;
     overflow: hidden;
 }
 
