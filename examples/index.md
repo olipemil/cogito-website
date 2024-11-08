@@ -5,6 +5,13 @@ title: Examples
 
 <style>
  /* Flex container for the whole page */
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     height: 100vh;
