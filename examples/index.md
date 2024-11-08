@@ -12,7 +12,7 @@ body {
 
 /* Left sidebar styling */
 #sideSelect {
-    width: 20%;
+    width: 15%;
     background-color: #f0f0f0;
     border-right: 1px solid #ccc;
     overflow-y: auto;
@@ -40,7 +40,7 @@ body {
 
 /* Right content area styling */
 #content {
-    width: 80%;
+    width: 70%;
     overflow: hidden;
 }
 
