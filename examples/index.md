@@ -16,7 +16,7 @@ title: Examples
 
 /* Left sidebar styling */
 #sideSelect {
-    width: 20%;
+    width: 17%;
     background-color: #f0f0f0;
     border-right: 1px solid #ccc;
     overflow-y: auto;
@@ -46,7 +46,7 @@ title: Examples
 
 /* Right content area styling */
 #content {
-    width: 80%;
+    width: 100%;
     overflow: hidden;
 }
 
