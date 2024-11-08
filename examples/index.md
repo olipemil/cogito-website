@@ -8,7 +8,8 @@ title: Examples
 #page-content {
     display: flex;
     height: 100vh;
-    width: 200%;
+    max_width: none;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
