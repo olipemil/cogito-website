@@ -4,22 +4,17 @@ title: Examples
 ---
 
 <style>
- /* Flex container for the whole page */
-/* Basic reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+/* Flex container for the page content */
+#page-content {
     display: flex;
     height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 /* Left sidebar styling */
 #sideSelect {
-    width: 15%;
+    width: 20%;
     background-color: #f0f0f0;
     border-right: 1px solid #ccc;
     overflow-y: auto;
@@ -28,6 +23,8 @@ body {
 /* Material list styling */
 #materialList {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 #materialList li {
@@ -47,7 +44,7 @@ body {
 
 /* Right content area styling */
 #content {
-    width: 70%;
+    width: 80%;
     overflow: hidden;
 }
 
@@ -59,24 +56,27 @@ body {
 }
 </style>
 
-<!-- Left Sidebar -->
-<div id="sideSelect">
-    <ul id="materialList">
-        <li data-file="Si/bond_cohp_plot.html">Si</li>
-        <li data-file="PbO/bond_cohp_plot.html">PbO</li>
-        <li data-file="BaFeO3/bond_cohp_plot.html">BaFeO<sub>3</sub></li>
-        <li data-file="RbBiO3/bond_cohp_plot.html">RbBiO<sub>3</sub></li>
-        <li data-file="K2Sb2O6/bond_cohp_plot.html">KSbO<sub>3</sub></li>
-        <li data-file="Pb2Se2O6/bond_cohp_plot.html">PbSeO<sub>3</sub></li>
-        <li data-file="Lu4Cr4O12/bond_cohp_plot.html">LuCrO<sub>3</sub></li>
-        <li data-file="Na4Ta4O12/bond_cohp_plot.html">NaTaO<sub>3</sub></li>
-        <li data-file="Fe16N2.html">Fe<sub>16</sub>N<sub>2</sub></li>
-    </ul>
-</div>
+<!-- Page Content -->
+<div id="page-content">
+    <!-- Left Sidebar -->
+    <div id="sideSelect">
+        <ul id="materialList">
+            <li data-file="Si/bond_cohp_plot.html">Si</li>
+            <li data-file="PbO/bond_cohp_plot.html">PbO</li>
+            <li data-file="BaFeO3/bond_cohp_plot.html">BaFeO<sub>3</sub></li>
+            <li data-file="RbBiO3/bond_cohp_plot.html">RbBiO<sub>3</sub></li>
+            <li data-file="K2Sb2O6/bond_cohp_plot.html">KSbO<sub>3</sub></li>
+            <li data-file="Pb2Se2O6/bond_cohp_plot.html">PbSeO<sub>3</sub></li>
+            <li data-file="Lu4Cr4O12/bond_cohp_plot.html">LuCrO<sub>3</sub></li>
+            <li data-file="Na4Ta4O12/bond_cohp_plot.html">NaTaO<sub>3</sub></li>
+            <li data-file="Fe16N2.html">Fe<sub>16</sub>N<sub>2</sub></li>
+        </ul>
+    </div>
 
-<!-- Right Content Area -->
-<div id="content">
-    <iframe id="materialFrame" src=""></iframe>
+    <!-- Right Content Area -->
+    <div id="content">
+        <iframe id="materialFrame" src=""></iframe>
+    </div>
 </div>
 
 <script>
