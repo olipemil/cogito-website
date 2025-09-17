@@ -8,18 +8,47 @@
 
 This repository hosts the documentation website for COGITO, a tool for obtaining quantum chemistry from plane wave DFT calculations. The website provides interactive tutorials, API documentation, and Jupyter notebook examples.
 
-## 🚀 Quick Start
+## Quick Start
+
+<table>
+<tr>
+<td width="50%">
 
 **Visit the live website:** [**cogito-website.github.io**](https://olipemil.github.io/cogito-website)
 
 | Section | Description |
 |---------|-------------|
-| [🔧 Installation](https://olipemil.github.io/cogito-website/examples/installation_setup.html) | Get started with COGITO setup |
-| [📚 Tutorial](https://olipemil.github.io/cogito-website/tutorial/) | Step-by-step analysis workflow |
-| [💻 Examples](https://olipemil.github.io/cogito-website/examples/) | Interactive Jupyter notebooks |
-| [📑 API Docs](https://olipemil.github.io/cogito-website/api/) | Complete function reference |
+| [Installation](https://olipemil.github.io/cogito-website/examples/installation_setup.html) | Get started with COGITO setup |
+| [Tutorial](https://olipemil.github.io/cogito-website/tutorial/) | Step-by-step analysis workflow |
+| [Examples](https://olipemil.github.io/cogito-website/examples/) | Interactive Jupyter notebooks |
+| [API Docs](https://olipemil.github.io/cogito-website/api/) | Complete function reference |
 
-## ✨ Key Features
+</td>
+<td width="50%">
+
+**Basic Workflow:**
+
+1. **Run VASP** - Static calculation with saved wavefunctions
+2. **Generate COGITO model** - Creates tight binding parameters
+3. **Verify quality** - Check interpolation accuracy
+4. **Analyze chemistry** - COHP, bonding, charge analysis
+
+```python
+from COGITOmain import COGITO
+
+# Initialize with your VASP calculation directory
+direct = "path/to/your/vasp/calculation/"
+COGITOmodel = COGITO(direct)
+
+# Generate the tight binding model
+COGITOmodel.generate_TBmodel(verbose=0, plot_orbs=True)
+```
+
+</td>
+</tr>
+</table>
+
+## Features & Example Results
 
 <div align="center">
 
@@ -28,85 +57,32 @@ This repository hosts the documentation website for COGITO, a tool for obtaining
 
 </div>
 
-- **🔬 Chemical Bonding Analysis** - COHP/COOP analysis with band structure
-- **📊 Band Structure** - Compare COGITO interpolation with DFT
-- **⚛️ Orbital Projections** - Visualize atomic orbital contributions
-- **🏗️ Crystal Visualization** - 3D structures with actual covalent bonds
-- **📈 Quality Verification** - Built-in validation against VASP calculations
+| Feature | Output | Description |
+|---------|--------|-------------|
+| **Chemical Bonding Analysis** | ![COHP](docs/Si/COHP_BS.png) | COHP/COOP analysis with band structure |
+| **Band Structure Comparison** | ![Band Structure](docs/Si/compareDFT.png) | COGITO interpolation vs DFT validation |
+| **Parameter Quality Check** | ![Decay](docs/Si/tbparams_decay.png) | Tight binding parameter decay analysis |
+| **Crystal Visualization** | [Interactive Demo](https://olipemil.github.io/cogito-website) | 3D structures with actual covalent bonds |
+| **Orbital Projections** | [Examples](https://olipemil.github.io/cogito-website/examples/) | Visualize atomic orbital contributions |
 
-## 🎯 Basic Workflow
-
-```python
-# Step 1: Generate COGITO model
-from COGITOmain import COGITO
-COGITOmodel = COGITO("your_vasp_directory/")
-COGITOmodel.generate_TBmodel()
-
-# Step 2: Analyze results
-from COGITOpost import COGITO_analyze as coze
-COGITOTB = coze("your_vasp_directory/")
-COGITOTB.compare_to_DFT("your_vasp_directory/")
-COGITOTB.get_bandstructure()
-```
-
-## 📊 Example Results
-
-| Analysis Type | Output | Description |
-|---------------|--------|-------------|
-| **Band Structure** | ![Band Structure](docs/Si/compareDFT.png) | COGITO vs DFT comparison |
-| **COHP Analysis** | ![COHP](docs/Si/COHP_BS.png) | Bonding/antibonding contributions |
-| **Parameter Decay** | ![Decay](docs/Si/tbparams_decay.png) | Tight binding quality check |
-
-## 🛠️ Website Development
-
-This website is built with Jekyll and features:
-- **Auto-updating documentation** from the main COGITO repository
-- **Interactive Jupyter notebooks** embedded via NBViewer
-- **Responsive design** for mobile and desktop
-- **API documentation** auto-generated from source code
-
-### Local Development
-```bash
-git clone https://github.com/olipemil/cogito-website.git
-cd cogito-website
-bundle install
-bundle exec jekyll serve
-```
-
-## 📁 Repository Structure
-
-```
-cogito-website/
-├── api/                    # Auto-generated API documentation
-├── examples/               # Jupyter notebook examples
-├── tutorial/               # Step-by-step tutorials
-├── docs/                   # Static assets and images
-├── scripts/                # Automation scripts
-└── _layouts/               # Jekyll templates
-```
-
-## 🔄 Auto-Update System
+## Auto-Update System
 
 The website automatically updates when the main COGITO repository changes:
 - **API documentation** regenerated from source code docstrings
 - **Examples** updated from latest notebooks
 - **Cross-repository automation** via GitHub Actions
 
-## 🤝 Contributing
+## Contributing
 
-### Main COGITO Code
-Contribute to the main package: [**COGITO Repository**](https://github.com/olipemil/COGITO)
+**Main COGITO Code:** Contribute to the main package at [**COGITO Repository**](https://github.com/olipemil/COGITO)
 
-### Documentation & Website
-- Improve tutorials and examples
-- Fix documentation issues
-- Enhance website functionality
+**Documentation & Website:** Improve tutorials, fix documentation issues, or enhance website functionality.
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📮 Contact
+## Contact
 
 - **Main Repository**: [GitHub/COGITO](https://github.com/olipemil/COGITO)
 - **Issues**: [COGITO Issues](https://github.com/olipemil/COGITO/issues)
@@ -116,8 +92,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**[🔬 Main COGITO Repo](https://github.com/olipemil/COGITO)** |
-**[🚀 Quick Start](https://olipemil.github.io/cogito-website/examples/installation_setup.html)** |
-**[💻 Examples](https://olipemil.github.io/cogito-website/examples/)**
+**[Main COGITO Repo](https://github.com/olipemil/COGITO)** |
+**[Quick Start](https://olipemil.github.io/cogito-website/examples/installation_setup.html)** |
+**[Examples](https://olipemil.github.io/cogito-website/examples/)**
 
 </div>

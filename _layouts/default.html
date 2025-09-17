@@ -65,9 +65,17 @@
       .nav-toggle {
         width: 100%;
         text-align: left;
+        position: relative;
       }
 
-      .nav-toggle.expanded {
+      .nav-toggle::before {
+        content: "▶";
+        display: inline-block;
+        margin-right: 8px;
+        transition: transform 0.2s ease;
+      }
+
+      .nav-toggle.expanded::before {
         transform: rotate(90deg);
       }
 
@@ -159,7 +167,7 @@
 
           <div class="nav-section">
             <div class="nav-main-expandable">
-              <span class="nav-toggle" onclick="toggleSection('tutorial', '{{ site.baseurl }}/tutorial/')">▶ Tutorial</span>
+              <span class="nav-toggle" onclick="toggleSection('tutorial', '{{ site.baseurl }}/tutorial/')">Tutorial</span>
             </div>
             <div class="nav-subsection" id="tutorial-section">
               <a href="{{ site.baseurl }}/tutorial/#VASP" class="nav-sub">Run VASP</a>
@@ -172,7 +180,7 @@
 
           <div class="nav-section">
             <div class="nav-main-expandable">
-              <span class="nav-toggle" onclick="toggleSection('api', '{{ site.baseurl }}/api/')">▶ API Documentation</span>
+              <span class="nav-toggle" onclick="toggleSection('api', '{{ site.baseurl }}/api/')">API Documentation</span>
             </div>
             <div class="nav-subsection" id="api-section">
               <a href="{{ site.baseurl }}/api/cogito.html" class="nav-sub">COGITO Core</a>
@@ -183,7 +191,7 @@
 
           <div class="nav-section">
             <div class="nav-main-expandable">
-              <span class="nav-toggle" onclick="toggleSection('examples', '{{ site.baseurl }}/examples/')">▶ Examples</span>
+              <span class="nav-toggle" onclick="toggleSection('examples', '{{ site.baseurl }}/examples/')">Examples</span>
             </div>
             <div class="nav-subsection" id="examples-section">
               <a href="{{ site.baseurl }}/examples/installation_setup.html" class="nav-sub">Installation & Setup</a>
