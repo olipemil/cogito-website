@@ -830,4 +830,14 @@ Complete API reference for the COGITO package.
             print(f"Warning: {file_path} not found")
 
 if __name__ == "__main__":
-    main()
+    print("⚠️  The old API documentation generator has been replaced with Sphinx.")
+    print("🔄 Running new Sphinx-based documentation generator...")
+
+    import subprocess
+    import sys
+    from pathlib import Path
+
+    # Run the new Sphinx generator
+    sphinx_script = Path(__file__).parent / "generate_sphinx_docs.py"
+    result = subprocess.run([sys.executable, str(sphinx_script)])
+    sys.exit(result.returncode)
