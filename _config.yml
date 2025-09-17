@@ -1,4 +1,35 @@
 theme: jekyll-theme-dinky
 title: "COGITO"
+description: "Crystal Orbital Guided Iteration To atomic-Orbitals - Quantum chemistry from plane wave DFT"
+url: "https://olipemil.github.io"
+baseurl: "/cogito-website"
+
+# Navigation structure
+nav_structure:
+  - title: "Home"
+    url: "/"
+  - title: "Tutorial"
+    url: "/tutorial/"
+  - title: "API Documentation"
+    url: "/api/"
+  - title: "Examples"
+    url: "/examples/"
+
+# Plugin for better markdown support
+plugins:
+  - jekyll-relative-links
+
+# Markdown configuration
+markdown: kramdown
+highlighter: rouge
+
+# Collections for better organization
+collections:
+  api:
+    output: true
+    permalink: /:collection/:name/
+  examples:
+    output: true
+    permalink: /:collection/:name/
 
 

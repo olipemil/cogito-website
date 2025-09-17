@@ -46,12 +46,140 @@ title: COGITO - Home
         pointer-events: auto;
     }
 
+    /* New navigation styling */
+    .main-navigation {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 30px 0;
+        justify-content: center;
+    }
+
+    .nav-card {
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 25px;
+        flex: 1;
+        min-width: 250px;
+        max-width: 320px;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        text-align: center;
+    }
+
+    .nav-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        border-color: #2c5aa0;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    }
+
+    .nav-card h3 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.3em;
+    }
+
+    .nav-card h3 a {
+        text-decoration: none;
+        color: #2c5aa0;
+        display: block;
+    }
+
+    .nav-card h3 a:hover {
+        color: #1a365d;
+    }
+
+    .nav-card p {
+        color: #666;
+        margin-bottom: 15px;
+        font-size: 0.95em;
+    }
+
+    .nav-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .nav-features span {
+        background: #e3f2fd;
+        color: #1565c0;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 0.8em;
+        font-weight: 500;
+        border: 1px solid #bbdefb;
+    }
+
+    .nav-card:hover .nav-features span {
+        background: #2c5aa0;
+        color: white;
+        border-color: #2c5aa0;
+    }
+
+    /* API links styling */
+    .api-links {
+        background: #f1f8ff;
+        border: 1px solid #c0d3eb;
+        border-radius: 8px;
+        padding: 12px 20px;
+        margin: 15px 0 30px 0;
+        text-align: center;
+        font-size: 0.9em;
+    }
+
+    .api-links a {
+        color: #0366d6;
+        text-decoration: none;
+        font-weight: 500;
+        margin: 0 5px;
+    }
+
+    .api-links a:hover {
+        text-decoration: underline;
+        color: #0253ba;
+    }
+
 </style>
 
 
 ## Welcome to COGITO!
 
 Crystal Orbital Guided Iteration To atomic-Orbitals (COGITO) is a tool for obtaining quantum chemistry from plane wave DFT calculations. The code maps the plane wave basis to our COGITO basis. With this we can trace back which bonds are contributing to the independent particle energies. Leverging this, we can plot the crystal structure with their actual quantum chemical covalent bonds, determine origins of electronic structure, charge transfer, and more!
+
+<div class="main-navigation">
+    <div class="nav-card">
+        <h3><a href="{{ site.baseurl }}/tutorial/">📚 Tutorial</a></h3>
+        <p>Step-by-step guide to using COGITO</p>
+        <div class="nav-features">
+            <span>Installation</span>
+            <span>Basic Usage</span>
+            <span>Advanced Analysis</span>
+        </div>
+    </div>
+
+    <div class="nav-card">
+        <h3><a href="{{ site.baseurl }}/api/">🔧 API Documentation</a></h3>
+        <p>Complete reference for all COGITO functions</p>
+        <div class="nav-features">
+            <span>COGITO Core</span>
+            <span>Post-processing</span>
+            <span>Visualization</span>
+        </div>
+    </div>
+
+    <div class="nav-card">
+        <h3><a href="{{ site.baseurl }}/examples/">💻 Examples</a></h3>
+        <p>Interactive Jupyter notebook examples</p>
+        <div class="nav-features">
+            <span>Workflows</span>
+            <span>Tutorials</span>
+            <span>Use Cases</span>
+        </div>
+    </div>
+</div>
 
 Observe the bonding in the α-PbO structure by hovering over the bond lines. Solid lines indicate bonding while dashed lines indictate antibonding. The width of the line is proprotional to the magnitude of the bond energy.
 
@@ -61,9 +189,9 @@ Observe the bonding in the α-PbO structure by hovering over the bond lines. Sol
     </div>
 </div>
 
-## Quick Guide 
+## Quick Guide
 
-Click image for more detailed example in the tutorial page.
+Click images for detailed tutorials or use the links below to jump directly to API documentation.
 
 <h3 id="tight">Verify quality of COGITO run</h3>
 
@@ -82,6 +210,12 @@ Click image for more detailed example in the tutorial page.
     </div>
 </div>
 
+<div class="api-links">
+    📖 <a href="{{ site.baseurl }}/tutorial/#compareDFT">Tutorial</a> |
+    🔧 <a href="{{ site.baseurl }}/api/cogitopost.html#compare_to_dft">API: compare_to_DFT</a> |
+    💻 <a href="{{ site.baseurl }}/examples/cogito_example.html">Example Notebook</a>
+</div>
+
 <h3 id="bandstruc">Plot with band structure k-grid</h3>
 
 <div style="display: flex; justify-content: space-around;">
@@ -97,6 +231,12 @@ Click image for more detailed example in the tutorial page.
             <div class="overlay-text">Plot orbital projected<br>band structure</div>
         </a>
     </div>
+</div>
+
+<div class="api-links">
+    📖 <a href="{{ site.baseurl }}/tutorial/#COHPBS">Tutorial</a> |
+    🔧 <a href="{{ site.baseurl }}/api/cogitopost.html#get_cohp">API: get_COHP</a>, <a href="{{ site.baseurl }}/api/cogitopost.html#get_projectedbs">get_projectedBS</a> |
+    💻 <a href="{{ site.baseurl }}/examples/band_structure_analysis.html">Example Notebook</a>
 </div>
 
 <h3 id="uniform">Plot with uniform k-grid</h3>
@@ -118,5 +258,11 @@ Click image for more detailed example in the tutorial page.
             <div class="overlay-text">Plot crytstal with COGITO bonds</div>
         </a>
     </div>
+</div>
+
+<div class="api-links">
+    📖 <a href="{{ site.baseurl }}/tutorial/#projectDOS">Tutorial</a> |
+    🔧 <a href="{{ site.baseurl }}/api/cogitopost.html#get_projecteddos">API: get_projectedDOS</a>, <a href="{{ site.baseurl }}/api/cogitopost.html#get_bonds_figure">get_bonds_figure</a> |
+    💻 <a href="{{ site.baseurl }}/examples/crystal_bonding_visualization.html">Example Notebook</a>
 </div>  
 

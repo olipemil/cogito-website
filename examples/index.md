@@ -1,118 +1,130 @@
 ---
 layout: default
 title: Examples
+nav_order: 4
+has_children: true
 ---
 
-<style>
-/* Flex container for the page content */
-#page-content {
-    display: flex;
-    height: 100vh;
-    max_width: none;
-    width: 135%;
-    margin: 0;
-    padding: 0;
-}
+# COGITO Examples
 
-/* Left sidebar styling */
-#sideSelect {
-    width: 15%;
-    background-color: #f0f0f0;
-    border-right: 1px solid #ccc;
-    overflow-y: auto;
-}
+Interactive Jupyter notebook examples demonstrating COGITO's capabilities.
 
-/* Material list styling */
-#materialList {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#materialList li {
-    padding: 15px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-}
-
-#materialList li:hover {
-    background-color: #e0e0e0;
-}
-
-#materialList li.selected {
-    background-color: #b0c4de;
-    color: #fff;
-}
-
-/* Right content area styling */
-#content {
-    width: 85%;
-    overflow: hidden;
-}
-
-/* Embedded content styling */
-#materialFrame {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-</style>
-
-<!-- Page Content -->
-<div id="page-content">
-    <!-- Left Sidebar -->
-    <div id="sideSelect">
-        <ul id="materialList">
-            <li data-file="Si/bond_cohp_plot.html">Si</li>
-            <li data-file="PbO/bond_cohp_plot.html">PbO</li>
-            <li data-file="BaFeO3/bond_cohp_plot.html">BaFeO<sub>3</sub></li>
-            <li data-file="RbBiO3/bond_cohp_plot.html">RbBiO<sub>3</sub></li>
-            <li data-file="K2Sb2O6/bond_cohp_plot.html">KSbO<sub>3</sub></li>
-            <li data-file="Pb2Se2O6/bond_cohp_plot.html">PbSeO<sub>3</sub></li>
-            <li data-file="Lu4Cr4O12/bond_cohp_plot.html">LuCrO<sub>3</sub></li>
-            <li data-file="Na4Ta4O12/bond_cohp_plot.html">NaTaO<sub>3</sub></li>
-            <li data-file="Fe16N2.html">Fe<sub>16</sub>N<sub>2</sub></li>
-        </ul>
+<div class="examples-grid">
+    <div class="example-card">
+        <h3><a href="cogito_example.html">COGITO Example</a></h3>
+        <p>Complete walkthrough of COGITO analysis workflow</p>
+        <div class="example-tags">
+            <span class="tag">Band Structure</span>
+            <span class="tag">Orbital Analysis</span>
+        </div>
     </div>
 
-    <!-- Right Content Area -->
-    <div id="content">
-        <iframe id="materialFrame" src=""></iframe>
+    <div class="example-card">
+        <h3><a href="basic_installation_and_setup.html">Installation & Setup</a></h3>
+        <p>Get started with COGITO installation and basic configuration</p>
+        <div class="example-tags">
+            <span class="tag">Getting Started</span>
+        </div>
+    </div>
+
+    <div class="example-card">
+        <h3><a href="band_structure_analysis.html">Band Structure Analysis</a></h3>
+        <p>Advanced band structure analysis and visualization</p>
+        <div class="example-tags">
+            <span class="tag">Band Structure</span>
+            <span class="tag">Visualization</span>
+        </div>
+    </div>
+
+    <div class="example-card">
+        <h3><a href="cohp_coop_analysis.html">COHP/COOP Analysis</a></h3>
+        <p>Chemical bonding analysis using COHP and COOP</p>
+        <div class="example-tags">
+            <span class="tag">Bonding</span>
+            <span class="tag">COHP</span>
+        </div>
+    </div>
+
+    <div class="example-card">
+        <h3><a href="crystal_bonding_visualization.html">Crystal Bonding</a></h3>
+        <p>3D visualization of crystal structures with bonding</p>
+        <div class="example-tags">
+            <span class="tag">3D Visualization</span>
+            <span class="tag">Crystal Structure</span>
+        </div>
     </div>
 </div>
 
-<script>
-    // Get references to elements
-    const materialList = document.getElementById('materialList');
-    const materials = materialList.getElementsByTagName('li');
-    const materialFrame = document.getElementById('materialFrame');
+## Getting Started
 
-    // Function to handle material selection
-    function selectMaterial(event) {
-        // Remove 'selected' class from all materials
-        for (let i = 0; i < materials.length; i++) {
-            materials[i].classList.remove('selected');
-        }
+1. **[Download examples](https://github.com/olipemil/COGITO/tree/main/examples)** from the COGITO repository
+2. **Install dependencies** using the [installation guide](../tutorial/#COGITO)
+3. **Run notebooks** in your local Jupyter environment
 
-        // Add 'selected' class to clicked material
-        const selectedMaterial = event.target;
-        selectedMaterial.classList.add('selected');
+<div class="getting-started-note">
+💡 <strong>Tip:</strong> All examples are designed to work with the sample data included in the COGITO repository.
+</div>
 
-        // Get the data-file attribute to know which file to load
-        const fileToLoad = selectedMaterial.getAttribute('data-file');
+<style>
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
 
-        // Set the src of the iframe to the selected file
-        materialFrame.src = fileToLoad;
-    }
+.example-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    background: white;
+}
 
-    // Attach event listeners to each material
-    for (let i = 0; i < materials.length; i++) {
-        materials[i].addEventListener('click', selectMaterial);
-    }
+.example-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
 
-    // Optionally, select the first material by default
-    if (materials.length > 0) {
-        materials[0].click();
-    }
-</script>
+.example-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
 
+.example-card h3 a {
+    text-decoration: none;
+    color: #2c5aa0;
+}
+
+.example-card h3 a:hover {
+    text-decoration: underline;
+}
+
+.example-card p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.example-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: #e9ecef;
+    color: #495057;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.getting-started-note {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 20px 0;
+}
+</style>
