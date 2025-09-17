@@ -62,15 +62,12 @@
         position: relative;
       }
 
-      .nav-toggle:after {
-        content: "▶";
-        font-size: 10px;
-        position: absolute;
-        right: 5px;
-        transition: transform 0.2s ease;
+      .nav-toggle {
+        width: 100%;
+        text-align: left;
       }
 
-      .nav-toggle.expanded:after {
+      .nav-toggle.expanded {
         transform: rotate(90deg);
       }
 
@@ -157,13 +154,12 @@
         <!-- Enhanced Navigation Sidebar -->
         <nav class="enhanced-sidebar">
           <div class="nav-section">
-            <a href="{{ site.baseurl }}/" class="nav-main {% if page.url == '/' %}active{% endif %}">🏠 Home</a>
+            <a href="{{ site.baseurl }}/" class="nav-main {% if page.url == '/' %}active{% endif %}">Home</a>
           </div>
 
           <div class="nav-section">
             <div class="nav-main-expandable">
-              <span class="nav-toggle" onclick="toggleSection('tutorial')">📚 Tutorial</span>
-              <a href="{{ site.baseurl }}/tutorial/" class="nav-link {% if page.url contains '/tutorial' %}active{% endif %}">Overview</a>
+              <span class="nav-toggle" onclick="toggleSection('tutorial', '{{ site.baseurl }}/tutorial/')">▶ Tutorial</span>
             </div>
             <div class="nav-subsection" id="tutorial-section">
               <a href="{{ site.baseurl }}/tutorial/#VASP" class="nav-sub">Run VASP</a>
@@ -176,8 +172,7 @@
 
           <div class="nav-section">
             <div class="nav-main-expandable">
-              <span class="nav-toggle" onclick="toggleSection('api')">🔧 API Documentation</span>
-              <a href="{{ site.baseurl }}/api/" class="nav-link {% if page.url contains '/api' %}active{% endif %}">Overview</a>
+              <span class="nav-toggle" onclick="toggleSection('api', '{{ site.baseurl }}/api/')">▶ API Documentation</span>
             </div>
             <div class="nav-subsection" id="api-section">
               <a href="{{ site.baseurl }}/api/cogito.html" class="nav-sub">COGITO Core</a>
@@ -188,24 +183,13 @@
 
           <div class="nav-section">
             <div class="nav-main-expandable">
-              <span class="nav-toggle" onclick="toggleSection('examples')">💻 Examples</span>
-              <a href="{{ site.baseurl }}/examples/" class="nav-link {% if page.url contains '/examples' %}active{% endif %}">Overview</a>
+              <span class="nav-toggle" onclick="toggleSection('examples', '{{ site.baseurl }}/examples/')">▶ Examples</span>
             </div>
             <div class="nav-subsection" id="examples-section">
-              <a href="{{ site.baseurl }}/examples/basic_installation_and_setup.html" class="nav-sub">Installation</a>
-              <a href="{{ site.baseurl }}/examples/cogito_example.html" class="nav-sub">Complete Workflow</a>
-              <a href="{{ site.baseurl }}/examples/band_structure_analysis.html" class="nav-sub">Band Structure</a>
-              <a href="{{ site.baseurl }}/examples/cohp_coop_analysis.html" class="nav-sub">COHP Analysis</a>
-              <a href="{{ site.baseurl }}/examples/crystal_bonding_visualization.html" class="nav-sub">Crystal Bonding</a>
+              <a href="{{ site.baseurl }}/examples/installation_setup.html" class="nav-sub">Installation & Setup</a>
+              <a href="{{ site.baseurl }}/examples/basic_analysis.html" class="nav-sub">Basic Analysis</a>
+              <a href="{{ site.baseurl }}/examples/advanced_features.html" class="nav-sub">Advanced Features</a>
             </div>
-          </div>
-
-          <div class="nav-section">
-            <a href="{{ site.baseurl }}/functionality.html" class="nav-main {% if page.url contains 'functionality' %}active{% endif %}">⚙️ Functionality</a>
-          </div>
-
-          <div class="nav-section">
-            <a href="{{ site.baseurl }}/workflow.html" class="nav-main {% if page.url contains 'workflow' %}active{% endif %}">🔄 Workflow</a>
           </div>
         </nav>
 
@@ -223,16 +207,22 @@
 
     <!-- Enhanced sidebar JavaScript -->
     <script>
-      function toggleSection(sectionName) {
+      function toggleSection(sectionName, url) {
         const section = document.getElementById(sectionName + '-section');
         const toggle = event.target;
 
+        // Toggle section
         if (section.classList.contains('expanded')) {
           section.classList.remove('expanded');
           toggle.classList.remove('expanded');
         } else {
           section.classList.add('expanded');
           toggle.classList.add('expanded');
+        }
+
+        // Navigate to the page if URL provided
+        if (url) {
+          window.location.href = url;
         }
       }
 
@@ -241,11 +231,26 @@
         const currentPath = window.location.pathname;
 
         if (currentPath.includes('/tutorial')) {
-          toggleSection('tutorial');
+          const section = document.getElementById('tutorial-section');
+          const toggle = document.querySelector('[onclick*="tutorial"]');
+          if (section && toggle) {
+            section.classList.add('expanded');
+            toggle.classList.add('expanded');
+          }
         } else if (currentPath.includes('/api')) {
-          toggleSection('api');
+          const section = document.getElementById('api-section');
+          const toggle = document.querySelector('[onclick*="api"]');
+          if (section && toggle) {
+            section.classList.add('expanded');
+            toggle.classList.add('expanded');
+          }
         } else if (currentPath.includes('/examples')) {
-          toggleSection('examples');
+          const section = document.getElementById('examples-section');
+          const toggle = document.querySelector('[onclick*="examples"]');
+          if (section && toggle) {
+            section.classList.add('expanded');
+            toggle.classList.add('expanded');
+          }
         }
       });
     </script>

@@ -7,50 +7,34 @@ has_children: true
 
 # COGITO Examples
 
-Interactive Jupyter notebook examples demonstrating COGITO's capabilities.
+Interactive Jupyter notebook examples demonstrating COGITO's capabilities. All examples are based on the comprehensive COGITO tutorial notebook.
 
 <div class="examples-grid">
     <div class="example-card">
-        <h3><a href="cogito_example.html">COGITO Example</a></h3>
-        <p>Complete walkthrough of COGITO analysis workflow</p>
-        <div class="example-tags">
-            <span class="tag">Band Structure</span>
-            <span class="tag">Orbital Analysis</span>
-        </div>
-    </div>
-
-    <div class="example-card">
-        <h3><a href="basic_installation_and_setup.html">Installation & Setup</a></h3>
-        <p>Get started with COGITO installation and basic configuration</p>
+        <h3><a href="installation_setup.html">Installation & Setup</a></h3>
+        <p>Get started with COGITO installation and environment setup</p>
         <div class="example-tags">
             <span class="tag">Getting Started</span>
+            <span class="tag">Dependencies</span>
         </div>
     </div>
 
     <div class="example-card">
-        <h3><a href="band_structure_analysis.html">Band Structure Analysis</a></h3>
-        <p>Advanced band structure analysis and visualization</p>
+        <h3><a href="basic_analysis.html">Basic Analysis</a></h3>
+        <p>Core COGITO workflows: verification, band structure, and validation</p>
         <div class="example-tags">
             <span class="tag">Band Structure</span>
-            <span class="tag">Visualization</span>
+            <span class="tag">Verification</span>
         </div>
     </div>
 
     <div class="example-card">
-        <h3><a href="cohp_coop_analysis.html">COHP/COOP Analysis</a></h3>
-        <p>Chemical bonding analysis using COHP and COOP</p>
+        <h3><a href="advanced_features.html">Advanced Features</a></h3>
+        <p>COHP analysis, bonding visualization, and crystal chemistry</p>
         <div class="example-tags">
-            <span class="tag">Bonding</span>
             <span class="tag">COHP</span>
-        </div>
-    </div>
-
-    <div class="example-card">
-        <h3><a href="crystal_bonding_visualization.html">Crystal Bonding</a></h3>
-        <p>3D visualization of crystal structures with bonding</p>
-        <div class="example-tags">
             <span class="tag">3D Visualization</span>
-            <span class="tag">Crystal Structure</span>
+            <span class="tag">Bonding</span>
         </div>
     </div>
 </div>
