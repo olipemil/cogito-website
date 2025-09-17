@@ -23,8 +23,6 @@ This example demonstrates how to:
 
 ## Setting Up the Band Structure Class
 
-<div class='code-cell'>
-
 ```python
 # Import required modules
 from COGITOpost import COGITO_TB_Model as CoTB
@@ -41,19 +39,12 @@ my_CoTB.restrict_params(maximum_dist=15, minimum_value=0.00001)
 print("✅ Tight binding model created successfully")
 ```
 
-<div class='cell-output'>
-
+**Expected Output:**
 ```
 ✅ Tight binding model created successfully
 ```
 
-</div>
-
-</div>
-
 ## Generate Band Structure
-
-<div class='code-cell'>
 
 ```python
 # Create band structure with high-symmetry path
@@ -65,19 +56,12 @@ my_CoBS.plotBS()
 print("📊 Band structure plot generated: band_structure.png")
 ```
 
-<div class='cell-output'>
-
+**Expected Output:**
 ```
 📊 Band structure plot generated: band_structure.png
 ```
 
-</div>
-
-</div>
-
 ## Orbital Projected Band Structure
-
-<div class='code-cell'>
 
 ```python
 # Project onto specific orbitals
@@ -90,20 +74,13 @@ print("🎯 Orbital projected band structure created")
 print("📁 Output: projectedBS.html (interactive plot)")
 ```
 
-<div class='cell-output'>
-
+**Expected Output:**
 ```
 🎯 Orbital projected band structure created
 📁 Output: projectedBS.html (interactive plot)
 ```
 
-</div>
-
-</div>
-
 ## COHP Analysis
-
-<div class='code-cell'>
 
 ```python
 # Define orbital sets for COHP analysis
@@ -120,20 +97,13 @@ print("🔬 COHP analysis completed")
 print("📁 Output: COHP_BS.html (interactive plot)")
 ```
 
-<div class='cell-output'>
-
+**Expected Output:**
 ```
 🔬 COHP analysis completed
 📁 Output: COHP_BS.html (interactive plot)
 ```
 
-</div>
-
-</div>
-
 ## Interactive COHP Dashboard
-
-<div class='code-cell'>
 
 ```python
 # Launch interactive dashboard for COHP exploration
@@ -146,20 +116,13 @@ print("💡 This will open a web interface at http://127.0.0.1:8050/")
 # my_CoBS.make_COHP_dashapp()
 ```
 
-<div class='cell-output'>
-
+**Expected Output:**
 ```
 🚀 Launching interactive COHP dashboard...
 💡 This will open a web interface at http://127.0.0.1:8050/
 ```
 
-</div>
-
-</div>
-
 ## Advanced Analysis
-
-<div class='code-cell'>
 
 ```python
 # Custom k-point path analysis
@@ -180,17 +143,12 @@ band_gap = conduction_min - valence_max
 print(f"⚡ Band gap: {band_gap:.3f} eV")
 ```
 
-<div class='cell-output'>
-
+**Expected Output:**
 ```
 📏 K-point path length: 100 points
 🎵 Number of bands: 8
 ⚡ Band gap: 1.142 eV
 ```
-
-</div>
-
-</div>
 
 ## Visualization Tips
 
@@ -211,57 +169,11 @@ print(f"⚡ Band gap: {band_gap:.3f} eV")
 - [COGITO Example Workflow](cogito_example.html) - Complete analysis pipeline
 
 <style>
-.notebook-info {
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 20px 0;
-}
-
-.notebook-info p {
-    margin: 5px 0;
-}
-
-.code-cell {
-    background: #f8f8f8;
-    border-left: 4px solid #2c5aa0;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 4px;
-}
-
-.cell-output {
-    background: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
 .tip-box {
     background: #fff3cd;
     border: 1px solid #ffeaa7;
     border-radius: 8px;
     padding: 15px;
     margin: 20px 0;
-}
-
-.tip-box ul {
-    margin-bottom: 0;
-}
-
-.tip-box li {
-    margin-bottom: 8px;
-}
-
-.code-cell pre {
-    background: transparent;
-    border: none;
-    margin: 0;
-}
-
-.code-cell code {
-    background: transparent;
 }
 </style>

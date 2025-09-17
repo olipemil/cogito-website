@@ -9,23 +9,25 @@ import re
 from pathlib import Path
 from datetime import datetime
 
-def convert_notebook_to_jekyll(notebook_path, output_dir, template_vars=None):
-    """Convert a Jupyter notebook to Jekyll markdown with custom styling."""
+def embed_notebook_in_jekyll(notebook_path, output_dir, template_vars=None):
+    """Create Jekyll page that embeds the actual Jupyter notebook."""
 
     if template_vars is None:
         template_vars = {}
 
     notebook_name = Path(notebook_path).stem
+    notebook_filename = Path(notebook_path).name
 
-    try:
-        with open(notebook_path, 'r', encoding='utf-8') as f:
-            notebook = json.load(f)
+    # Extract title from first markdown cell or use filename
+    title = template_vars.get('title', notebook_name.replace('_', ' ').title())
 
-        # Extract title from first markdown cell or use filename
-        title = template_vars.get('title', notebook_name.replace('_', ' ').title())
+    # GitHub raw URL for the notebook
+    github_notebook_url = f"https://raw.githubusercontent.com/olipemil/COGITO/main/COGITO_paper/{notebook_filename}"
+    github_view_url = f"https://github.com/olipemil/COGITO/blob/main/COGITO_paper/{notebook_filename}"
+    nbviewer_url = f"https://nbviewer.org/github/olipemil/COGITO/blob/main/COGITO_paper/{notebook_filename}"
 
-        # Create Jekyll front matter
-        front_matter = f"""---
+    # Create Jekyll page that embeds the notebook
+    jekyll_content = f"""---
 layout: default
 title: {title}
 parent: Examples
@@ -34,133 +36,186 @@ nav_order: {template_vars.get('nav_order', 1)}
 
 # {title}
 
-<div class="notebook-info">
-    <p>📓 Interactive Jupyter notebook example</p>
-    <p>🔗 <a href="https://github.com/olipemil/COGITO/blob/main/COGITO_paper/{notebook_name}.ipynb" target="_blank">View on GitHub</a></p>
-    <p>⬇️ <a href="https://raw.githubusercontent.com/olipemil/COGITO/main/COGITO_paper/{notebook_name}.ipynb" download>Download notebook</a></p>
+<div class="notebook-controls">
+    <div class="notebook-info">
+        <p>📓 Interactive Jupyter notebook example</p>
+        <div class="notebook-buttons">
+            <a href="{nbviewer_url}" target="_blank" class="btn btn-primary">📖 View in NBViewer</a>
+            <a href="{github_view_url}" target="_blank" class="btn btn-secondary">🔗 View on GitHub</a>
+            <a href="{github_notebook_url}" download class="btn btn-success">⬇️ Download Notebook</a>
+        </div>
+    </div>
 </div>
 
-"""
+<div class="jupyter-notebook">
+    <iframe
+        src="{nbviewer_url}"
+        width="100%"
+        height="800"
+        frameborder="0"
+        title="{title} Jupyter Notebook">
+    </iframe>
+</div>
 
-        markdown_content = front_matter
+<!-- Fallback for if iframe doesn't work -->
+<div class="notebook-fallback" style="display: none;">
+    <div class="fallback-message">
+        <h3>🔧 Notebook Display</h3>
+        <p>If the notebook doesn't display above, you can:</p>
+        <ul>
+            <li><a href="{nbviewer_url}" target="_blank">View in NBViewer</a> (recommended)</li>
+            <li><a href="{github_view_url}" target="_blank">View on GitHub</a></li>
+            <li><a href="{github_notebook_url}" download>Download and run locally</a></li>
+        </ul>
+    </div>
+</div>
 
-        cell_count = 0
-        for cell in notebook.get('cells', []):
-            cell_count += 1
-
-            if cell['cell_type'] == 'markdown':
-                # Process markdown cells
-                source = ''.join(cell.get('source', []))
-                markdown_content += f"{source}\n\n"
-
-            elif cell['cell_type'] == 'code':
-                # Process code cells
-                source = ''.join(cell.get('source', []))
-
-                if source.strip():  # Only add non-empty code cells
-                    markdown_content += f"<div class='code-cell'>\n\n"
-                    markdown_content += f"```python\n{source}\n```\n\n"
-
-                    # Add outputs if they exist
-                    outputs = cell.get('outputs', [])
-                    if outputs:
-                        markdown_content += "<div class='cell-output'>\n\n"
-
-                        for output in outputs:
-                            if output.get('output_type') == 'stream':
-                                # Text output
-                                text = ''.join(output.get('text', []))
-                                if text.strip():
-                                    markdown_content += f"```\n{text}\n```\n\n"
-
-                            elif output.get('output_type') == 'execute_result' or output.get('output_type') == 'display_data':
-                                # Check for image outputs
-                                data = output.get('data', {})
-
-                                if 'image/png' in data:
-                                    # Handle embedded images
-                                    img_data = data['image/png']
-                                    markdown_content += f"<img src='data:image/png;base64,{img_data}' alt='Output plot' class='notebook-plot'/>\n\n"
-
-                                elif 'text/plain' in data:
-                                    # Handle text outputs
-                                    text = ''.join(data['text/plain'])
-                                    if text.strip():
-                                        markdown_content += f"```\n{text}\n```\n\n"
-
-                        markdown_content += "</div>\n\n"
-
-                    markdown_content += "</div>\n\n"
-
-        # Add custom CSS styling
-        styling = """
 <style>
-.notebook-info {
+.notebook-controls {{
+    margin: 20px 0;
+}}
+
+.notebook-info {{
     background: #f8f9fa;
     border: 1px solid #e9ecef;
     border-radius: 8px;
     padding: 15px;
-    margin: 20px 0;
-}
+    margin-bottom: 20px;
+}}
 
-.notebook-info p {
-    margin: 5px 0;
-}
+.notebook-info p {{
+    margin: 0 0 10px 0;
+    font-weight: 500;
+}}
 
-.code-cell {
-    background: #f8f8f8;
-    border-left: 4px solid #2c5aa0;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 4px;
-}
+.notebook-buttons {{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}}
 
-.cell-output {
-    background: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-.notebook-plot {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 10px auto;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.notebook-plot:hover {
-    transform: scale(1.02);
-    transition: transform 0.3s ease;
-}
-
-/* Code highlighting improvements */
-.code-cell pre {
-    background: transparent;
+.btn {{
+    padding: 8px 16px;
     border: none;
-    margin: 0;
-}
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-block;
+}}
 
-.code-cell code {
-    background: transparent;
-}
+.btn-primary {{
+    background: #2c5aa0;
+    color: white;
+}}
+
+.btn-primary:hover {{
+    background: #1a365d;
+    color: white;
+}}
+
+.btn-secondary {{
+    background: #6c757d;
+    color: white;
+}}
+
+.btn-secondary:hover {{
+    background: #545b62;
+    color: white;
+}}
+
+.btn-success {{
+    background: #28a745;
+    color: white;
+}}
+
+.btn-success:hover {{
+    background: #1e7e34;
+    color: white;
+}}
+
+.jupyter-notebook {{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}}
+
+.jupyter-notebook iframe {{
+    width: 100%;
+    min-height: 600px;
+    border: none;
+}}
+
+.fallback-message {{
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}}
+
+.fallback-message h3 {{
+    margin-top: 0;
+    color: #856404;
+}}
+
+.fallback-message ul {{
+    margin-bottom: 0;
+}}
+
+.fallback-message a {{
+    color: #856404;
+    font-weight: 500;
+}}
+
+/* Responsive design */
+@media (max-width: 768px) {{
+    .notebook-buttons {{
+        flex-direction: column;
+    }}
+
+    .jupyter-notebook iframe {{
+        height: 600px;
+    }}
+}}
 </style>
+
+<script>
+// Show fallback if iframe fails to load
+document.addEventListener('DOMContentLoaded', function() {{
+    const iframe = document.querySelector('.jupyter-notebook iframe');
+    const fallback = document.querySelector('.notebook-fallback');
+
+    iframe.addEventListener('error', function() {{
+        fallback.style.display = 'block';
+    }});
+
+    // Check if iframe loaded successfully after some time
+    setTimeout(function() {{
+        try {{
+            if (!iframe.contentDocument && !iframe.contentWindow) {{
+                fallback.style.display = 'block';
+            }}
+        }} catch (e) {{
+            // Cross-origin restrictions might trigger this
+            console.log('Iframe loaded (cross-origin)');
+        }}
+    }}, 3000);
+}});
+</script>
 """
 
-        markdown_content += styling
+    # Write the Jekyll file
+    output_file = output_dir / f"{notebook_name}.md"
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write(jekyll_content)
 
-        # Write the converted file
-        output_file = output_dir / f"{notebook_name}.md"
-        with open(output_file, 'w', encoding='utf-8') as f:
-            f.write(markdown_content)
+    print(f"Created embedded notebook page: {output_file}")
 
-        print(f"Converted {notebook_name}.ipynb to {output_file}")
-
-    except Exception as e:
-        print(f"Error converting {notebook_path}: {e}")
+    return output_file
 
 def create_examples_index():
     """Create the main examples index page."""
@@ -304,7 +359,7 @@ Interactive Jupyter notebook examples demonstrating COGITO's capabilities.
         f.write(index_content)
 
 def main():
-    """Main function to convert all notebooks."""
+    """Main function to embed all notebooks."""
 
     # Create examples directory
     examples_dir = Path('../examples')
@@ -313,10 +368,10 @@ def main():
     # Create examples index
     create_examples_index()
 
-    # Convert existing COGITO example notebook
+    # Embed existing COGITO example notebook
     cogito_notebook = '../../COGITO/COGITO_paper/COGITO_example.ipynb'
     if os.path.exists(cogito_notebook):
-        convert_notebook_to_jekyll(
+        embed_notebook_in_jekyll(
             cogito_notebook,
             examples_dir,
             {
@@ -324,21 +379,151 @@ def main():
                 'nav_order': 1
             }
         )
+    else:
+        # Create a placeholder that links to the notebook
+        create_notebook_placeholder(
+            'COGITO_example',
+            'COGITO Example Workflow',
+            examples_dir,
+            'COGITO_paper/COGITO_example.ipynb',
+            1
+        )
 
     # Convert other example notebooks from COGITO/examples if they exist
     cogito_examples_dir = Path('../../COGITO/examples')
     if cogito_examples_dir.exists():
+        nav_order = 2
         for notebook_file in cogito_examples_dir.glob('*.ipynb'):
-            convert_notebook_to_jekyll(
+            embed_notebook_in_jekyll(
                 notebook_file,
                 examples_dir,
                 {
                     'title': notebook_file.stem.replace('_', ' ').title(),
-                    'nav_order': 2
+                    'nav_order': nav_order
                 }
             )
+            nav_order += 1
 
-    print("Notebook conversion completed!")
+    print("Notebook embedding completed!")
+
+def create_notebook_placeholder(notebook_name, title, output_dir, github_path, nav_order):
+    """Create a placeholder page that links to a notebook on GitHub."""
+
+    github_notebook_url = f"https://raw.githubusercontent.com/olipemil/COGITO/main/{github_path}"
+    github_view_url = f"https://github.com/olipemil/COGITO/blob/main/{github_path}"
+    nbviewer_url = f"https://nbviewer.org/github/olipemil/COGITO/blob/main/{github_path}"
+
+    content = f"""---
+layout: default
+title: {title}
+parent: Examples
+nav_order: {nav_order}
+---
+
+# {title}
+
+<div class="notebook-controls">
+    <div class="notebook-info">
+        <p>📓 Interactive Jupyter notebook example</p>
+        <div class="notebook-buttons">
+            <a href="{nbviewer_url}" target="_blank" class="btn btn-primary">📖 View in NBViewer</a>
+            <a href="{github_view_url}" target="_blank" class="btn btn-secondary">🔗 View on GitHub</a>
+            <a href="{github_notebook_url}" download class="btn btn-success">⬇️ Download Notebook</a>
+        </div>
+    </div>
+</div>
+
+<div class="jupyter-notebook">
+    <iframe
+        src="{nbviewer_url}"
+        width="100%"
+        height="800"
+        frameborder="0"
+        title="{title} Jupyter Notebook">
+    </iframe>
+</div>
+
+<style>
+.notebook-controls {{
+    margin: 20px 0;
+}}
+
+.notebook-info {{
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}}
+
+.notebook-buttons {{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}}
+
+.btn {{
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-block;
+}}
+
+.btn-primary {{
+    background: #2c5aa0;
+    color: white;
+}}
+
+.btn-primary:hover {{
+    background: #1a365d;
+    color: white;
+}}
+
+.btn-secondary {{
+    background: #6c757d;
+    color: white;
+}}
+
+.btn-secondary:hover {{
+    background: #545b62;
+    color: white;
+}}
+
+.btn-success {{
+    background: #28a745;
+    color: white;
+}}
+
+.btn-success:hover {{
+    background: #1e7e34;
+    color: white;
+}}
+
+.jupyter-notebook {{
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}}
+
+.jupyter-notebook iframe {{
+    width: 100%;
+    min-height: 600px;
+    border: none;
+}}
+</style>
+"""
+
+    output_file = output_dir / f"{notebook_name}.md"
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+    print(f"Created notebook placeholder: {output_file}")
 
 if __name__ == "__main__":
     main()

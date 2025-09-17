@@ -22,8 +22,6 @@ Before installing COGITO, ensure you have:
 
 ## Installation
 
-<div class='code-cell'>
-
 ```python
 # Step 1: Clone the COGITO repository
 import subprocess
@@ -35,10 +33,6 @@ subprocess.run(["git", "clone", "https://github.com/olipemil/COGITO.git"])
 # Add COGITO to Python path
 sys.path.insert(0, './COGITO')
 ```
-
-</div>
-
-<div class='code-cell'>
 
 ```python
 # Step 2: Install required packages
@@ -57,11 +51,7 @@ for package in packages:
     subprocess.run([sys.executable, "-m", "pip", "install", package])
 ```
 
-</div>
-
 ## Verify Installation
-
-<div class='code-cell'>
 
 ```python
 # Test COGITO import
@@ -80,21 +70,14 @@ except ImportError as e:
     print(f"❌ Import error: {e}")
 ```
 
-<div class='cell-output'>
-
+**Expected Output:**
 ```
 ✅ COGITO imported successfully!
 ✅ COGITOpost imported successfully!
 ✅ All COGITO modules imported successfully!
 ```
 
-</div>
-
-</div>
-
 ## Basic Configuration
-
-<div class='code-cell'>
 
 ```python
 # Check your VASP calculation directory
@@ -114,8 +97,6 @@ for file in required_files:
         print(f"❌ {file} missing")
 ```
 
-</div>
-
 ## Next Steps
 
 <div class="getting-started-note">
@@ -129,34 +110,6 @@ for file in required_files:
 </div>
 
 <style>
-.notebook-info {
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 20px 0;
-}
-
-.notebook-info p {
-    margin: 5px 0;
-}
-
-.code-cell {
-    background: #f8f8f8;
-    border-left: 4px solid #2c5aa0;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 4px;
-}
-
-.cell-output {
-    background: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
 .getting-started-note {
     background: #d4edda;
     border: 1px solid #c3e6cb;
@@ -168,15 +121,5 @@ for file in required_files:
 .getting-started-note a {
     color: #155724;
     font-weight: 500;
-}
-
-.code-cell pre {
-    background: transparent;
-    border: none;
-    margin: 0;
-}
-
-.code-cell code {
-    background: transparent;
 }
 </style>

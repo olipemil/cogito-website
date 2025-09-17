@@ -11,6 +11,121 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <!-- Enhanced sidebar styling -->
+    <style>
+      .enhanced-sidebar {
+        margin-top: 20px;
+        font-size: 14px;
+      }
+
+      .nav-section {
+        margin-bottom: 8px;
+      }
+
+      .nav-main, .nav-link {
+        display: block;
+        color: #2c5aa0;
+        text-decoration: none;
+        padding: 6px 0;
+        font-weight: 500;
+        border-left: 3px solid transparent;
+        padding-left: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .nav-main:hover, .nav-link:hover {
+        color: #1a365d;
+        border-left-color: #2c5aa0;
+      }
+
+      .nav-main.active, .nav-link.active {
+        color: #1a365d;
+        border-left-color: #2c5aa0;
+        background-color: #f8f9fa;
+        font-weight: 600;
+      }
+
+      .nav-main-expandable {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav-toggle {
+        cursor: pointer;
+        color: #2c5aa0;
+        font-weight: 500;
+        padding: 6px 0;
+        user-select: none;
+        flex: 1;
+        position: relative;
+      }
+
+      .nav-toggle:after {
+        content: "▶";
+        font-size: 10px;
+        position: absolute;
+        right: 5px;
+        transition: transform 0.2s ease;
+      }
+
+      .nav-toggle.expanded:after {
+        transform: rotate(90deg);
+      }
+
+      .nav-toggle:hover {
+        color: #1a365d;
+      }
+
+      .nav-subsection {
+        margin-left: 15px;
+        border-left: 2px solid #e9ecef;
+        padding-left: 10px;
+        margin-top: 5px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .nav-subsection.expanded {
+        max-height: 200px;
+      }
+
+      .nav-sub {
+        display: block;
+        color: #666;
+        text-decoration: none;
+        padding: 4px 0;
+        font-size: 13px;
+        transition: color 0.2s ease;
+      }
+
+      .nav-sub:hover {
+        color: #2c5aa0;
+      }
+
+      /* Better code block styling */
+      pre {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+        padding: 12px !important;
+        margin: 10px 0 !important;
+      }
+
+      code {
+        font-size: 13px !important;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace !important;
+      }
+
+      /* Jupyter notebook styling improvements */
+      .jupyter-notebook iframe {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+    </style>
+
     {% include head-custom.html %}
   </head>
   <body>
@@ -39,11 +154,60 @@
         {% endif %}
 	-->
 	
-	<a href="{{ site.baseurl }}">Home</a><br>
+        <!-- Enhanced Navigation Sidebar -->
+        <nav class="enhanced-sidebar">
+          <div class="nav-section">
+            <a href="{{ site.baseurl }}/" class="nav-main {% if page.url == '/' %}active{% endif %}">🏠 Home</a>
+          </div>
 
-	<a href="{{ site.baseurl }}/tutorial">Tutorials</a><br>
+          <div class="nav-section">
+            <div class="nav-main-expandable">
+              <span class="nav-toggle" onclick="toggleSection('tutorial')">📚 Tutorial</span>
+              <a href="{{ site.baseurl }}/tutorial/" class="nav-link {% if page.url contains '/tutorial' %}active{% endif %}">Overview</a>
+            </div>
+            <div class="nav-subsection" id="tutorial-section">
+              <a href="{{ site.baseurl }}/tutorial/#VASP" class="nav-sub">Run VASP</a>
+              <a href="{{ site.baseurl }}/tutorial/#COGITO" class="nav-sub">Run COGITO</a>
+              <a href="{{ site.baseurl }}/tutorial/#tight" class="nav-sub">Tight Binding</a>
+              <a href="{{ site.baseurl }}/tutorial/#bandstruc" class="nav-sub">Band Structure</a>
+              <a href="{{ site.baseurl }}/tutorial/#uniform" class="nav-sub">Uniform Analysis</a>
+            </div>
+          </div>
 
-        <a href="{{ site.baseurl }}/examples">Examples</a><br>
+          <div class="nav-section">
+            <div class="nav-main-expandable">
+              <span class="nav-toggle" onclick="toggleSection('api')">🔧 API Documentation</span>
+              <a href="{{ site.baseurl }}/api/" class="nav-link {% if page.url contains '/api' %}active{% endif %}">Overview</a>
+            </div>
+            <div class="nav-subsection" id="api-section">
+              <a href="{{ site.baseurl }}/api/cogito.html" class="nav-sub">COGITO Core</a>
+              <a href="{{ site.baseurl }}/api/cogitopost.html" class="nav-sub">COGITOpost</a>
+              <a href="{{ site.baseurl }}/api/cogitoico.html" class="nav-sub">COGITOico</a>
+            </div>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-main-expandable">
+              <span class="nav-toggle" onclick="toggleSection('examples')">💻 Examples</span>
+              <a href="{{ site.baseurl }}/examples/" class="nav-link {% if page.url contains '/examples' %}active{% endif %}">Overview</a>
+            </div>
+            <div class="nav-subsection" id="examples-section">
+              <a href="{{ site.baseurl }}/examples/basic_installation_and_setup.html" class="nav-sub">Installation</a>
+              <a href="{{ site.baseurl }}/examples/cogito_example.html" class="nav-sub">Complete Workflow</a>
+              <a href="{{ site.baseurl }}/examples/band_structure_analysis.html" class="nav-sub">Band Structure</a>
+              <a href="{{ site.baseurl }}/examples/cohp_coop_analysis.html" class="nav-sub">COHP Analysis</a>
+              <a href="{{ site.baseurl }}/examples/crystal_bonding_visualization.html" class="nav-sub">Crystal Bonding</a>
+            </div>
+          </div>
+
+          <div class="nav-section">
+            <a href="{{ site.baseurl }}/functionality.html" class="nav-main {% if page.url contains 'functionality' %}active{% endif %}">⚙️ Functionality</a>
+          </div>
+
+          <div class="nav-section">
+            <a href="{{ site.baseurl }}/workflow.html" class="nav-main {% if page.url contains 'workflow' %}active{% endif %}">🔄 Workflow</a>
+          </div>
+        </nav>
 
       </header>
 
@@ -56,5 +220,34 @@
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <!-- Enhanced sidebar JavaScript -->
+    <script>
+      function toggleSection(sectionName) {
+        const section = document.getElementById(sectionName + '-section');
+        const toggle = event.target;
+
+        if (section.classList.contains('expanded')) {
+          section.classList.remove('expanded');
+          toggle.classList.remove('expanded');
+        } else {
+          section.classList.add('expanded');
+          toggle.classList.add('expanded');
+        }
+      }
+
+      // Auto-expand current section
+      document.addEventListener('DOMContentLoaded', function() {
+        const currentPath = window.location.pathname;
+
+        if (currentPath.includes('/tutorial')) {
+          toggleSection('tutorial');
+        } else if (currentPath.includes('/api')) {
+          toggleSection('api');
+        } else if (currentPath.includes('/examples')) {
+          toggleSection('examples');
+        }
+      });
+    </script>
   </body>
 </html>
