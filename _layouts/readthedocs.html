@@ -94,7 +94,7 @@ layout: default
 <style>
 /* --- Function blocks --- */
 .rtd-main dl.py.function {
-  background-color: #2980b9; /* deep blue */
+  background-color: #2980b9; /* deep blue background */
   border: 1px solid #1f5f85;
   padding: 0.8em;
   margin: 1.2em 0;
@@ -121,32 +121,36 @@ layout: default
 
 /* --- Class blocks --- */
 .rtd-main dl.py.class {
-  background-color: #f2f9ff; /* light blue */
-  border: 1px solid #cce5ff;
-  padding: 0.8em;
+  background: transparent; /* reset so it doesn't override functions */
+  border: none;
   margin: 1.2em 0;
-  border-radius: 6px;
-  position: relative;
+  padding: 0;
 }
 
-/* --- Solid blue bar across top of class --- */
-.rtd-main dl.py.class::before {
-  content: "";
-  display: block;
-  height: 6px;
-  background-color: #2980b9; /* deep blue */
-  border-radius: 6px 6px 0 0;
-  margin: -0.8em -0.8em 0 -0.8em; /* extend across container */
-}
-
-/* --- Class signature line --- */
+/* --- Class signature line only --- */
 .rtd-main dl.py.class > dt {
   font-family: monospace;
   font-weight: bold;
   font-style: normal;
   color: #000000; /* class name black */
-  background: transparent;
-  padding: 0.4em 0;
+  background-color: #f2f9ff; /* subtle background only behind definition */
+  border: 1px solid #cce5ff;
+  border-radius: 6px;
+  padding: 0.6em;
+  position: relative;
+}
+
+/* --- Solid deep blue bar across top of class signature --- */
+.rtd-main dl.py.class > dt::before {
+  content: "";
+  display: block;
+  height: 6px;
+  background-color: #2980b9; /* deep blue */
+  border-radius: 6px 6px 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 /* --- Variables in class definition (parameters after name) --- */
@@ -154,6 +158,7 @@ layout: default
   color: #1c4e6e; /* lighter deep blue */
 }
 </style>
+
 
 </style>
 
