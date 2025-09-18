@@ -1,143 +1,95 @@
-<!doctype html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ page.title }} - COGITO Documentation</title>
+---
+layout: default
+---
 
-    {% seo %}
-    <!-- Keep base site styles -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<div id="content-wrapper">
+  <!-- Sidebar (identical to default.html) -->
+  <aside id="sidebar" role="navigation">
+    <h2 class="site-title">{{ site.title | default: site.github.repository_name }}</h2>
+    <nav class="site-nav">
+      <ul>
+        {% for item in site.data.navigation %}
+        <li>
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </aside>
 
-    <!-- ReadTheDocs-like CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ '/assets/pygments.css' | relative_url }}" />
-    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/theme.css' | relative_url }}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Main content -->
+  <main id="main-content" role="main" class="rtd-main">
+    {{ content }}
+  </main>
+</div>
 
-    {% include head-custom.html %}
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">{{ site.title | default: site.github.repository_name }}</h1>
-        <p class="header">{{ site.description | default: site.github.project_tagline }}</p>
+<style>
+/* --- Match sidebar to default.html --- */
+#sidebar {
+  width: 220px; /* consistent with default */
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-right: 1px solid #ddd;
+}
 
-        <ul>
-          {% if site.show_downloads %}
-            <li class="download"><a class="buttons" href="{{ site.github.zip_url }}">Download ZIP</a></li>
-            <li class="download"><a class="buttons" href="{{ site.github.tar_url }}">Download TAR</a></li>
-          {% endif %}
-          <li><a class="buttons github" href="{{ site.github.repository_url }}">View On GitHub</a></li>
-        </ul>
+#sidebar .site-nav ul {
+  list-style: none;
+  padding-left: 0;
+}
 
-        <!-- Left Sidebar (default nav) -->
-        <nav class="enhanced-sidebar">
-          <div class="nav-section">
-            <a href="{{ site.baseurl }}/" class="nav-main {% if page.url == '/' %}active{% endif %}">Home</a>
-          </div>
+#sidebar .site-nav li {
+  margin: 0.4em 0;
+}
 
-          <div class="nav-section">
-            <div class="nav-main-expandable">
-              <span class="nav-toggle" onclick="toggleSection('tutorial', '{{ site.baseurl }}/tutorial/')">Tutorial</span>
-            </div>
-            <div class="nav-subsection" id="tutorial-section">
-              <a href="{{ site.baseurl }}/tutorial/#VASP" class="nav-sub">Run VASP</a>
-              <a href="{{ site.baseurl }}/tutorial/#COGITO" class="nav-sub">Run COGITO</a>
-              <a href="{{ site.baseurl }}/tutorial/#tight" class="nav-sub">Tight Binding</a>
-              <a href="{{ site.baseurl }}/tutorial/#bandstruc" class="nav-sub">Band Structure</a>
-              <a href="{{ site.baseurl }}/tutorial/#uniform" class="nav-sub">Uniform Analysis</a>
-            </div>
-          </div>
+#sidebar .site-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
 
-          <div class="nav-section">
-            <div class="nav-main-expandable">
-              <span class="nav-toggle" onclick="toggleSection('api', '{{ site.baseurl }}/api/')">API Documentation</span>
-            </div>
-            <div class="nav-subsection" id="api-section">
-              <a href="{{ site.baseurl }}/api/index.html" class="nav-sub">Overview</a>
-              <a href="{{ site.baseurl }}/api/cogito.html" class="nav-sub">COGITO Core</a>
-              <a href="{{ site.baseurl }}/api/cogitopost.html" class="nav-sub">COGITOpost</a>
-              <a href="{{ site.baseurl }}/api/cogitoico.html" class="nav-sub">COGITOico</a>
-            </div>
-          </div>
+/* --- Main text area aligned with default --- */
+.rtd-main {
+  margin-left: 240px; /* same offset as default.html */
+  padding: 30px;
+  max-width: 900px;
+}
 
-          <div class="nav-section">
-            <div class="nav-main-expandable">
-              <span class="nav-toggle" onclick="toggleSection('examples', '{{ site.baseurl }}/examples/')">Examples</span>
-            </div>
-            <div class="nav-subsection" id="examples-section">
-              <a href="{{ site.baseurl }}/examples/installation_setup.html" class="nav-sub">Installation & Setup</a>
-              <a href="{{ site.baseurl }}/examples/basic_analysis.html" class="nav-sub">Basic Analysis</a>
-              <a href="{{ site.baseurl }}/examples/advanced_features.html" class="nav-sub">Advanced Features</a>
-            </div>
-          </div>
-        </nav>
-      </header>
+/* --- ReadTheDocs style highlights --- */
+.rtd-main .section {
+  margin-bottom: 2em;
+}
 
-      <!-- Main content area with RDT formatting -->
-      <section class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-            <ul class="wy-breadcrumbs">
-              <li><a href="{{ site.baseurl }}/" class="icon icon-home"></a> &raquo;</li>
-              <li><a href="{{ '/api/' | relative_url }}">API Documentation</a> &raquo;</li>
-              <li>{{ page.title }}</li>
-              <li class="wy-breadcrumbs-aside">
-                <a href="https://github.com/olipemil/cogito-website" class="fa fa-github"> Edit on GitHub</a>
-              </li>
-            </ul>
-            <hr/>
-          </div>
+.rtd-main .section > h1,
+.rtd-main .section > h2,
+.rtd-main .section > h3 {
+  padding: 0.3em 0.6em;
+  background-color: #eef3f7; /* subtle blue for sections */
+  border-left: 4px solid #2980b9;
+  margin-top: 1.5em;
+}
 
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div itemprop="articleBody">
-              {{ content }}
-            </div>
-          </div>
+.rtd-main .function,
+.rtd-main .class {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 0.8em;
+  margin: 1.2em 0;
+  border-radius: 4px;
+}
 
-          <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-            {% if page.module == 'cogito' %}
-              <a href="{{ '/api/cogitopost.html' | relative_url }}" class="btn btn-neutral float-right" title="COGITOpost module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-            {% elsif page.module == 'cogitopost' %}
-              <a href="{{ '/api/cogito.html' | relative_url }}" class="btn btn-neutral float-left" title="COGITO module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-              <a href="{{ '/api/cogitoico.html' | relative_url }}" class="btn btn-neutral float-right" title="COGITOico module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-            {% elsif page.module == 'cogitoico' %}
-              <a href="{{ '/api/cogitopost.html' | relative_url }}" class="btn btn-neutral float-left" title="COGITOpost module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-            {% endif %}
-          </div>
-        </div>
-      </section>
+.rtd-main pre {
+  background-color: #2b2b2b;
+  color: #f8f8f2;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
 
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
-      </footer>
-    </div>
-
-    <!-- RDT Scripts -->
-    <script src="{{ '/assets/jquery.js' | relative_url }}"></script>
-    <script src="{{ '/assets/_sphinx_javascript_frameworks_compat.js' | relative_url }}"></script>
-    <script src="{{ '/assets/documentation_options.js' | relative_url }}"></script>
-    <script src="{{ '/assets/doctools.js' | relative_url }}"></script>
-    <script src="{{ '/assets/sphinx_highlight.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
-
-    <!-- Sidebar toggle script -->
-    <script>
-      function toggleSection(sectionName, url) {
-        const section = document.getElementById(sectionName + '-section');
-        const toggle = event.target;
-        if (section.classList.contains('expanded')) {
-          section.classList.remove('expanded');
-          toggle.classList.remove('expanded');
-        } else {
-          section.classList.add('expanded');
-          toggle.classList.add('expanded');
-        }
-        if (url) { window.location.href = url; }
-      }
-    </script>
-  </body>
-</html>
+/* Inline code */
+.rtd-main code {
+  background-color: #f2f2f2;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+</style>
 
