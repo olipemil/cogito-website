@@ -92,56 +92,28 @@ layout: default
   border-radius: 3px;
 }
 <style>
-/* --- Function blocks --- */
-.rtd-main dl.py.function {
-  background-color: #2980b9; /* deep blue background */
-  border: 1px solid #1f5f85;
-  padding: 0.8em;
-  margin: 1.2em 0;
-  border-radius: 6px;
-  color: #dfefff; /* light text inside */
-  border-left: 6px solid #1c4e6e; /* vertical blue bar */
-}
-
-/* --- Function signature line --- */
-.rtd-main dl.py.function > dt {
-  font-family: monospace;
-  font-weight: bold;
-  font-style: normal; /* not italic */
-  color: #ffffff; /* function name in white/bright */
-  background: transparent;
-  padding: 0.4em 0;
-  border-radius: 0;
-}
-
-/* --- Inside function text (params, etc.) --- */
-.rtd-main dl.py.function dd {
-  color: #dfefff; /* lighter blue for details */
+/* --- Section headers --- */
+.rtd-main h1, 
+.rtd-main h2, 
+.rtd-main h3 {
+  padding: 0.3em 0.6em;
+  background-color: #eef3f7;
+  border-left: 4px solid #2980b9;
+  margin-top: 1.5em;
 }
 
 /* --- Class blocks --- */
 .rtd-main dl.py.class {
-  background: transparent; /* reset so it doesn't override functions */
-  border: none;
-  margin: 1.2em 0;
-  padding: 0;
-}
-
-/* --- Class signature line only --- */
-.rtd-main dl.py.class > dt {
-  font-family: monospace;
-  font-weight: bold;
-  font-style: normal;
-  color: #000000; /* class name black */
-  background-color: #f2f9ff; /* subtle background only behind definition */
+  background-color: #f2f9ff; /* light blue */
   border: 1px solid #cce5ff;
+  padding: 0.8em;
+  margin: 1.2em 0;
   border-radius: 6px;
-  padding: 0.6em;
   position: relative;
 }
 
-/* --- Solid deep blue bar across top of class signature --- */
-.rtd-main dl.py.class > dt::before {
+/* Add solid deep blue bar at top of class block */
+.rtd-main dl.py.class::before {
   content: "";
   display: block;
   height: 6px;
@@ -153,12 +125,67 @@ layout: default
   right: 0;
 }
 
-/* --- Variables in class definition (parameters after name) --- */
+/* Class signature line */
+.rtd-main dl.py.class > dt {
+  font-family: monospace;
+  font-weight: bold;
+  color: #000000; /* black for class name */
+  background-color: #e9f3ff;
+  padding: 0.4em;
+  border-radius: 4px;
+}
+
+/* Class definition parameters */
 .rtd-main dl.py.class > dt .sig-param {
   color: #1c4e6e; /* lighter deep blue */
 }
-</style>
 
+/* --- Method blocks --- */
+.rtd-main dl.py.method {
+  background-color: #f9f9f9; /* light gray */
+  border: 1px solid #ddd;
+  padding: 0.6em;
+  margin: 1em 0;
+  border-radius: 6px;
+}
+
+/* Method signature line */
+.rtd-main dl.py.method > dt {
+  font-family: monospace;
+  font-weight: bold;
+  color: #333;
+  background-color: #efefef;
+  padding: 0.4em;
+  border-radius: 4px;
+}
+
+/* --- Function blocks (top-level functions) --- */
+.rtd-main dl.py.function {
+  background-color: #2980b9; /* deep blue background */
+  border: 1px solid #1f5f85;
+  padding: 0.8em;
+  margin: 1.2em 0;
+  border-radius: 6px;
+  color: #dfefff; /* light text */
+  border-left: 8px solid #1c4e6e; /* vertical bar */
+}
+
+/* Function signature line */
+.rtd-main dl.py.function > dt {
+  font-family: monospace;
+  font-weight: bold;
+  font-style: normal; /* not italic */
+  color: #ffffff; /* white for function name */
+  background: transparent;
+  padding: 0.4em 0;
+  border-radius: 0;
+}
+
+/* Function inner details */
+.rtd-main dl.py.function dd {
+  color: #dfefff; /* light blue text */
+}
+</style>
 
 </style>
 
