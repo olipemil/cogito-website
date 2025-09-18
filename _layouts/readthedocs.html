@@ -113,7 +113,7 @@ layout: default
 }
 
 /* Add solid deep blue bar at top of class block */
-.rtd-main dl.py.class::before {
+.rtd-main dl.py.class > dt::before {
   content: "";
   display: block;
   height: 6px;
@@ -130,7 +130,7 @@ layout: default
   font-family: monospace;
   font-weight: bold;
   color: #000000; /* black for class name */
-  background-color: #e9f3ff;
+  background-color: #b6b8b8;
   padding: 0.4em;
   border-radius: 4px;
 }
@@ -154,7 +154,7 @@ layout: default
   font-family: monospace;
   font-weight: bold;
   color: #333;
-  background-color: #efefef;
+  background-color: #f2c585; /*efefef;*/
   padding: 0.4em;
   border-radius: 4px;
 }
@@ -171,7 +171,7 @@ layout: default
 }
 
 /* Function signature line */
-.rtd-main dl.py.function > dt {
+.rtd-main dl.py.method > dt {
   font-family: monospace;
   font-weight: bold;
   font-style: normal; /* not italic */
@@ -182,7 +182,7 @@ layout: default
 }
 
 /* Function inner details */
-.rtd-main dl.py.function dd {
+.rtd-main dl.py.method > dt .sig-param {
   color: #dfefff; /* light blue text */
 }
 </style>
