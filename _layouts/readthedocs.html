@@ -3,9 +3,11 @@ layout: default
 ---
 
 <div id="content-wrapper">
-  <!-- Sidebar (identical to default.html) -->
+  <!-- Dynamic API Sidebar -->
   <aside id="sidebar" role="navigation">
     <h2 class="site-title">{{ site.title | default: site.github.repository_name }}</h2>
+
+    <!-- Main Navigation -->
     <nav class="site-nav">
       <ul>
         {% for item in site.data.navigation %}
@@ -15,6 +17,26 @@ layout: default
         {% endfor %}
       </ul>
     </nav>
+
+    <!-- API Documentation Section -->
+    <div class="api-nav">
+      <h3>API Reference</h3>
+      <ul class="api-modules">
+        {% assign api_pages = site.pages | where_exp: "page", "page.path contains 'api/'" | where_exp: "page", "page.name != 'index.md'" | sort: "nav_order" %}
+        {% for api_page in api_pages %}
+          <li class="{% if page.url == api_page.url %}current{% endif %}">
+            <a href="{{ api_page.url | relative_url }}">{{ api_page.title }}</a>
+
+            <!-- Show TOC for current page -->
+            {% if page.url == api_page.url %}
+              <ul class="toc-list" id="page-toc">
+                <!-- TOC will be populated by JavaScript -->
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </aside>
 
   <!-- Main content -->
@@ -45,6 +67,87 @@ layout: default
   text-decoration: none;
   color: #333;
   font-weight: 500;
+}
+
+/* --- API Navigation --- */
+.api-nav {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.api-nav h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.api-modules {
+  list-style: none;
+  padding-left: 0;
+}
+
+.api-modules > li {
+  margin: 5px 0;
+}
+
+.api-modules > li.current {
+  background-color: #e8f4f8;
+  border-radius: 3px;
+  padding: 2px 5px;
+}
+
+.api-modules > li.current > a {
+  color: #2980b9;
+  font-weight: bold;
+}
+
+.api-modules a {
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  display: block;
+  padding: 3px 0;
+}
+
+.api-modules a:hover {
+  color: #2980b9;
+}
+
+/* --- Table of Contents --- */
+.toc-list {
+  list-style: none;
+  padding-left: 15px;
+  margin-top: 5px;
+  font-size: 11px;
+}
+
+.toc-list li {
+  margin: 2px 0;
+}
+
+.toc-list a {
+  color: #666;
+  text-decoration: none;
+  padding: 1px 0;
+  display: block;
+}
+
+.toc-list a:hover {
+  color: #2980b9;
+}
+
+.toc-list .toc-class {
+  font-weight: bold;
+  color: #1c4e6e;
+}
+
+.toc-list .toc-method {
+  padding-left: 10px;
+  color: #555;
 }
 
 /* --- Main text area aligned with default --- */
@@ -121,4 +224,74 @@ layout: default
 </style>
 
 </style>
+
+<!-- JavaScript for dynamic table of contents -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tocContainer = document.getElementById('page-toc');
+    if (!tocContainer) return;
+
+    const mainContent = document.querySelector('.rtd-main');
+    if (!mainContent) return;
+
+    // Find all class and method definitions
+    const classElements = mainContent.querySelectorAll('dl.py.class');
+    const methodElements = mainContent.querySelectorAll('dl.py.method');
+
+    let tocHTML = '';
+
+    // Process classes
+    classElements.forEach(function(classEl) {
+        const classHeader = classEl.querySelector('dt');
+        if (classHeader) {
+            const className = classHeader.textContent.split('(')[0].split('.').pop();
+            const classId = classHeader.id || 'class-' + className.toLowerCase();
+
+            tocHTML += `<li><a href="#${classId}" class="toc-class">${className}</a></li>`;
+
+            // Find methods within this class
+            let nextEl = classEl.nextElementSibling;
+            while (nextEl && nextEl.classList.contains('py') && nextEl.classList.contains('method')) {
+                const methodHeader = nextEl.querySelector('dt');
+                if (methodHeader) {
+                    const methodName = methodHeader.querySelector('.sig-name');
+                    if (methodName) {
+                        const methodId = methodHeader.id || 'method-' + methodName.textContent.toLowerCase();
+                        tocHTML += `<li><a href="#${methodId}" class="toc-method">${methodName.textContent}</a></li>`;
+                    }
+                }
+                nextEl = nextEl.nextElementSibling;
+            }
+        }
+    });
+
+    // Process standalone methods (not within classes)
+    methodElements.forEach(function(methodEl) {
+        const methodHeader = methodEl.querySelector('dt');
+        if (methodHeader) {
+            const methodName = methodHeader.querySelector('.sig-name');
+            if (methodName) {
+                const methodId = methodHeader.id || 'method-' + methodName.textContent.toLowerCase();
+                tocHTML += `<li><a href="#${methodId}" class="toc-method">${methodName.textContent}</a></li>`;
+            }
+        }
+    });
+
+    if (tocHTML) {
+        tocContainer.innerHTML = tocHTML;
+    }
+
+    // Smooth scrolling for TOC links
+    tocContainer.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+            e.preventDefault();
+            const targetId = e.target.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});
+</script>
 
