@@ -118,27 +118,35 @@ layout: default
   font-size: 0.8em;
 }
 
-/* --- Field list & bullet spacing --- */
+/* --- Field list / parameters block --- */
+.rtd-main dl.field-list.simple {
+    margin: 0.3em 0;     /* spacing from surrounding content */
+    padding: 0;          /* no extra padding around the block */
+}
+
+/* Remove default <dd> spacing */
 .rtd-main dl.field-list.simple dd {
-    margin: 0;           /* remove vertical spacing around <dd> */
-    padding-left: 1em;   /* indent from dt label */
+    margin: 0;           /* no vertical spacing */
+    padding-left: 0.5em; /* indent a little from dt label */
 }
 
+/* Bullet list inside dd */
 .rtd-main dl.field-list.simple dd ul.simple {
-    margin: 0;           /* remove extra vertical spacing around <ul> */
-    padding-left: 1.2em; /* indent bullets */
-    line-height: 1.2;    /* tighten lines inside the list */
+    margin: 0;           /* remove extra spacing above/below list */
+    padding-left: 1.2em; /* proper indent for bullets */
+    line-height: 1.2;    /* tighten line spacing */
 }
 
+/* Each list item */
 .rtd-main dl.field-list.simple dd ul.simple li {
-    margin: 0;           /* remove extra spacing around <li> */
+    margin: 0;           /* no extra spacing above/below bullet */
     padding-left: 0;     /* no extra padding */
 }
 
+/* Paragraph inside each bullet */
 .rtd-main dl.field-list.simple dd ul.simple li p {
-    margin: 0.1em 0;     /* tighten spacing between lines inside each bullet */
+    margin: 0;           /* reduce space inside each line */
 }
-
 
 </style>
 
