@@ -117,17 +117,17 @@ layout: default
   color: #768760; /* light green text */
   font-size: 0.8em;
 }
-
-/* --- Bullet points in main content --- */
-.rtd-main ul, .rtd-main ol {
-  margin: 0;            /* remove top/bottom margin of the list */
-  padding-left: 0.2em;  /* indentation for bullets */
+/* --- Field lists and bullets in API docs --- */
+.rtd-main dl.field-list.simple,
+.rtd-main dl.field-list.simple dd ul.simple,
+.rtd-main dl.field-list.simple dd li {
+    margin: 0;         /* remove extra vertical space */
+    padding: 0;        /* remove extra padding */
+    line-height: 1.2;  /* tighten line spacing */
 }
 
-.rtd-main li {
-  margin: 0.2em 0;      /* reduce spacing between bullet points */
-  line-height: 1.2;     /* adjust line spacing inside each bullet */
+.rtd-main dl.field-list.simple dd li {
+    margin: 0.1em 0;   /* small spacing between list items */
 }
-
 </style>
 
