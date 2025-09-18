@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title }} - COGITO Documentation</title>
+
+    <!-- ReadTheDocs CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/pygments.css' | relative_url }}" />
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/theme.css' | relative_url }}" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <!-- ReadTheDocs JavaScript -->
+    <script src="{{ '/assets/jquery.js' | relative_url }}"></script>
+    <script src="{{ '/assets/_sphinx_javascript_frameworks_compat.js' | relative_url }}"></script>
+    <script src="{{ '/assets/documentation_options.js' | relative_url }}"></script>
+    <script src="{{ '/assets/doctools.js' | relative_url }}"></script>
+    <script src="{{ '/assets/sphinx_highlight.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+</head>
+
+<body class="wy-body-for-nav">
+    <div class="wy-grid-for-nav">
+        <!-- ReadTheDocs Navigation Sidebar -->
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+            <div class="wy-side-scroll">
+                <div class="wy-side-nav-search" style="background: #2c5aa0">
+                    <a href="{{ site.baseurl }}/" class="icon icon-home">COGITO</a>
+                    <div role="search">
+                        <form id="rtd-search-form" class="wy-form" action="{{ '/search.html' | relative_url }}" method="get">
+                            <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+                            <input type="hidden" name="check_keywords" value="yes" />
+                            <input type="hidden" name="area" value="default" />
+                        </form>
+                    </div>
+                </div>
+
+                <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+                    <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+                    <ul class="current">
+                        <li class="toctree-l1 {% if page.module == 'cogito' %}current{% endif %}">
+                            <a class="reference internal" href="{{ '/api/cogito.html' | relative_url }}">COGITO module</a>
+                        </li>
+                        <li class="toctree-l1 {% if page.module == 'cogitopost' %}current{% endif %}">
+                            <a class="reference internal" href="{{ '/api/cogitopost.html' | relative_url }}">COGITOpost module</a>
+                        </li>
+                        <li class="toctree-l1 {% if page.module == 'cogitoico' %}current{% endif %}">
+                            <a class="reference internal" href="{{ '/api/cogitoico.html' | relative_url }}">COGITOico module</a>
+                        </li>
+                    </ul>
+
+                    <!-- Module-specific navigation -->
+                    {% if page.module == 'cogito' %}
+                    <ul class="current">
+                        <li class="toctree-l2"><a class="reference internal" href="#COGITO.COGITO">COGITO</a></li>
+                    </ul>
+                    {% endif %}
+
+                    {% if page.module == 'cogitopost' %}
+                    <ul class="current">
+                        <li class="toctree-l2"><a class="reference internal" href="#COGITOpost.COGITO_TB_Model">COGITO_TB_Model</a></li>
+                        <li class="toctree-l2"><a class="reference internal" href="#COGITOpost.COGITO_BAND">COGITO_BAND</a></li>
+                        <li class="toctree-l2"><a class="reference internal" href="#COGITOpost.COGITO_UNIFORM">COGITO_UNIFORM</a></li>
+                        <li class="toctree-l2"><a class="reference internal" href="#COGITOpost.COGITO_BS_widget">COGITO_BS_widget</a></li>
+                    </ul>
+                    {% endif %}
+
+                    {% if page.module == 'cogitoico' %}
+                    <ul class="current">
+                        <li class="toctree-l2"><a class="reference internal" href="#COGITOico.COGITO_ICO">COGITO_ICO</a></li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+            <nav class="wy-nav-top" aria-label="Mobile navigation menu">
+                <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+                <a href="{{ site.baseurl }}/">COGITO</a>
+            </nav>
+
+            <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+                        <ul class="wy-breadcrumbs">
+                            <li><a href="{{ site.baseurl }}/" class="icon icon-home"></a> &raquo;</li>
+                            <li><a href="{{ '/api/' | relative_url }}">API Documentation</a> &raquo;</li>
+                            <li>{{ page.title }}</li>
+                            <li class="wy-breadcrumbs-aside">
+                                <a href="https://github.com/olipemil/cogito-website" class="fa fa-github"> Edit on GitHub</a>
+                            </li>
+                        </ul>
+                        <hr/>
+                    </div>
+
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            {{ content }}
+                        </div>
+                    </div>
+
+                    <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+                        {% if page.module == 'cogito' %}
+                        <a href="{{ '/api/cogitopost.html' | relative_url }}" class="btn btn-neutral float-right" title="COGITOpost module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+                        {% elsif page.module == 'cogitopost' %}
+                        <a href="{{ '/api/cogito.html' | relative_url }}" class="btn btn-neutral float-left" title="COGITO module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+                        <a href="{{ '/api/cogitoico.html' | relative_url }}" class="btn btn-neutral float-right" title="COGITOico module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+                        {% elsif page.module == 'cogitoico' %}
+                        <a href="{{ '/api/cogitopost.html' | relative_url }}" class="btn btn-neutral float-left" title="COGITOpost module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
