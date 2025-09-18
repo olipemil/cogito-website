@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: readthedocs
 title: COGITO Core API
 module: cogito
 nav_order: 2
