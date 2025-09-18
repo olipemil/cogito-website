@@ -101,8 +101,10 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">wavecar_dir</span><span class="p">,</span><span class="n">readmode</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">spin_polar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        intialize the calculation</span>
+
 <span class="sd">        :param wavecar_dir - str: The directory with all the VASP output files</span>
 <span class="sd">        :param readmode - bool: If true, the code should have been run with readmode=False to generate output files;</span>
+
 <span class="sd">                            will not read VASP output files or run orbital convergence and projection</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;initializing COGITO&quot;</span><span class="p">)</span>
@@ -392,14 +394,18 @@
 <span class="sd">        :param irreducible_grid -- bool: Whether or not the kpoint grid is irreducible. True for ISYM=1|2|3; False for ISYM=-1 (does not work with ISYM=0)</span>
 <span class="sd">        :param verbose -- str: how much to ouput, includes 0,1,2,3. Higher numbers result in more output</span>
 <span class="sd">        :param include_excited -- int: how much to include excited orbital states, includes 0, 1, 2. To do this best avoid using POTCARs with semi-core states.</span>
+
 <span class="sd">                                    0 includes no excited orbital states (only ones which are partially occupied in isolated atom)</span>
 <span class="sd">                                    1 includes some excited states (if the POTCAR has the excited states + another higher one of the same l) (generally includes p orbital for d block)</span>
 <span class="sd">                                    2 includes maximally recommended states (condition of 1 + if the energy listed is the same as in isolated atom) (generally includes p orbitals for 1&amp;2nd row)</span>
+
 <span class="sd">        :param plot_orbs -- bool: Plot the radial converged orbital being fit to Gaussian functions</span>
 <span class="sd">        :param plot_projBS -- bool: Plot the orbital projected bandstructure (not BS if the kpt grid is uniform)</span>
 <span class="sd">        :param plot_projDOS -- bool: Plot the orbital projected density of states (not correct DOS unless kpt grid is uniform)</span>
 <span class="sd">        :param orbs -- dictionary: The orbitals to plot the projection of. Defaults to all orbitals.</span>
+
 <span class="sd">                        FORMAT: {&quot;element1&quot;:[orbital types]} e.g. {&quot;Si&quot;:[&quot;s&quot;,&quot;p&quot;],&quot;C&quot;:[&quot;s&quot;,&quot;p&quot;]}</span>
+
 <span class="sd">        :param minimum_orb_energy -- float: The lower limit to add semi-core states in the POTCAR into the COGITO basis. Uses the atomic orbital energy listed in POTCAR.</span>
 <span class="sd">        :param min_duplicate_energy -- float: The lower limit to add semi-core states when there is another valence state of the same l quantum number in the POTCAR into the COGITO basis. Uses the atomic orbital energy listed in POTCAR.</span>
 
@@ -1256,6 +1262,7 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates the 3D initial orbitals in real space from the pseudo radial orbitals.</span>
 <span class="sd">        Also sets the amount of orbitals by looping through atoms and their orbitals, thus intializes many orbital-dependent variables</span>
+
 <span class="sd">        :param orbfactor -- float: multipled by the radial part of the pseudo radial orbital to either shrink or grow them</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -2187,6 +2194,7 @@
 <span class="sd">        This procedes by ____</span>
 <span class="sd">        </span>
 <span class="sd">        :param num_steps -- int: Maximum number of steps to perform the convergence;</span>
+
 <span class="sd">                                Setting equal to 0 with run the standard direct algorithm where |X_a&gt; = sum_n(c_na |Y_n&gt;)</span>
 <span class="sd">                                Where |Y_n&gt; are the set of band (equal to number of orbitals) of the highest projection</span>
 <span class="sd">                                </span>
@@ -4721,6 +4729,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">optimize_band_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">band_opt</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">orb_opt</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">orb_orth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        :param kpt: disentangle for a certain kpt, if None do all kpts</span>
+
 <span class="sd">        :return: set of band which minimizes the difference between the orbital states left after and the band set orbital states;   maybe later: also minimize overlap between Lowdin orthogonalized band sets</span>
 <span class="sd">        outline:</span>
 <span class="sd">        start by finding the lowest band with projectibilty &lt; 0.8</span>
@@ -8297,6 +8306,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param prim_vec: three float tuples representing the primitive vectors</span>
 <span class="sd">    :param prim_coord: list of float tuples for primitive coordinates</span>
+
 <span class="sd">    :return: list of float tuples for cartesian coordinates</span>
 <span class="sd">            ex: cart_coord = _red_to_cart((a1,a2,a3),prim_coord)</span>
 <span class="sd">    &quot;&quot;&quot;</span>

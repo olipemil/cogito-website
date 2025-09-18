@@ -32,113 +32,101 @@ def cleanup_temp_copy():
         shutil.rmtree(TEMP_COGITO_PATH)
         print(f"✓ Cleaned up temporary copy")
 
-def convert_param_format_to_google(docstring):
-    """Convert @param format to Google-style docstring format."""
+def convert_param_format_to_sphinx(docstring):
+    """Convert @param format to proper Sphinx format and fix structure."""
     if not docstring:
         return docstring
 
     lines = docstring.split('\n')
     converted_lines = []
-    args_section = []
-    returns_section = []
-    raises_section = []
-    in_args = False
-    in_returns = False
-    in_raises = False
 
-    for line in lines:
+    for i, line in enumerate(lines):
+        # Convert @param to :param format
+        if line.strip().startswith('@param '):
+            line = line.replace('@param ', ':param ')
+        elif line.strip().startswith('@return'):
+            line = line.replace('@return', ':returns')
+        elif line.strip().startswith('@raises '):
+            line = line.replace('@raises ', ':raises ')
+
+        converted_lines.append(line)
+
+    # Now fix structural issues for proper Sphinx parsing
+    fixed_lines = []
+    i = 0
+    while i < len(converted_lines):
+        line = converted_lines[i]
         stripped = line.strip()
 
-        # Handle @param lines
-        if stripped.startswith('@param '):
-            if not in_args:
-                in_args = True
-                in_returns = False
-                in_raises = False
-            # Extract parameter info: @param name: description
-            match = re.match(r'@param\s+(\w+):\s*(.*)', stripped)
-            if match:
-                param_name, description = match.groups()
-                args_section.append(f"        {param_name}: {description}")
+        # If this is a :param line, ensure proper formatting
+        if stripped.startswith(':param '):
+            # Add blank line before first param if needed
+            if fixed_lines and fixed_lines[-1].strip() and not fixed_lines[-1].strip().startswith(':'):
+                fixed_lines.append('')
 
-        # Handle @return lines
-        elif stripped.startswith('@return'):
-            if not in_returns:
-                in_returns = True
-                in_args = False
-                in_raises = False
-            # Extract return info: @return: description or @returns: description
-            match = re.match(r'@returns?:?\s*(.*)', stripped)
-            if match:
-                description = match.group(1)
-                if description:
-                    returns_section.append(f"        {description}")
+            fixed_lines.append(line)
 
-        # Handle @raises lines
-        elif stripped.startswith('@raises '):
-            if not in_raises:
-                in_raises = True
-                in_args = False
-                in_returns = False
-            # Extract raises info: @raises Exception: description
-            match = re.match(r'@raises\s+(\w+):\s*(.*)', stripped)
-            if match:
-                exception, description = match.groups()
-                raises_section.append(f"        {exception}: {description}")
+            # Look ahead to group all parameters together
+            j = i + 1
+            while j < len(converted_lines) and converted_lines[j].strip().startswith(':param '):
+                fixed_lines.append(converted_lines[j])
+                j += 1
 
-        # Regular docstring lines
+            # Add blank line after params if there's more content
+            if j < len(converted_lines) and converted_lines[j].strip():
+                fixed_lines.append('')
+
+            i = j - 1  # Will be incremented at end of loop
+
+        # If this is a :returns line, ensure proper formatting
+        elif stripped.startswith(':returns'):
+            # Add blank line before if needed
+            if fixed_lines and fixed_lines[-1].strip() and not fixed_lines[-1].strip().startswith(':'):
+                fixed_lines.append('')
+            fixed_lines.append(line)
+            # Add blank line after if there's more content
+            if i + 1 < len(converted_lines) and converted_lines[i + 1].strip():
+                fixed_lines.append('')
+
         else:
-            # If we were collecting special sections, add them now
-            if (in_args or in_returns or in_raises) and stripped and not stripped.startswith('@'):
-                in_args = in_returns = in_raises = False
+            fixed_lines.append(line)
 
-            # Only add non-@param/@return/@raises lines
-            if not any(stripped.startswith(prefix) for prefix in ['@param ', '@return', '@raises ']):
-                converted_lines.append(line)
+        i += 1
 
-    # Add collected sections to the docstring
-    result_lines = converted_lines
-
-    if args_section:
-        result_lines.append("")
-        result_lines.append("    Args:")
-        result_lines.extend(args_section)
-
-    if returns_section:
-        result_lines.append("")
-        result_lines.append("    Returns:")
-        result_lines.extend(returns_section)
-
-    if raises_section:
-        result_lines.append("")
-        result_lines.append("    Raises:")
-        result_lines.extend(raises_section)
-
-    return '\n'.join(result_lines)
+    return '\n'.join(fixed_lines)
 
 def process_python_file(file_path):
     """Process a single Python file to convert @param format."""
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Find all docstrings and convert them
-    # This regex finds triple-quoted strings that are likely docstrings
-    pattern = r'(""")(.*?)("""|\'\'\'.*?\'\'\')'
-
-    def replace_docstring(match):
+    # Find all docstrings and convert them - handle both """ and ''' formats
+    # First handle triple double quotes
+    def replace_double_docstring(match):
         start_quote = match.group(1)
         docstring_content = match.group(2)
         end_quote = match.group(3)
+        converted_content = convert_param_format_to_sphinx(docstring_content)
+        return start_quote + converted_content + end_quote
 
-        converted_content = convert_param_format_to_google(docstring_content)
-        return start_quote + converted_content + '"""'
+    # First pass: handle """ docstrings
+    pattern_double = r'(""")(.*?)(""")'
+    content = re.sub(pattern_double, replace_double_docstring, content, flags=re.DOTALL)
 
-    # Apply conversion
-    converted_content = re.sub(pattern, replace_docstring, content, flags=re.DOTALL)
+    # Second pass: handle ''' docstrings
+    def replace_single_docstring(match):
+        start_quote = match.group(1)
+        docstring_content = match.group(2)
+        end_quote = match.group(3)
+        converted_content = convert_param_format_to_sphinx(docstring_content)
+        return start_quote + converted_content + end_quote
+
+    pattern_single = r'(\'\'\')(.*?)(\'\'\')'
+    content = re.sub(pattern_single, replace_single_docstring, content, flags=re.DOTALL)
 
     # Write back the converted content
     with open(file_path, 'w', encoding='utf-8') as f:
-        f.write(converted_content)
+        f.write(content)
 
 def convert_temp_files():
     """Convert the temporary Python files."""

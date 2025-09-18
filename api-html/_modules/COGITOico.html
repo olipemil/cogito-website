@@ -91,10 +91,11 @@
                  <span class="n">spin_polar</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Initializes the</span>
-<span class="sd">        @param directory: The path for the input files</span>
-<span class="sd">        @param verbose: How much will be printed (0 is least)</span>
-<span class="sd">        @param file_suffix: The suffix to the TBparams and overlaps files</span>
-<span class="sd">        @param orbs_orth: Whether the orbitals are orthogonal, if from COGITO this is always False</span>
+
+<span class="sd">        :param directory: The path for the input files</span>
+<span class="sd">        :param verbose: How much will be printed (0 is least)</span>
+<span class="sd">        :param file_suffix: The suffix to the TBparams and overlaps files</span>
+<span class="sd">        :param orbs_orth: Whether the orbitals are orthogonal, if from COGITO this is always False</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">directory</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
@@ -542,10 +543,9 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This function reads in the orbitals as coefficents for a gaussian expansion.</span>
 <span class="sd">        The information in &#39;orbitals.npy&#39; is combined with the orbital data in &#39;tb_input.txt&#39;.</span>
-<span class="sd">        </span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        file: Orbital file&quot;&quot;&quot;</span>
+<span class="sd">        :param file: Orbital file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">orbital_coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">+</span> <span class="n">file</span><span class="p">)[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">sph_harm_key</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">+</span> <span class="n">file</span><span class="p">)[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -619,20 +619,27 @@
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        this will plot the crystal structure atoms with line weighted by iCOHP</span>
 <span class="sd">        each line should also be hoverable to reveal the number and amounts that are s-s,s-p, and p-p</span>
-<span class="sd">        @param energy_cutoff: This is the minimum bond magnitude that will be plotted</span>
-<span class="sd">        @param elem_colors: Colors for the elements based on order in tb_input. Length of list should be the number of</span>
+
+<span class="sd">        :param energy_cutoff: This is the minimum bond magnitude that will be plotted</span>
+<span class="sd">        :param elem_colors: Colors for the elements based on order in tb_input. Length of list should be the number of</span>
+
 <span class="sd">                            unique elements. Can either be integer list to reference the default colors or list of</span>
 <span class="sd">                            plotly compatable colors.</span>
-<span class="sd">        @param atom_colors: Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
+
+<span class="sd">        :param atom_colors: Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
+
 <span class="sd">                            atoms in the primitive cell. Can either be integer list to reference the default colors or</span>
 <span class="sd">                            list of plotly compatable colors. If not set defaults to elem_colors.</span>
-<span class="sd">        @param atom_labels: List of atom labels as a string.</span>
-<span class="sd">        @param plot_atom: Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
-<span class="sd">        @param one_atom: Whether only the atom defined in plot_atom should be plotted; default is False</span>
-<span class="sd">        @param bond_max: The maximum bond distance that will be plotted outside the primitive cell</span>
-<span class="sd">        @param fovy: field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+
+<span class="sd">        :param atom_labels: List of atom labels as a string.</span>
+<span class="sd">        :param plot_atom: Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
+<span class="sd">        :param one_atom: Whether only the atom defined in plot_atom should be plotted; default is False</span>
+<span class="sd">        :param bond_max: The maximum bond distance that will be plotted outside the primitive cell</span>
+<span class="sd">        :param fovy: field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+
 <span class="sd">                        Set between 3 (for close to orthographic) and 30 (for good perspective depth).</span>
-<span class="sd">        @return: Nothing</span>
+
+<span class="sd">        :returns: Nothing</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;NN_index&#39;</span><span class="p">):</span>
@@ -1297,31 +1304,42 @@
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        this will plot the crystal structure atoms with line weighted by iCOHP</span>
 <span class="sd">        each line should also be hoverable to reveal the number and amounts that are s-s,s-p, and p-p</span>
-<span class="sd">        @param energy_cutoff: This is the minimum bond magnitude that will be plotted</span>
-<span class="sd">        @param bond_max: The maximum bond distance that will be plotted outside the primitive cell</span>
-<span class="sd">        @param elem_colors: Colors for the elements based on order in tb_input. Length of list should be the number of</span>
+
+<span class="sd">        :param energy_cutoff: This is the minimum bond magnitude that will be plotted</span>
+<span class="sd">        :param bond_max: The maximum bond distance that will be plotted outside the primitive cell</span>
+<span class="sd">        :param elem_colors: Colors for the elements based on order in tb_input. Length of list should be the number of</span>
+
 <span class="sd">                            unique elements. Can either be integer list to reference the default colors or list of</span>
 <span class="sd">                            plotly compatable colors.</span>
-<span class="sd">        @param atom_colors: Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
+
+<span class="sd">        :param atom_colors: Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
+
 <span class="sd">                            atoms in the primitive cell. Can either be integer list to reference the default colors or</span>
 <span class="sd">                            list of plotly compatable colors. If not set defaults to elem_colors.</span>
-<span class="sd">        @param atom_labels: List of atom labels as a string.</span>
-<span class="sd">        @param auto_labels: Different options for plotting includes: (can include multiple in the string)</span>
+
+<span class="sd">        :param atom_labels: List of atom labels as a string.</span>
+<span class="sd">        :param auto_labels: Different options for plotting includes: (can include multiple in the string)</span>
+
 <span class="sd">                            &quot;mulliken&quot; - plots the onsite charge and mag (if spin_polar) on atoms by mulliken population (overrides atom_labels)</span>
 <span class="sd">                            &quot;full&quot; - plots the charge and magnetics moments (if spin_polar) on atoms and bonds (overrides atom_labels)</span>
 <span class="sd">                            &quot;color&quot; - colors the atoms and bonds based on their charge (overrides atom_colors or elem_colors)</span>
 <span class="sd">                            &quot;color mag&quot; - colors the atoms and bonds based on their magnetic moments (overrides atom_colors or elem_colors)</span>
 <span class="sd">                            NOTE: Only use &quot;mulliken&quot; OR &quot;full&quot;, NOT both</span>
-<span class="sd">        @param plot_atom: Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
-<span class="sd">        @param one_atom: Whether only the atom defined in plot_atom should be plotted; default is False</span>
-<span class="sd">        @param fovy: field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+
+<span class="sd">        :param plot_atom: Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
+<span class="sd">        :param one_atom: Whether only the atom defined in plot_atom should be plotted; default is False</span>
+<span class="sd">        :param fovy: field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+
 <span class="sd">                        Set between 3 (for close to orthographic) and 30 (for good perspective depth).</span>
-<span class="sd">        @param return_fig: If False, this function saves figure to crystal_bonds.html. If True, this function will return the plotly figure object</span>
-<span class="sd">        @param only_prim_atoms: If True, only the atoms within the primitive cell are plotted.</span>
+
+<span class="sd">        :param return_fig: If False, this function saves figure to crystal_bonds.html. If True, this function will return the plotly figure object</span>
+<span class="sd">        :param only_prim_atoms: If True, only the atoms within the primitive cell are plotted.</span>
+
 <span class="sd">                                If False, atoms are added outside the primitive cell if the atom has a bond to an atom</span>
 <span class="sd">                                inside the primtive cell that meets energy_cutoff and bond_max criteria.</span>
 <span class="sd">                                Default is set in code False if self.numAtoms &lt; 30, otherwise set to True</span>
-<span class="sd">        @return: Depend on return_fig parameter.</span>
+
+<span class="sd">        :returns: Depend on return_fig parameter.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="k">if</span> <span class="n">only_prim_atoms</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">numAtoms</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
@@ -2389,14 +2407,18 @@
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        This is a function which will generate populate the cartXYZ grid with values for the bond density between</span>
 <span class="sd">        the atoms given using the orbCOOP provided.</span>
-<span class="sd">        @param atmind1: The atom number for the first atom</span>
-<span class="sd">        @param atmind2: The atom number for the second atom</span>
-<span class="sd">        @param center1: The center of the first atom (not using self.primATOMs)</span>
-<span class="sd">        @param center2: The center of the second atom (not using self.primATOMs)</span>
-<span class="sd">        @param orbCOOP: The orbCOOP which reveals how much of each orbital combo that is included in the bond.</span>
+
+<span class="sd">        :param atmind1: The atom number for the first atom</span>
+<span class="sd">        :param atmind2: The atom number for the second atom</span>
+<span class="sd">        :param center1: The center of the first atom (not using self.primATOMs)</span>
+<span class="sd">        :param center2: The center of the second atom (not using self.primATOMs)</span>
+<span class="sd">        :param orbCOOP: The orbCOOP which reveals how much of each orbital combo that is included in the bond.</span>
+
 <span class="sd">                        Dimension nxm where n is the # of orbitals for atom 1 and m is # of orbitals for atom 2.</span>
-<span class="sd">        @param cartXYZ: The 3D flattened grid that the bond density is calculated on</span>
-<span class="sd">        @return: A 1D array  (3D flattened) of the bond density</span>
+
+<span class="sd">        :param cartXYZ: The 3D flattened grid that the bond density is calculated on</span>
+
+<span class="sd">        :returns: A 1D array  (3D flattened) of the bond density</span>
 <span class="sd">        &#39;&#39;&#39;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;real_orbcoeffs&#39;</span><span class="p">):</span>
@@ -2473,28 +2495,37 @@
 <span class="sd">        Plots the crystal structure atoms with bonds plotted based on iCOHP</span>
 <span class="sd">        Each line should also be hoverable to reveal the number and amounts that are s-s,s-p, and p-p</span>
 <span class="sd">        The charge and magnetic moment will also be plotted acording to auto_label</span>
-<span class="sd">        @param energy_cutoff: This is the minimum bond magnitude that will be plotted</span>
-<span class="sd">        @param iso_max: The positive isosurface for plotting the bonds.</span>
-<span class="sd">        @param iso_min: The negative isosurface for plotting the bonds.</span>
-<span class="sd">        @param elem_colors: Colors for the elements based on order in tb_input. Length of list should be the number of</span>
+
+<span class="sd">        :param energy_cutoff: This is the minimum bond magnitude that will be plotted</span>
+<span class="sd">        :param iso_max: The positive isosurface for plotting the bonds.</span>
+<span class="sd">        :param iso_min: The negative isosurface for plotting the bonds.</span>
+<span class="sd">        :param elem_colors: Colors for the elements based on order in tb_input. Length of list should be the number of</span>
+
 <span class="sd">                            unique elements. Can either be integer list to reference the default colors or list of</span>
 <span class="sd">                            plotly compatable colors.</span>
-<span class="sd">        @param atom_colors: Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
+
+<span class="sd">        :param atom_colors: Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
+
 <span class="sd">                            atoms in the primitive cell. Can either be integer list to reference the default colors or</span>
 <span class="sd">                            list of plotly compatable colors. If not set defaults to elem_colors.</span>
-<span class="sd">        @param atom_labels: List of atom labels as a string.</span>
-<span class="sd">        @param auto_label: Different options for plotting includes: (can include multiple in the string)</span>
+
+<span class="sd">        :param atom_labels: List of atom labels as a string.</span>
+<span class="sd">        :param auto_label: Different options for plotting includes: (can include multiple in the string)</span>
+
 <span class="sd">                            &quot;mulliken&quot; - plots the onsite charge and mag (if spin_polar) on atoms by mulliken population (overrides atom_labels)</span>
 <span class="sd">                            &quot;full&quot; - plots the charge and magnetics moments (if spin_polar) on atoms and bonds (overrides atom_labels)</span>
 <span class="sd">                            &quot;color&quot; - colors the atoms and bonds based on their charge (overrides atom_colors or elem_colors)</span>
 <span class="sd">                            &quot;color mag&quot; - colors the atoms and bonds based on their magnetic moments (overrides atom_colors or elem_colors)</span>
 <span class="sd">                            NOTE: Only use &quot;mulliken&quot; OR &quot;full&quot;, NOT both</span>
-<span class="sd">        @param plot_atom: Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
-<span class="sd">        @param one_atom: Whether only the atom defined in plot_atom should be plotted; default is False</span>
-<span class="sd">        @param bond_max: The maximum bond distance that will be plotted outside the primitive cell</span>
-<span class="sd">        @param fovy: field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+
+<span class="sd">        :param plot_atom: Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
+<span class="sd">        :param one_atom: Whether only the atom defined in plot_atom should be plotted; default is False</span>
+<span class="sd">        :param bond_max: The maximum bond distance that will be plotted outside the primitive cell</span>
+<span class="sd">        :param fovy: field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+
 <span class="sd">                        Set between 3 (for close to orthographic) and 30 (for good perspective depth).</span>
-<span class="sd">        @return: Nothing, but saves plotly figure to &#39;crystal_bonds.html&#39;</span>
+
+<span class="sd">        :returns: Nothing, but saves plotly figure to &#39;crystal_bonds.html&#39;</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
         <span class="kn">from</span><span class="w"> </span><span class="nn">skimage.measure</span><span class="w"> </span><span class="kn">import</span> <span class="n">marching_cubes</span>
@@ -3821,16 +3852,14 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_COHP</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">orbs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">NN</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">include_onsite</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">just_one</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the COHP for the given orbitals and nearest neighbors</span>
-<span class="sd">        </span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        self: An object of the class COGITO_BAND or COGITO_UNIFORM</span>
-<span class="sd">        orbs: either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
-<span class="sd">        NN: An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
-<span class="sd">        include_onsite: Includes atomic orbital energy terms (H_ab(R) where R=0 and a=b) instead of just bonding terms</span>
+<span class="sd">        :param self: An object of the class COGITO_BAND or COGITO_UNIFORM</span>
+<span class="sd">        :param orbs: either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
+<span class="sd">        :param NN: An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
+<span class="sd">        :param include_onsite: Includes atomic orbital energy terms (H_ab(R) where R=0 and a=b) instead of just bonding terms</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        returns COHP values in a [kpt,band] dimension&quot;&quot;&quot;</span>
+<span class="sd">        :returns: returns COHP values in a [kpt,band] dimension</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">orbs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
             <span class="n">firstorbs</span> <span class="o">=</span> <span class="p">[]</span>
@@ -3926,16 +3955,14 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_COOP</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">orbs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">NN</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">include_onsite</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">spin</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the COHP for the given orbitals and nearest neighbors</span>
-<span class="sd">        </span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        self: An object of the class COGITO_BAND or COGITO_UNIFORM</span>
-<span class="sd">        orbs: either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
-<span class="sd">        NN: An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
-<span class="sd">        include_onsite: Includes atomic orbital energy terms (H_ab(R) where R=0 and a=b) instead of just bonding terms</span>
+<span class="sd">        :param self: An object of the class COGITO_BAND or COGITO_UNIFORM</span>
+<span class="sd">        :param orbs: either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
+<span class="sd">        :param NN: An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
+<span class="sd">        :param include_onsite: Includes atomic orbital energy terms (H_ab(R) where R=0 and a=b) instead of just bonding terms</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        returns COHP values in a [kpt,band] dimension&quot;&quot;&quot;</span>
+<span class="sd">        :returns: returns COHP values in a [kpt,band] dimension</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">orbs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
             <span class="n">firstorbs</span> <span class="o">=</span> <span class="p">[]</span>
@@ -4098,6 +4125,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param prim_vec: three float tuples representing the primitive vectors</span>
 <span class="sd">    :param prim_coord: list of float tuples for primitive coordinates</span>
+
 <span class="sd">    :return: list of float tuples for cartesian coordinates</span>
 <span class="sd">            ex: cart_coord = _red_to_cart((a1,a2,a3),prim_coord)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
