@@ -111,41 +111,27 @@ layout: default
   border-radius: 6px;
   position: relative;
 }
-
-/* Add solid deep blue bar at top of class block */
-.rtd-main dl.py.class > dt::before {
-  content: "";
-  display: block;
-  height: 6px;
-  background-color: #2980b9; /* deep blue */
-  border-radius: 6px 6px 0 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
 /* Class signature line */
 .rtd-main dl.py.class > dt {
   font-family: monospace;
   font-weight: bold;
   color: #000000; /* black for class name */
-  background-color: #cad9b6;
-  padding: 0.2em;
+  background-color: #c9c9c9;
+  padding: 0.0em;
   border-radius: 4px;
   border-top: 8px solid #2980b9
 }
 
 /* Class definition parameters */
 .rtd-main dl.py.class > dt .sig-param {
-  color: #768760; /* lighter deep blue */
+  color: #768760; /* lighter deep green */
 }
 
 /* --- Method blocks --- */
 .rtd-main dl.py.method {
   background-color: #f9f9f9; /* light gray */
   border: 1px solid #ddd;
-  padding: 0.1em;
+  padding: 0.2em;
   margin: 0.4em 0;
   border-radius: 6px;
 }
@@ -154,11 +140,12 @@ layout: default
 .rtd-main dl.py.method > dt {
   font-family: monospace;
   font-weight: bold;
+  font-style: normal;
   color: #000000;
-  background-color: #6fa4c9;
-  padding: 0.2em;
+  background-color: #92b9d1;
+  padding: 0.0em;
   border-radius: 4px;
-  border-left: 8px solid #1c4e6e;
+  border-left: 5px solid #1c4e6e;
 }
 
 /* Function inner details */
