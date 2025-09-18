@@ -1,0 +1,101 @@
+/* Custom CSS for COGITO API Documentation - Jekyll Integration */
+
+/* Base API section styling that matches Jekyll theme */
+.api-container {
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Module headers */
+.api-module-header {
+    background: linear-gradient(135deg, #2c5aa0 0%, #1a365d 100%);
+    color: white;
+    padding: 20px 25px;
+    margin: 30px 0 20px 0;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.2);
+}
+
+/* Class/Function sections */
+.api-section {
+    margin: 25px 0;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.api-header {
+    background: #f6f8fa;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e1e4e8;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c5aa0;
+}
+
+/* Function/method signatures */
+.api-signature {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    margin: 15px 20px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    color: #2c5aa0;
+    font-weight: 500;
+}
+
+/* Parameters section styling */
+.api-parameters {
+    background: #fafbfc;
+    padding: 20px 25px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.api-parameters h4,
+.api-parameters h5 {
+    color: #2c5aa0;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #2c5aa0;
+    display: inline-block;
+}
+
+/* Parameter lists */
+.api-parameters ul {
+    margin: 12px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.api-parameters li {
+    margin: 12px 0;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 6px;
+    border-left: 4px solid #2c5aa0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.api-parameters li strong {
+    color: #2c5aa0;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 120px;
+}
+
+/* Jekyll content integration */
+.content .api-container {
+    margin-top: 0;
+}

@@ -1,13 +1,3 @@
----
-layout: default
-title: API Documentation
-nav_order: 1
-parent: API Documentation
----
-
-
-<link rel="stylesheet" href="{{ '/docs/_static/api-docs.css' | relative_url }}">
-
 # COGITO Documentation
 
 Welcome to the COGITO (Crystal Orbital Guided Iteration To atomic-Orbitals) documentation.

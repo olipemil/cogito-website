@@ -1,13 +1,3 @@
----
-layout: default
-title: COGITO Core API
-nav_order: 2
-parent: API Documentation
----
-
-
-<link rel="stylesheet" href="{{ '/docs/_static/api-docs.css' | relative_url }}">
-
 # COGITO module
 
 ### *class* COGITO.COGITO(wavecar_dir, readmode=False, spin=0, spin_polar=False)

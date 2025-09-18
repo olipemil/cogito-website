@@ -1,13 +1,3 @@
----
-layout: default
-title: COGITOico API
-nav_order: 4
-parent: API Documentation
----
-
-
-<link rel="stylesheet" href="{{ '/docs/_static/api-docs.css' | relative_url }}">
-
 # COGITOico module
 
 ### *class* COGITOico.COGITO_ICO(directory, verbose=0, file_suffix='', orbs_orth=False, spin_polar=False)

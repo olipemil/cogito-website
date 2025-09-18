@@ -1,0 +1,687 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COGITOico module &mdash; COGITO 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="COGITOpost module" href="COGITOpost.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2c5aa0" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            COGITO
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="COGITO.html">COGITO module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.COGITO"><code class="docutils literal notranslate"><span class="pre">COGITO</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.__init__"><code class="docutils literal notranslate"><span class="pre">COGITO.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.generate_TBmodel"><code class="docutils literal notranslate"><span class="pre">COGITO.generate_TBmodel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.test_initialorbs"><code class="docutils literal notranslate"><span class="pre">COGITO.test_initialorbs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_WFdata_fromPOT"><code class="docutils literal notranslate"><span class="pre">COGITO.get_WFdata_fromPOT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_orbs_fromPOT"><code class="docutils literal notranslate"><span class="pre">COGITO.get_orbs_fromPOT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_coefficients"><code class="docutils literal notranslate"><span class="pre">COGITO.get_coefficients()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_aecoefficients"><code class="docutils literal notranslate"><span class="pre">COGITO.get_aecoefficients()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_ae_overlap_matrix"><code class="docutils literal notranslate"><span class="pre">COGITO.get_ae_overlap_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_overlap_matrix"><code class="docutils literal notranslate"><span class="pre">COGITO.get_overlap_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.lowdin_orth"><code class="docutils literal notranslate"><span class="pre">COGITO.lowdin_orth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.converge_orbs_recip"><code class="docutils literal notranslate"><span class="pre">COGITO.converge_orbs_recip()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.fit_to_atomic_orb"><code class="docutils literal notranslate"><span class="pre">COGITO.fit_to_atomic_orb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.spher_bessel_trans"><code class="docutils literal notranslate"><span class="pre">COGITO.spher_bessel_trans()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.center_real_orbs"><code class="docutils literal notranslate"><span class="pre">COGITO.center_real_orbs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.recip_to_real"><code class="docutils literal notranslate"><span class="pre">COGITO.recip_to_real()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.real_to_recip"><code class="docutils literal notranslate"><span class="pre">COGITO.real_to_recip()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_kdep_recipprojs"><code class="docutils literal notranslate"><span class="pre">COGITO.get_kdep_recipprojs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_kdep_reciporbs"><code class="docutils literal notranslate"><span class="pre">COGITO.get_kdep_reciporbs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.proj_all_kpoints"><code class="docutils literal notranslate"><span class="pre">COGITO.proj_all_kpoints()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.optimize_band_set"><code class="docutils literal notranslate"><span class="pre">COGITO.optimize_band_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.expand_irred_kgrid"><code class="docutils literal notranslate"><span class="pre">COGITO.expand_irred_kgrid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.symmetrize_orbs"><code class="docutils literal notranslate"><span class="pre">COGITO.symmetrize_orbs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_Qab"><code class="docutils literal notranslate"><span class="pre">COGITO.get_Qab()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_ae_overlap_info"><code class="docutils literal notranslate"><span class="pre">COGITO.get_ae_overlap_info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_orth_coeffs"><code class="docutils literal notranslate"><span class="pre">COGITO.get_orth_coeffs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_hamiltonian"><code class="docutils literal notranslate"><span class="pre">COGITO.get_hamiltonian()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.make_fit_wannier"><code class="docutils literal notranslate"><span class="pre">COGITO.make_fit_wannier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_TBparameter"><code class="docutils literal notranslate"><span class="pre">COGITO.get_TBparameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_interp_ham"><code class="docutils literal notranslate"><span class="pre">COGITO.get_interp_ham()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_neighbors"><code class="docutils literal notranslate"><span class="pre">COGITO.get_neighbors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.orthogonalize_basis"><code class="docutils literal notranslate"><span class="pre">COGITO.orthogonalize_basis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_offset"><code class="docutils literal notranslate"><span class="pre">COGITO.get_offset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.write_TBfiles"><code class="docutils literal notranslate"><span class="pre">COGITO.write_TBfiles()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.write_recip_rad_orbs"><code class="docutils literal notranslate"><span class="pre">COGITO.write_recip_rad_orbs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.read_recip_rad_orbs"><code class="docutils literal notranslate"><span class="pre">COGITO.read_recip_rad_orbs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.get_proj_on_aeorb"><code class="docutils literal notranslate"><span class="pre">COGITO.get_proj_on_aeorb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.write_input_file"><code class="docutils literal notranslate"><span class="pre">COGITO.write_input_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.plot_BS"><code class="docutils literal notranslate"><span class="pre">COGITO.plot_BS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.plot_projectedBS"><code class="docutils literal notranslate"><span class="pre">COGITO.plot_projectedBS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.plot_projectedDOS"><code class="docutils literal notranslate"><span class="pre">COGITO.plot_projectedDOS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITO.html#COGITO.COGITO.generate_gpnts"><code class="docutils literal notranslate"><span class="pre">COGITO.generate_gpnts()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.func_for_rad"><code class="docutils literal notranslate"><span class="pre">func_for_rad()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.func_for_rad_fit"><code class="docutils literal notranslate"><span class="pre">func_for_rad_fit()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.func_for_rad_exp"><code class="docutils literal notranslate"><span class="pre">func_for_rad_exp()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.lowdin_orth_vectors"><code class="docutils literal notranslate"><span class="pre">lowdin_orth_vectors()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.lowdin_orth_vectors_orblap"><code class="docutils literal notranslate"><span class="pre">lowdin_orth_vectors_orblap()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.GS_orth_twoLoworthSets"><code class="docutils literal notranslate"><span class="pre">GS_orth_twoLoworthSets()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.GS_orth_twoLoworthSets_orblap"><code class="docutils literal notranslate"><span class="pre">GS_orth_twoLoworthSets_orblap()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.GS_combine_states_orblap"><code class="docutils literal notranslate"><span class="pre">GS_combine_states_orblap()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.complex128funs"><code class="docutils literal notranslate"><span class="pre">complex128funs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.normalize_wf"><code class="docutils literal notranslate"><span class="pre">normalize_wf()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.periodic_integral_3d"><code class="docutils literal notranslate"><span class="pre">periodic_integral_3d()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.reciprocal_integral"><code class="docutils literal notranslate"><span class="pre">reciprocal_integral()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.smooth"><code class="docutils literal notranslate"><span class="pre">smooth()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.extract_line_data"><code class="docutils literal notranslate"><span class="pre">extract_line_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.combine_and_save_plots"><code class="docutils literal notranslate"><span class="pre">combine_and_save_plots()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITO.html#COGITO.plot_matrix"><code class="docutils literal notranslate"><span class="pre">plot_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="COGITOpost.html">COGITOpost module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.__init__"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.read_input"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.read_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.read_TBparams"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.read_TBparams()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.read_overlaps"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.read_overlaps()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.read_orbitals"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.read_orbitals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.normalize_params"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.normalize_params()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.set_hoppings"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.set_hoppings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.restrict_params"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.restrict_params()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.make_orbitals"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.make_orbitals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.plot_orbitals"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.plot_orbitals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.generate_gpnts"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.generate_gpnts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.get_ham"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.get_ham()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.get_fullHam"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.get_fullHam()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.get_neighbors"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.get_neighbors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.plot_crystal_field"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.plot_crystal_field()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.plot_hopping"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.plot_hopping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.plot_overlaps"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.plot_overlaps()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.compare_to_DFT"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.compare_to_DFT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.get_COHP"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.get_COHP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.get_ICOHP"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.get_ICOHP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.get_COOP"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.get_COOP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_TB_Model.get_ICOOP"><code class="docutils literal notranslate"><span class="pre">COGITO_TB_Model.get_ICOOP()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BAND"><code class="docutils literal notranslate"><span class="pre">COGITO_BAND</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BAND.__init__"><code class="docutils literal notranslate"><span class="pre">COGITO_BAND.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BAND.get_bandstructure"><code class="docutils literal notranslate"><span class="pre">COGITO_BAND.get_bandstructure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BAND.plotBS"><code class="docutils literal notranslate"><span class="pre">COGITO_BAND.plotBS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BAND.plotlyBS"><code class="docutils literal notranslate"><span class="pre">COGITO_BAND.plotlyBS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BAND.get_COHP"><code class="docutils literal notranslate"><span class="pre">COGITO_BAND.get_COHP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BAND.get_COOP"><code class="docutils literal notranslate"><span class="pre">COGITO_BAND.get_COOP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BAND.get_projectedBS"><code class="docutils literal notranslate"><span class="pre">COGITO_BAND.get_projectedBS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BAND.make_COHP_dashapp"><code class="docutils literal notranslate"><span class="pre">COGITO_BAND.make_COHP_dashapp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.__init__"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_uniform"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_uniform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.recalc_efermi"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.recalc_efermi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_occupation"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_occupation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_COHP"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_COHP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_ICOHP"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_ICOHP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.save_ICOHP"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.save_ICOHP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_COOP"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_COOP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_projectedDOS"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_projectedDOS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_ICOOP"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_ICOOP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.save_ICOOP"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.save_ICOOP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.make_bond"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.make_bond()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_bonds_figure_old"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_bonds_figure_old()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_bonds_figure"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_bonds_figure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_bonds_charge_figure"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_bonds_charge_figure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_bond_density_figure"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_bond_density_figure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_bond_info"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_bond_info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_COHP_DOS_bybond"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_COHP_DOS_bybond()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_crystal_plus_COHP"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_crystal_plus_COHP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_UNIFORM.get_mulliken_charge"><code class="docutils literal notranslate"><span class="pre">COGITO_UNIFORM.get_mulliken_charge()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BS_widget"><code class="docutils literal notranslate"><span class="pre">COGITO_BS_widget</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BS_widget.__init__"><code class="docutils literal notranslate"><span class="pre">COGITO_BS_widget.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BS_widget.get_bandstructure"><code class="docutils literal notranslate"><span class="pre">COGITO_BS_widget.get_bandstructure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BS_widget.plotlyBS"><code class="docutils literal notranslate"><span class="pre">COGITO_BS_widget.plotlyBS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BS_widget.plotBS"><code class="docutils literal notranslate"><span class="pre">COGITO_BS_widget.plotBS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BS_widget.get_significant_bonds"><code class="docutils literal notranslate"><span class="pre">COGITO_BS_widget.get_significant_bonds()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BS_widget.plot_bond_run"><code class="docutils literal notranslate"><span class="pre">COGITO_BS_widget.plot_bond_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BS_widget.change_sig_bonds"><code class="docutils literal notranslate"><span class="pre">COGITO_BS_widget.change_sig_bonds()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="COGITOpost.html#COGITOpost.COGITO_BS_widget.make_BS_widget"><code class="docutils literal notranslate"><span class="pre">COGITO_BS_widget.make_BS_widget()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="COGITOpost.html#COGITOpost.func_for_rad"><code class="docutils literal notranslate"><span class="pre">func_for_rad()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="COGITOpost.html#COGITOpost.complex128funs"><code class="docutils literal notranslate"><span class="pre">complex128funs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">COGITOico module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#COGITOico.COGITO_ICO"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.__init__"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.read_input"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.read_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.read_overlaps"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.read_overlaps()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.read_ICOHP"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.read_ICOHP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.read_ICOOP"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.read_ICOOP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.read_orbitals"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.read_orbitals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.save_ICOnpy"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.save_ICOnpy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.get_neighbors"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.get_neighbors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.get_bonds_figure"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.get_bonds_figure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.get_bonds_charge_figure"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.get_bonds_charge_figure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.make_bond"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.make_bond()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.get_bond_density_figure"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.get_bond_density_figure()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.get_bond_info"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.get_bond_info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.get_COHP"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.get_COHP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.get_COOP"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.get_COOP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#COGITOico.COGITO_ICO.get_mulliken_charge"><code class="docutils literal notranslate"><span class="pre">COGITO_ICO.get_mulliken_charge()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#COGITOico.func_for_rad"><code class="docutils literal notranslate"><span class="pre">func_for_rad()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#COGITOico.complex128funs"><code class="docutils literal notranslate"><span class="pre">complex128funs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2c5aa0" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">COGITO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">COGITOico module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/COGITOico.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-COGITOico">
+<span id="cogitoico-module"></span><h1>COGITOico module<a class="headerlink" href="#module-COGITOico" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">COGITOico.</span></span><span class="sig-name descname"><span class="pre">COGITO_ICO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbs_orth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_polar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> (<em>str</em>)</p></li>
+<li><p><strong>verbose</strong> (<em>int</em>)</p></li>
+<li><p><strong>file_suffix</strong> (<em>str</em>)</p></li>
+<li><p><strong>orbs_orth</strong> (<em>bool</em>)</p></li>
+<li><p><strong>spin_polar</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbs_orth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin_polar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the</p>
+<dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p>directory (str): The path for the input files
+verbose (int): How much will be printed (0 is least)
+file_suffix (str): The suffix to the TBparams and overlaps files
+orbs_orth (bool): Whether the orbitals are orthogonal, if from COGITO this is always False</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>directory</strong> (<em>str</em>)</p></li>
+<li><p><strong>verbose</strong> (<em>int</em>)</p></li>
+<li><p><strong>file_suffix</strong> (<em>str</em>)</p></li>
+<li><p><strong>orbs_orth</strong> (<em>bool</em>)</p></li>
+<li><p><strong>spin_polar</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.read_input">
+<span class="sig-name descname"><span class="pre">read_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tb_input.txt'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.read_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.read_input" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.read_overlaps">
+<span class="sig-name descname"><span class="pre">read_overlaps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'overlaps.txt'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.read_overlaps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.read_overlaps" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.read_ICOHP">
+<span class="sig-name descname"><span class="pre">read_ICOHP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ICOHP.txt'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.read_ICOHP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.read_ICOHP" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.read_ICOOP">
+<span class="sig-name descname"><span class="pre">read_ICOOP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ICOOP.txt'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.read_ICOOP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.read_ICOOP" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.read_orbitals">
+<span class="sig-name descname"><span class="pre">read_orbitals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'orbitals.npy'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.read_orbitals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.read_orbitals" title="Link to this definition"></a></dt>
+<dd><p>This function reads in the orbitals as coefficents for a gaussian expansion.
+The information in ‘orbitals.npy’ is combined with the orbital data in ‘tb_input.txt’.</p>
+<dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p>file (str): Orbital file</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.save_ICOnpy">
+<span class="sig-name descname"><span class="pre">save_ICOnpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.save_ICOnpy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.save_ICOnpy" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.get_neighbors">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_neighbors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.get_neighbors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.get_neighbors" title="Link to this definition"></a></dt>
+<dd><p>This sorts the matrix of TB parameters into terms which are 1NN, 2NN, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.get_bonds_figure">
+<span class="sig-name descname"><span class="pre">get_bonds_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_atom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one_atom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fovy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.get_bonds_figure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.get_bonds_figure" title="Link to this definition"></a></dt>
+<dd><p>this will plot the crystal structure atoms with line weighted by iCOHP
+each line should also be hoverable to reveal the number and amounts that are s-s,s-p, and p-p</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><p>energy_cutoff (float): This is the minimum bond magnitude that will be plotted
+elem_colors (list): Colors for the elements based on order in tb_input. Length of list should be the number of</p>
+<blockquote>
+<div><p>unique elements. Can either be integer list to reference the default colors or list of
+plotly compatable colors.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>atom_colors (list): Colors for the atoms based on order in tb_input. Length of list should be the number of</dt><dd><p>atoms in the primitive cell. Can either be integer list to reference the default colors or
+list of plotly compatable colors. If not set defaults to elem_colors.</p>
+</dd>
+</dl>
+<p>atom_labels (list): List of atom labels as a string.
+plot_atom (int): Set with one_atom=True, plots only one atom and it’s bonds, this passes the atom number to plot
+one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False
+bond_max (float): The maximum bond distance that will be plotted outside the primitive cell
+fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</p>
+<blockquote>
+<div><p>Set between 3 (for close to orthographic) and 30 (for good perspective depth).</p>
+</div></blockquote>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>None: Nothing</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>energy_cutoff</strong> (<em>float</em>)</p></li>
+<li><p><strong>elem_colors</strong> (<em>list</em>)</p></li>
+<li><p><strong>atom_colors</strong> (<em>list</em>)</p></li>
+<li><p><strong>atom_labels</strong> (<em>list</em>)</p></li>
+<li><p><strong>plot_atom</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>one_atom</strong> (<em>bool</em>)</p></li>
+<li><p><strong>bond_max</strong> (<em>float</em>)</p></li>
+<li><p><strong>fovy</strong> (<em>float</em>)</p></li>
+<li><p><strong>return_fig</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.get_bonds_charge_figure">
+<span class="sig-name descname"><span class="pre">get_bonds_charge_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_atom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one_atom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fovy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_prim_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_dist_from_prim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.get_bonds_charge_figure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.get_bonds_charge_figure" title="Link to this definition"></a></dt>
+<dd><p>this will plot the crystal structure atoms with line weighted by iCOHP
+each line should also be hoverable to reveal the number and amounts that are s-s,s-p, and p-p</p>
+<blockquote>
+<div><p>“mulliken” - plots the onsite charge and mag (if spin_polar) on atoms by mulliken population (overrides atom_labels)
+“full” - plots the charge and magnetics moments (if spin_polar) on atoms and bonds (overrides atom_labels)
+“color” - colors the atoms and bonds based on their charge (overrides atom_colors or elem_colors)
+“color mag” - colors the atoms and bonds based on their magnetic moments (overrides atom_colors or elem_colors)
+NOTE: Only use “mulliken” OR “full”, NOT both</p>
+</div></blockquote>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><p>energy_cutoff (float): This is the minimum bond magnitude that will be plotted
+bond_max (float): The maximum bond distance that will be plotted outside the primitive cell
+elem_colors (list): Colors for the elements based on order in tb_input. Length of list should be the number of</p>
+<blockquote>
+<div><p>unique elements. Can either be integer list to reference the default colors or list of
+plotly compatable colors.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>atom_colors (list): Colors for the atoms based on order in tb_input. Length of list should be the number of</dt><dd><p>atoms in the primitive cell. Can either be integer list to reference the default colors or
+list of plotly compatable colors. If not set defaults to elem_colors.</p>
+</dd>
+</dl>
+<p>atom_labels (list): List of atom labels as a string.
+plot_atom (int): Set with one_atom=True, plots only one atom and it’s bonds, this passes the atom number to plot
+one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False
+fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</p>
+<blockquote>
+<div><p>Set between 3 (for close to orthographic) and 30 (for good perspective depth).</p>
+</div></blockquote>
+<p>return_fig (bool): If False, this function saves figure to crystal_bonds.html. If True, this function will return the plotly figure object
+only_prim_atoms (bool): If True, only the atoms within the primitive cell are plotted.</p>
+<blockquote>
+<div><p>If False, atoms are added outside the primitive cell if the atom has a bond to an atom
+inside the primtive cell that meets energy_cutoff and bond_max criteria.
+Default is set in code False if self.numAtoms &lt; 30, otherwise set to True</p>
+</div></blockquote>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>None: Depend on return_fig parameter.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>energy_cutoff</strong> (<em>float</em>)</p></li>
+<li><p><strong>bond_max</strong> (<em>float</em>)</p></li>
+<li><p><strong>elem_colors</strong> (<em>list</em>)</p></li>
+<li><p><strong>atom_colors</strong> (<em>list</em>)</p></li>
+<li><p><strong>atom_labels</strong> (<em>list</em>)</p></li>
+<li><p><strong>auto_label</strong> (<em>str</em>)</p></li>
+<li><p><strong>plot_atom</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>one_atom</strong> (<em>bool</em>)</p></li>
+<li><p><strong>fovy</strong> (<em>float</em>)</p></li>
+<li><p><strong>return_fig</strong> (<em>bool</em>)</p></li>
+<li><p><strong>only_prim_atoms</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>atom_dist_from_prim</strong> (<em>float</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.make_bond">
+<span class="sig-name descname"><span class="pre">make_bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atmind1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atmind2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbCOOP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cartXYZ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.make_bond"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.make_bond" title="Link to this definition"></a></dt>
+<dd><p>This is a function which will generate populate the cartXYZ grid with values for the bond density between
+the atoms given using the orbCOOP provided.</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><p>atmind1 (unknown): The atom number for the first atom
+atmind2 (unknown): The atom number for the second atom
+center1 (unknown): The center of the first atom (not using self.primATOMs)
+center2 (unknown): The center of the second atom (not using self.primATOMs)
+orbCOOP (unknown): The orbCOOP which reveals how much of each orbital combo that is included in the bond.</p>
+<blockquote>
+<div><p>Dimension nxm where n is the # of orbitals for atom 1 and m is # of orbitals for atom 2.</p>
+</div></blockquote>
+<p>cartXYZ (unknown): The 3D flattened grid that the bond density is calculated on</p>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>unknown: A 1D array  (3D flattened) of the bond density</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.get_bond_density_figure">
+<span class="sig-name descname"><span class="pre">get_bond_density_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">energy_cutoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iso_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iso_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.003</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_atom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one_atom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bond_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fovy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.get_bond_density_figure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.get_bond_density_figure" title="Link to this definition"></a></dt>
+<dd><p>Plots the crystal structure atoms with bonds plotted based on iCOHP
+Each line should also be hoverable to reveal the number and amounts that are s-s,s-p, and p-p
+The charge and magnetic moment will also be plotted acording to auto_label</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><p>energy_cutoff (float): This is the minimum bond magnitude that will be plotted
+iso_max (float): The positive isosurface for plotting the bonds.
+iso_min (float): The negative isosurface for plotting the bonds.
+elem_colors (list): Colors for the elements based on order in tb_input. Length of list should be the number of</p>
+<blockquote>
+<div><p>unique elements. Can either be integer list to reference the default colors or list of
+plotly compatable colors.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>atom_colors (list): Colors for the atoms based on order in tb_input. Length of list should be the number of</dt><dd><p>atoms in the primitive cell. Can either be integer list to reference the default colors or
+list of plotly compatable colors. If not set defaults to elem_colors.</p>
+</dd>
+</dl>
+<p>atom_labels (list): List of atom labels as a string.
+auto_label (str): Different options for plotting includes: (can include multiple in the string)</p>
+<blockquote>
+<div><p>“mulliken” - plots the onsite charge and mag (if spin_polar) on atoms by mulliken population (overrides atom_labels)
+“full” - plots the charge and magnetics moments (if spin_polar) on atoms and bonds (overrides atom_labels)
+“color” - colors the atoms and bonds based on their charge (overrides atom_colors or elem_colors)
+“color mag” - colors the atoms and bonds based on their magnetic moments (overrides atom_colors or elem_colors)
+NOTE: Only use “mulliken” OR “full”, NOT both</p>
+</div></blockquote>
+<p>plot_atom (int): Set with one_atom=True, plots only one atom and it’s bonds, this passes the atom number to plot
+one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False
+bond_max (float): The maximum bond distance that will be plotted outside the primitive cell
+fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</p>
+<blockquote>
+<div><p>Set between 3 (for close to orthographic) and 30 (for good perspective depth).</p>
+</div></blockquote>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>None: Nothing, but saves plotly figure to ‘crystal_bonds.html’</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>energy_cutoff</strong> (<em>float</em>)</p></li>
+<li><p><strong>iso_max</strong> (<em>float</em>)</p></li>
+<li><p><strong>iso_min</strong> (<em>float</em>)</p></li>
+<li><p><strong>elem_colors</strong> (<em>list</em>)</p></li>
+<li><p><strong>atom_colors</strong> (<em>list</em>)</p></li>
+<li><p><strong>atom_labels</strong> (<em>list</em>)</p></li>
+<li><p><strong>auto_label</strong> (<em>str</em>)</p></li>
+<li><p><strong>plot_atom</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>one_atom</strong> (<em>bool</em>)</p></li>
+<li><p><strong>bond_max</strong> (<em>float</em>)</p></li>
+<li><p><strong>fovy</strong> (<em>float</em>)</p></li>
+<li><p><strong>return_fig</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.get_bond_info">
+<span class="sig-name descname"><span class="pre">get_bond_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.get_bond_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.get_bond_info" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.get_COHP">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_COHP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_onsite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">just_one</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.get_COHP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.get_COHP" title="Link to this definition"></a></dt>
+<dd><p>Calculates the COHP for the given orbitals and nearest neighbors</p>
+<dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p>self (object): An object of the class COGITO_BAND or COGITO_UNIFORM
+orbs (dict): either a list of two dictionaries giving elements as keys and orbital types as items (eg [{“Pb”:[“s”,”d”],”O”:[“s”,”p”]},{“Pb”:[“s”]”O”:[“p”]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]
+NN (int): An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or “All” for all nearest neighbors
+include_onsite (bool): Includes atomic orbital energy terms (H_ab(R) where R=0 and a=b) instead of just bonding terms</p>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>npt.NDArray: returns COHP values in a [kpt,band] dimension</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>object</em>)</p></li>
+<li><p><strong>orbs</strong> (<em>dict</em>)</p></li>
+<li><p><strong>NN</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>include_onsite</strong> (<em>bool</em>)</p></li>
+<li><p><strong>just_one</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>ndarray</em>[tuple[int, …], <em>dtype</em>[<em>_ScalarType_co</em>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.get_COOP">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_COOP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orbs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NN</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_onsite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.get_COOP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.get_COOP" title="Link to this definition"></a></dt>
+<dd><p>Calculates the COHP for the given orbitals and nearest neighbors</p>
+<dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p>self (object): An object of the class COGITO_BAND or COGITO_UNIFORM
+orbs (dict): either a list of two dictionaries giving elements as keys and orbital types as items (eg [{“Pb”:[“s”,”d”],”O”:[“s”,”p”]},{“Pb”:[“s”]”O”:[“p”]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]
+NN (int): An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or “All” for all nearest neighbors
+include_onsite (bool): Includes atomic orbital energy terms (H_ab(R) where R=0 and a=b) instead of just bonding terms</p>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><p>npt.NDArray: returns COHP values in a [kpt,band] dimension</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>object</em>)</p></li>
+<li><p><strong>orbs</strong> (<em>dict</em>)</p></li>
+<li><p><strong>NN</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>include_onsite</strong> (<em>bool</em>)</p></li>
+<li><p><strong>spin</strong> (<em>int</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>ndarray</em>[tuple[int, …], <em>dtype</em>[<em>_ScalarType_co</em>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="COGITOico.COGITO_ICO.get_mulliken_charge">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_mulliken_charge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elem</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#COGITO_ICO.get_mulliken_charge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.COGITO_ICO.get_mulliken_charge" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>object</em>)</p></li>
+<li><p><strong>elem</strong> (<em>str</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="COGITOico.func_for_rad">
+<span class="sig-prename descclassname"><span class="pre">COGITOico.</span></span><span class="sig-name descname"><span class="pre">func_for_rad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#func_for_rad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.func_for_rad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="COGITOico.complex128funs">
+<span class="sig-prename descclassname"><span class="pre">COGITOico.</span></span><span class="sig-name descname"><span class="pre">complex128funs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sphharm_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/COGITOico.html#complex128funs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#COGITOico.complex128funs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="COGITOpost.html" class="btn btn-neutral float-left" title="COGITOpost module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, COGITO Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

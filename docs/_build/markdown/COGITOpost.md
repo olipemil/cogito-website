@@ -1,13 +1,3 @@
----
-layout: default
-title: COGITOpost API
-nav_order: 3
-parent: API Documentation
----
-
-
-<link rel="stylesheet" href="{{ '/docs/_static/api-docs.css' | relative_url }}">
-
 # COGITOpost module
 
 ### *class* COGITOpost.COGITO_TB_Model(directory, verbose=0, file_suffix='', orbs_orth=False, spin_polar=False)
