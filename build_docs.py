@@ -62,31 +62,37 @@ def main():
             print(f"Error building markdown docs: {result.stderr}")
             sys.exit(1)
 
-        # Process markdown files for Jekyll
-        print("📋 Processing markdown files for Jekyll...")
+        # Process markdown files for Jekyll (skip if iframe versions already exist)
+        print("📋 Checking Jekyll files...")
 
         # Create api directory if it doesn't exist
         api_dir.mkdir(exist_ok=True)
 
-        md_dir = docs_dir / "_build/markdown"
-
-        # File mapping for Jekyll
+        # File mapping for Jekyll - only process index.md (iframe pages are manually maintained)
         file_mapping = {
-            'index.md': {'title': 'API Documentation', 'nav_order': 1},
-            'COGITO.md': {'title': 'COGITO Core API', 'nav_order': 2},
-            'COGITOpost.md': {'title': 'COGITOpost API', 'nav_order': 3},
-            'COGITOico.md': {'title': 'COGITOico API', 'nav_order': 4}
+            'index.md': {'title': 'API Documentation', 'nav_order': 1}
         }
+
+        md_dir = docs_dir / "_build/markdown"
 
         for md_file_name, file_info in file_mapping.items():
             src_file = md_dir / md_file_name
             dest_file = api_dir / md_file_name
 
             if src_file.exists():
-                # Copy and process the file
-                dest_file.write_text(src_file.read_text())
-                add_jekyll_frontmatter(dest_file, file_info['title'], file_info['nav_order'])
-                print(f"✅ Processed {md_file_name} for Jekyll")
+                # Only update index.md, preserve iframe-based API pages
+                if md_file_name == 'index.md':
+                    dest_file.write_text(src_file.read_text())
+                    add_jekyll_frontmatter(dest_file, file_info['title'], file_info['nav_order'])
+                    print(f"✅ Updated {md_file_name} for Jekyll")
+
+        # Check that iframe pages exist
+        iframe_pages = ['cogito.md', 'cogitopost.md', 'cogitoico.md']
+        for page in iframe_pages:
+            if (api_dir / page).exists():
+                print(f"✅ Iframe page {page} preserved")
+            else:
+                print(f"⚠️  Iframe page {page} missing")
 
         print("\n🎉 Documentation built successfully!")
         print(f"📁 HTML files: {docs_dir / '_build/html'}")

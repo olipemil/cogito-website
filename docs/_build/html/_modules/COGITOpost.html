@@ -250,11 +250,12 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initializes the</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                directory (str): The path for the input files</span>
-<span class="sd">                verbose (int): How much will be printed (0 is least)</span>
-<span class="sd">                file_suffix (str): The suffix to the TBparams and overlaps files</span>
-<span class="sd">                orbs_orth (bool): Whether the orbitals are orthogonal, if from COGITO this is always False</span>
+<span class="sd">        Args:</span>
+
+<span class="sd">            directory (str): The path for the input files</span>
+<span class="sd">            verbose (int): How much will be printed (0 is least)</span>
+<span class="sd">            file_suffix (str): The suffix to the TBparams and overlaps files</span>
+<span class="sd">            orbs_orth (bool): Whether the orbitals are orthogonal, if from COGITO this is always False</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">directory</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
@@ -537,8 +538,9 @@
 <span class="sd">        This function reads in the orbitals as coefficents for a gaussian expansion.</span>
 <span class="sd">        The information in &#39;orbitals.npy&#39; is combined with the orbital data in &#39;tb_input.txt&#39;.</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                file (str): Orbital file</span>
+<span class="sd">        Args:</span>
+
+<span class="sd">            file (str): Orbital file</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">orbital_coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">+</span> <span class="s2">&quot;orbitals&quot;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">file_suff</span><span class="o">+</span><span class="s2">&quot;.npy&quot;</span><span class="p">)[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -618,14 +620,16 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Change a TB parameter</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                value (float): The new parameter</span>
-<span class="sd">                orb1 (int): The first orbital index of the parameter</span>
-<span class="sd">                orb2 (int): The second orbital index of the parameter</span>
-<span class="sd">                trans (tuple): The tuple of translation indices</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: </span>
+<span class="sd">            value (float): The new parameter</span>
+<span class="sd">            orb1 (int): The first orbital index of the parameter</span>
+<span class="sd">            orb2 (int): The second orbital index of the parameter</span>
+<span class="sd">            trans (tuple): The tuple of translation indices</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="p">(</span><span class="n">trans1</span><span class="p">,</span><span class="n">trans2</span><span class="p">,</span><span class="n">trans3</span><span class="p">)</span> <span class="o">=</span> <span class="n">trans</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">TB_params</span><span class="p">[</span><span class="n">spin</span><span class="p">][</span><span class="n">orb1</span><span class="p">,</span><span class="n">orb2</span><span class="p">,</span><span class="n">trans1</span><span class="p">,</span><span class="n">trans2</span><span class="p">,</span><span class="n">trans3</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
@@ -638,9 +642,10 @@
 <span class="sd">        Generates self.use_tbparams, self.use_overlaps, and self.use_vecs_to_orbs which are used in the gen_ham() funciton</span>
 <span class="sd">        With this, the calculation of hamiltonians by gen_ham() is both sparse and vectorized</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                maximum_dist (float): The maximmum distance between hopping parameters which should be included</span>
-<span class="sd">                minimum_value (float): The minimum magnitude of hopping parameter which should be included</span>
+<span class="sd">        Args:</span>
+
+<span class="sd">            maximum_dist (float): The maximmum distance between hopping parameters which should be included</span>
+<span class="sd">            minimum_value (float): The minimum magnitude of hopping parameter which should be included</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">vecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vec_to_trans</span><span class="p">)</span>
@@ -873,11 +878,13 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        similar to from pymatgen.io.vasp.outputs.Wavecar but is vectorized</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                kpt (list): The k-point in reduced coordinates</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                npt.NDArray[np.int_]: The gpoints</span>
+<span class="sd">            kpt (list): The k-point in reduced coordinates</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            npt.NDArray[np.int_]: The gpoints</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">_C</span> <span class="o">=</span> <span class="mf">0.262465831</span>
         <span class="n">encut</span> <span class="o">=</span> <span class="mi">520</span>
@@ -913,16 +920,18 @@
 <span class="sd">        This function generates the hamiltonian and overlap matrices for a given kpt.</span>
 <span class="sd">        Then it solves the generalized eigenvalue problem to return the eigvalues and vectors</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                self (object): An object with the attributes of the COGITO_TB_Model class</span>
-<span class="sd">                kpt (list): The kpoint to regenerate at in reduced coordinates</span>
-<span class="sd">                return_overlap (bool): If True, the function will also return the overlap matrix at the kpt; default is False</span>
-<span class="sd">                return_truevec (bool): If True, the function will return the eigenvectors in the original nonorthogonal basis</span>
-<span class="sd">                        Default if True</span>
-<span class="sd">                spin (int): The spin of the parameters for a spin-polarized calculation; default is 0--for non spin-polarized</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                list: returns a list of the eigenvalues and eigenvectors (and overlap if return_overlap=True)</span>
+<span class="sd">            self (object): An object with the attributes of the COGITO_TB_Model class</span>
+<span class="sd">            kpt (list): The kpoint to regenerate at in reduced coordinates</span>
+<span class="sd">            return_overlap (bool): If True, the function will also return the overlap matrix at the kpt; default is False</span>
+<span class="sd">            return_truevec (bool): If True, the function will return the eigenvectors in the original nonorthogonal basis</span>
+<span class="sd">                Default if True</span>
+<span class="sd">            spin (int): The spin of the parameters for a spin-polarized calculation; default is 0--for non spin-polarized</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            list: returns a list of the eigenvalues and eigenvectors (and overlap if return_overlap=True)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># get the overlap and hamiltonian matrices using arrays defined in the function restrict_params()</span>
@@ -1014,10 +1023,11 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots the crystal field splitting diagram for the orbitals and atom given</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                atomnum (int): Which atom to plot for</span>
-<span class="sd">                orbitals (str): Which orbitals to plot, &quot;d&quot; is most common</span>
-<span class="sd">                ylim (list): The limits of the y-axis in the plot, will default to good value if left (-10,0)</span>
+<span class="sd">        Args:</span>
+
+<span class="sd">            atomnum (int): Which atom to plot for</span>
+<span class="sd">            orbitals (str): Which orbitals to plot, &quot;d&quot; is most common</span>
+<span class="sd">            ylim (list): The limits of the y-axis in the plot, will default to good value if left (-10,0)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">spin_polar</span><span class="p">:</span>
             <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
@@ -1193,13 +1203,15 @@
 <span class="sd">        This function reads the EIGENVAL from a DFT run, generates the energies from the TB model for the kpt grid,</span>
 <span class="sd">        And plots and compares the error between the TB model energies and DFT energies</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                self (unknown): An object of the class COGITO_TB_Model (can not be the BAND or UNIFORM classes!)</span>
-<span class="sd">                directory (str): The directory where the EIGENVAL file is</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                list: Returns a list of the (averaged over the valance bands) band distance (as defined by Marzari),</span>
-<span class="sd">                        average maximum error, and average band error</span>
+<span class="sd">            self (unknown): An object of the class COGITO_TB_Model (can not be the BAND or UNIFORM classes!)</span>
+<span class="sd">            directory (str): The directory where the EIGENVAL file is</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            list: Returns a list of the (averaged over the valance bands) band distance (as defined by Marzari),</span>
+<span class="sd">                average maximum error, and average band error</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">spin_polar</span><span class="p">:</span>
             <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
@@ -1322,15 +1334,17 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the COHP for the given orbitals and nearest neighbors</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                self (object): An object of the class COGITO_BAND or COGITO_UNIFORM</span>
-<span class="sd">                orbs (dict): either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
-<span class="sd">                NN (int): An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
-<span class="sd">                include_onsite (bool): Includes atomic orbital energy terms (H_ab(R) where R=0 and a=b) instead of just bonding terms</span>
-<span class="sd">                spin (int): The spin of the tight binding parameters; default is 0 works for nonspin-polarized</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                npt.NDArray: returns COHP values in a [kpt,band] dimension</span>
+<span class="sd">            self (object): An object of the class COGITO_BAND or COGITO_UNIFORM</span>
+<span class="sd">            orbs (dict): either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
+<span class="sd">            NN (int): An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
+<span class="sd">            include_onsite (bool): Includes atomic orbital energy terms (H_ab(R) where R=0 and a=b) instead of just bonding terms</span>
+<span class="sd">            spin (int): The spin of the tight binding parameters; default is 0 works for nonspin-polarized</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            npt.NDArray: returns COHP values in a [kpt,band] dimension</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">orbs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
@@ -1495,15 +1509,17 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates the COOP for the given orbitals and nearest neighbors</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                self (object): An object of the class COGITO_BAND or COGITO_UNIFORM</span>
-<span class="sd">                orbs (dict): either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
-<span class="sd">                NN (int): An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
-<span class="sd">                include_onsite (bool): Includes atomic overlap terms (S_ab(R) where R=0 and a=b) instead of just bonding terms, this can be used with NN=0 to give a projected bandstructure</span>
-<span class="sd">                spin (int): The spin of the tight binding parameters; default is 0 works for nonspin-polarized</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                npt.NDArray: returns COOP values in a [kpt,band] dimension</span>
+<span class="sd">            self (object): An object of the class COGITO_BAND or COGITO_UNIFORM</span>
+<span class="sd">            orbs (dict): either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
+<span class="sd">            NN (int): An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
+<span class="sd">            include_onsite (bool): Includes atomic overlap terms (S_ab(R) where R=0 and a=b) instead of just bonding terms, this can be used with NN=0 to give a projected bandstructure</span>
+<span class="sd">            spin (int): The spin of the tight binding parameters; default is 0 works for nonspin-polarized</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            npt.NDArray: returns COOP values in a [kpt,band] dimension</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">orbs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">:</span>
@@ -1665,8 +1681,9 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This class deals with all post-processing band structure analysis</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                TB_model (object): requires an object of the class COGITO_TB_Model</span>
+<span class="sd">        Args:</span>
+
+<span class="sd">            TB_model (object): requires an object of the class COGITO_TB_Model</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># copy all attributes of the TB_model</span>
         <span class="n">attributes</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">TB_model</span><span class="p">)</span>
@@ -1687,11 +1704,13 @@
 <span class="sd">        The function automatically generates a kpath using pymatgen and kpathseek</span>
 <span class="sd">        Then calculates the band energies and vectors for the kpath</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                num_kpts (int): The number of kpoints between EACH kpath</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: Nothing</span>
+<span class="sd">            num_kpts (int): The number of kpoints between EACH kpath</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: Nothing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">pymat_struc</span> <span class="o">=</span> <span class="n">struc</span><span class="o">.</span><span class="n">Structure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">primAtoms</span><span class="p">)</span>
@@ -1734,15 +1753,17 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">plotBS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">:</span> <span class="nb">object</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">color_label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">colors</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([]),</span> <span class="n">colorhalf</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                ax (object): (matplotlib.pyplot axis): axis to save the bandstructure to, otherwise generate new axis</span>
-<span class="sd">                ylim (list): Limits on the y-axis of plot</span>
-<span class="sd">                color_label (str): When being plotted from another function, this passes &quot;COHP&quot; or &quot;COOP&quot;</span>
-<span class="sd">                colors (npt.NDArray): Magnitude for each point to use in color plotting, passed by get_COHP() function</span>
-<span class="sd">                colorhalf (float): Sets scale of color bar</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                object: matplotlib.pyplot axis with bandstructure plotted</span>
+<span class="sd">            ax (object): (matplotlib.pyplot axis): axis to save the bandstructure to, otherwise generate new axis</span>
+<span class="sd">            ylim (list): Limits on the y-axis of plot</span>
+<span class="sd">            color_label (str): When being plotted from another function, this passes &quot;COHP&quot; or &quot;COOP&quot;</span>
+<span class="sd">            colors (npt.NDArray): Magnitude for each point to use in color plotting, passed by get_COHP() function</span>
+<span class="sd">            colorhalf (float): Sets scale of color bar</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            object: matplotlib.pyplot axis with bandstructure plotted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># reformat data to find nodes and stop repeating them</span>
         <span class="n">num_nodes</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1824,14 +1845,16 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots bandstructure (or projected bandstructure) using plotly graph_objects</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                ylim (unknown): Limits on the y-axis of plot</span>
-<span class="sd">                color_label (unknown): When being plotted from another function, this passes &quot;COHP&quot; or &quot;COOP&quot;</span>
-<span class="sd">                colors (unknown): Magnitude for each point to use in color plotting, passed by get_COHP() function</span>
-<span class="sd">                colorhalf (unknown): Sets scale of color bar</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                object: plotly figure with bandstructure plotted</span>
+<span class="sd">            ylim (unknown): Limits on the y-axis of plot</span>
+<span class="sd">            color_label (unknown): When being plotted from another function, this passes &quot;COHP&quot; or &quot;COOP&quot;</span>
+<span class="sd">            colors (unknown): Magnitude for each point to use in color plotting, passed by get_COHP() function</span>
+<span class="sd">            colorhalf (unknown): Sets scale of color bar</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            object: plotly figure with bandstructure plotted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1">#reformat data to find nodes and stop repeating them</span>
@@ -1931,16 +1954,18 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates and plots the projected COHP values for each band and k-point on band structure</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                orbs (dict): either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
-<span class="sd">                NN (int): An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
-<span class="sd">                ylim (list): The limits of the y-axis (energy) of the band structure plot</span>
-<span class="sd">                colorhalf (float): Set the magnitude for the color bar; For default value of 10, it is set automatically to average(COHP)*3</span>
-<span class="sd">                include_onsite (bool): Includes atomic orbital energy terms (H_ab(R) where R=0 and a=b) instead of just bonding terms</span>
-<span class="sd">                from_dash (bool): Flag to set when calling from the dash app, sets plotting backend to plotly and returns the axis</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: Nothing</span>
+<span class="sd">            orbs (dict): either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
+<span class="sd">            NN (int): An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
+<span class="sd">            ylim (list): The limits of the y-axis (energy) of the band structure plot</span>
+<span class="sd">            colorhalf (float): Set the magnitude for the color bar; For default value of 10, it is set automatically to average(COHP)*3</span>
+<span class="sd">            include_onsite (bool): Includes atomic orbital energy terms (H_ab(R) where R=0 and a=b) instead of just bonding terms</span>
+<span class="sd">            from_dash (bool): Flag to set when calling from the dash app, sets plotting backend to plotly and returns the axis</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: Nothing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">NN_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">NN_dists</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">TB_model</span><span class="o">.</span><span class="n">get_neighbors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">cohp</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1963,16 +1988,18 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculates and plots the projected COOP values for each band and k-point on band structure</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                orbs (dict): either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
-<span class="sd">                NN (int): An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
-<span class="sd">                ylim (list): The limits of the y-axis (energy) of the band structure plot</span>
-<span class="sd">                colorhalf (float): Set the magnitude for the color bar; For default value of 10, it is set automatically to average(COOP)*3</span>
-<span class="sd">                include_onsite (bool): Includes atomic overlap terms (S_ab(R) where R=0 and a=b) instead of just bonding terms, this can be used with NN=0 to give a projected bandstructure</span>
-<span class="sd">                from_dash (unknown): Flag to set when calling from the dash app, sets plotting backend to plotly and returns the axis</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: Nothing</span>
+<span class="sd">            orbs (dict): either a list of two dictionaries giving elements as keys and orbital types as items (eg [{&quot;Pb&quot;:[&quot;s&quot;,&quot;d&quot;],&quot;O&quot;:[&quot;s&quot;,&quot;p&quot;]},{&quot;Pb&quot;:[&quot;s&quot;]&quot;O&quot;:[&quot;p&quot;]}]) or give list of orb numbers [[1,2,3,5,6,7],[1,2,3,4,5,6,7,8]]</span>
+<span class="sd">            NN (int): An integer for which nearest neighbor number to include (eg 1 for 1NN) or None or &quot;All&quot; for all nearest neighbors</span>
+<span class="sd">            ylim (list): The limits of the y-axis (energy) of the band structure plot</span>
+<span class="sd">            colorhalf (float): Set the magnitude for the color bar; For default value of 10, it is set automatically to average(COOP)*3</span>
+<span class="sd">            include_onsite (bool): Includes atomic overlap terms (S_ab(R) where R=0 and a=b) instead of just bonding terms, this can be used with NN=0 to give a projected bandstructure</span>
+<span class="sd">            from_dash (unknown): Flag to set when calling from the dash app, sets plotting backend to plotly and returns the axis</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: Nothing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">NN_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">NN_dists</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">TB_model</span><span class="o">.</span><span class="n">get_neighbors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">coop</span> <span class="o">=</span> <span class="p">{}</span>
@@ -2011,11 +2038,13 @@
 <span class="sd">        This function generate a dash app which allows the user to interactively select orbitals and nearest neighbors</span>
 <span class="sd">        to examine their project COHP band structure quickly</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                pathname (str): Name appended to the default pathname for the html</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: Nothing</span>
+<span class="sd">            pathname (str): Name appended to the default pathname for the html</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: Nothing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span><span class="w"> </span><span class="nn">dash</span>
         <span class="kn">from</span><span class="w"> </span><span class="nn">dash</span><span class="w"> </span><span class="kn">import</span> <span class="n">dcc</span><span class="p">,</span> <span class="n">html</span>
@@ -2119,8 +2148,9 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This class deals with all post-processing uniform grid analysis</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                TB_model (object): requires an object of the class COGITO_TB_Model</span>
+<span class="sd">        Args:</span>
+
+<span class="sd">            TB_model (object): requires an object of the class COGITO_TB_Model</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># copy all attributes of the TB_model</span>
         <span class="n">attributes</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">TB_model</span><span class="p">)</span>
@@ -2139,8 +2169,9 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_uniform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">grid</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                grid (tuple): The kpoint grid to use for the uniform sampling</span>
+<span class="sd">        Args:</span>
+
+<span class="sd">            grid (tuple): The kpoint grid to use for the uniform sampling</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1">#print(grid)</span>
         <span class="c1">#from pymatgen.core import Structure</span>
@@ -2731,17 +2762,19 @@
 <span class="sd">        This is a function which will generate populate the cartXYZ grid with values for the bond density between</span>
 <span class="sd">        the atoms given using the orbCOOP provided.</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                atmind1 (unknown): The atom number for the first atom</span>
-<span class="sd">                atmind2 (unknown): The atom number for the second atom</span>
-<span class="sd">                center1 (unknown): The center of the first atom (not using self.primATOMs)</span>
-<span class="sd">                center2 (unknown): The center of the second atom (not using self.primATOMs)</span>
-<span class="sd">                orbCOOP (unknown): The orbCOOP which reveals how much of each orbital combo that is included in the bond.</span>
-<span class="sd">                        Dimension nxm where n is the # of orbitals for atom 1 and m is # of orbitals for atom 2.</span>
-<span class="sd">                cartXYZ (unknown): The 3D flattened grid that the bond density is calculated on</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                unknown: A 1D array  (3D flattened) of the bond density</span>
+<span class="sd">            atmind1 (unknown): The atom number for the first atom</span>
+<span class="sd">            atmind2 (unknown): The atom number for the second atom</span>
+<span class="sd">            center1 (unknown): The center of the first atom (not using self.primATOMs)</span>
+<span class="sd">            center2 (unknown): The center of the second atom (not using self.primATOMs)</span>
+<span class="sd">            orbCOOP (unknown): The orbCOOP which reveals how much of each orbital combo that is included in the bond.</span>
+<span class="sd">                Dimension nxm where n is the # of orbitals for atom 1 and m is # of orbitals for atom 2.</span>
+<span class="sd">            cartXYZ (unknown): The 3D flattened grid that the bond density is calculated on</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            unknown: A 1D array  (3D flattened) of the bond density</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;real_orbcoeffs&#39;</span><span class="p">):</span>
@@ -2820,15 +2853,17 @@
 <span class="sd">        this will plot the crystal structure atoms with line weighted by iCOHP</span>
 <span class="sd">        each line should also be hoverable to reveal the number and amounts that are s-s,s-p, and p-p</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                energy_cutoff (float): This is the minimum bond magnitude that will be plotted</span>
-<span class="sd">                offset (int): The offset in the colors, set different values to try out different colors</span>
-<span class="sd">                plot_atom (int): Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
-<span class="sd">                one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False</span>
-<span class="sd">                bond_max (float): The maximum bond distance that will be plotted outside the primitive cell</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: Nothing</span>
+<span class="sd">            energy_cutoff (float): This is the minimum bond magnitude that will be plotted</span>
+<span class="sd">            offset (int): The offset in the colors, set different values to try out different colors</span>
+<span class="sd">            plot_atom (int): Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
+<span class="sd">            one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False</span>
+<span class="sd">            bond_max (float): The maximum bond distance that will be plotted outside the primitive cell</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: Nothing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;NN_index&#39;</span><span class="p">):</span>
@@ -3213,28 +3248,30 @@
 <span class="sd">        this will plot the crystal structure atoms with line weighted by iCOHP</span>
 <span class="sd">        each line should also be hoverable to reveal the number and amounts that are s-s,s-p, and p-p</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                energy_cutoff (float): This is the minimum bond magnitude that will be plotted</span>
-<span class="sd">                bond_max (float): The maximum bond distance that will be plotted outside the primitive cell</span>
-<span class="sd">                elem_colors (list): Colors for the elements based on order in tb_input. Length of list should be the number of</span>
-<span class="sd">                        unique elements. Can either be integer list to reference the default colors or list of</span>
-<span class="sd">                        plotly compatable colors.</span>
-<span class="sd">                atom_colors (list): Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
-<span class="sd">                        atoms in the primitive cell. Can either be integer list to reference the default colors or</span>
-<span class="sd">                        list of plotly compatable colors. If not set defaults to elem_colors.</span>
-<span class="sd">                atom_labels (list): List of atom labels as a string.</span>
-<span class="sd">                plot_atom (int): Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
-<span class="sd">                one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False</span>
-<span class="sd">                fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
-<span class="sd">                        Set between 3 (for close to orthographic) and 30 (for good perspective depth).</span>
-<span class="sd">                return_fig (bool): If False, this function saves figure to crystal_bonds.html. If True, this function will return the plotly figure object</span>
-<span class="sd">                only_prim_atoms (bool): If True, only the atoms within the primitive cell are plotted.</span>
-<span class="sd">                        If False, atoms are added outside the primitive cell if the atom has a bond to an atom</span>
-<span class="sd">                        inside the primtive cell that meets energy_cutoff and bond_max criteria.</span>
-<span class="sd">                        Default is set in code False if self.numAtoms &lt; 30, otherwise set to True</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: Nothing</span>
+<span class="sd">            energy_cutoff (float): This is the minimum bond magnitude that will be plotted</span>
+<span class="sd">            bond_max (float): The maximum bond distance that will be plotted outside the primitive cell</span>
+<span class="sd">            elem_colors (list): Colors for the elements based on order in tb_input. Length of list should be the number of</span>
+<span class="sd">                unique elements. Can either be integer list to reference the default colors or list of</span>
+<span class="sd">                plotly compatable colors.</span>
+<span class="sd">            atom_colors (list): Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
+<span class="sd">                atoms in the primitive cell. Can either be integer list to reference the default colors or</span>
+<span class="sd">                list of plotly compatable colors. If not set defaults to elem_colors.</span>
+<span class="sd">            atom_labels (list): List of atom labels as a string.</span>
+<span class="sd">            plot_atom (int): Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
+<span class="sd">            one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False</span>
+<span class="sd">            fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+<span class="sd">                Set between 3 (for close to orthographic) and 30 (for good perspective depth).</span>
+<span class="sd">            return_fig (bool): If False, this function saves figure to crystal_bonds.html. If True, this function will return the plotly figure object</span>
+<span class="sd">            only_prim_atoms (bool): If True, only the atoms within the primitive cell are plotted.</span>
+<span class="sd">                If False, atoms are added outside the primitive cell if the atom has a bond to an atom</span>
+<span class="sd">                inside the primtive cell that meets energy_cutoff and bond_max criteria.</span>
+<span class="sd">                Default is set in code False if self.numAtoms &lt; 30, otherwise set to True</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: Nothing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">only_prim_atoms</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">numAtoms</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
@@ -3488,9 +3525,10 @@
 <span class="sd">                radius (float): Radius of the cylinder.</span>
 <span class="sd">                resolution (int): Number of segments along the circle.</span>
 
-<span class="sd">                        Returns:</span>
-<span class="sd">                        s: </span>
-<span class="sd">                            (x, y, z): Mesh coordinates for the cylinder.</span>
+<span class="sd">            Returns:</span>
+
+<span class="sd">                s: </span>
+<span class="sd">                (x, y, z): Mesh coordinates for the cylinder.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="c1"># Vector along the cylinder&#39;s axis</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point1</span><span class="p">)</span>
@@ -3531,9 +3569,10 @@
 <span class="sd">                radius: Radius of the cylinder.</span>
 <span class="sd">                resolution: Number of points along the circle.</span>
 
-<span class="sd">                        Returns:</span>
-<span class="sd">                        s: </span>
-<span class="sd">                            (x, y, z, text): Coordinates and hover labels for the midsection points.</span>
+<span class="sd">            Returns:</span>
+
+<span class="sd">                s: </span>
+<span class="sd">                (x, y, z, text): Coordinates and hover labels for the midsection points.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="c1"># Calculate the midpoint of the cylinder</span>
             <span class="n">midpoint</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point2</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
@@ -3905,34 +3944,36 @@
 <span class="sd">        Each line should also be hoverable to reveal the number and amounts that are s-s,s-p, and p-p</span>
 <span class="sd">        The charge and magnetic moment will also be plotted acording to auto_label</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                energy_cutoff (float): This is the minimum bond magnitude that will be plotted</span>
-<span class="sd">                bond_max (float): The maximum bond distance that will be plotted outside the primitive cell</span>
-<span class="sd">                elem_colors (list): Colors for the elements based on order in tb_input. Length of list should be the number of</span>
-<span class="sd">                        unique elements. Can either be integer list to reference the default colors or list of</span>
-<span class="sd">                        plotly compatable colors.</span>
-<span class="sd">                atom_colors (list): Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
-<span class="sd">                        atoms in the primitive cell. Can either be integer list to reference the default colors or</span>
-<span class="sd">                        list of plotly compatable colors. If not set defaults to elem_colors.</span>
-<span class="sd">                atom_labels (list): List of atom labels as a string.</span>
-<span class="sd">                auto_label (str): Different options for plotting includes: (can include multiple in the string)</span>
-<span class="sd">                        &quot;mulliken&quot; - plots the onsite charge and mag (if spin_polar) on atoms by mulliken population (overrides atom_labels)</span>
-<span class="sd">                        &quot;full&quot; - plots the charge and magnetics moments (if spin_polar) on atoms and bonds (overrides atom_labels)</span>
-<span class="sd">                        &quot;color&quot; - colors the atoms and bonds based on their charge (overrides atom_colors or elem_colors)</span>
-<span class="sd">                        &quot;color mag&quot; - colors the atoms and bonds based on their magnetic moments (overrides atom_colors or elem_colors)</span>
-<span class="sd">                        NOTE: Only use &quot;mulliken&quot; OR &quot;full&quot;, NOT both</span>
-<span class="sd">                plot_atom (int): Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
-<span class="sd">                one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False</span>
-<span class="sd">                fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
-<span class="sd">                        Set between 3 (for close to orthographic) and 30 (for good perspective depth).</span>
-<span class="sd">                return_fig (bool): If False, this function saves figure to crystal_bonds.html. If True, this function will return the plotly figure object</span>
-<span class="sd">                only_prim_atoms (bool): If True, only the atoms within the primitive cell are plotted.</span>
-<span class="sd">                        If False, atoms are added outside the primitive cell if the atom has a bond to an atom</span>
-<span class="sd">                        inside the primtive cell that meets energy_cutoff and bond_max criteria.</span>
-<span class="sd">                        Default is set in code False if self.numAtoms &lt; 30, otherwise set to True</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: Depend on return_fig parameter.</span>
+<span class="sd">            energy_cutoff (float): This is the minimum bond magnitude that will be plotted</span>
+<span class="sd">            bond_max (float): The maximum bond distance that will be plotted outside the primitive cell</span>
+<span class="sd">            elem_colors (list): Colors for the elements based on order in tb_input. Length of list should be the number of</span>
+<span class="sd">                unique elements. Can either be integer list to reference the default colors or list of</span>
+<span class="sd">                plotly compatable colors.</span>
+<span class="sd">            atom_colors (list): Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
+<span class="sd">                atoms in the primitive cell. Can either be integer list to reference the default colors or</span>
+<span class="sd">                list of plotly compatable colors. If not set defaults to elem_colors.</span>
+<span class="sd">            atom_labels (list): List of atom labels as a string.</span>
+<span class="sd">            auto_label (str): Different options for plotting includes: (can include multiple in the string)</span>
+<span class="sd">                &quot;mulliken&quot; - plots the onsite charge and mag (if spin_polar) on atoms by mulliken population (overrides atom_labels)</span>
+<span class="sd">                &quot;full&quot; - plots the charge and magnetics moments (if spin_polar) on atoms and bonds (overrides atom_labels)</span>
+<span class="sd">                &quot;color&quot; - colors the atoms and bonds based on their charge (overrides atom_colors or elem_colors)</span>
+<span class="sd">                &quot;color mag&quot; - colors the atoms and bonds based on their magnetic moments (overrides atom_colors or elem_colors)</span>
+<span class="sd">                NOTE: Only use &quot;mulliken&quot; OR &quot;full&quot;, NOT both</span>
+<span class="sd">            plot_atom (int): Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
+<span class="sd">            one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False</span>
+<span class="sd">            fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+<span class="sd">                Set between 3 (for close to orthographic) and 30 (for good perspective depth).</span>
+<span class="sd">            return_fig (bool): If False, this function saves figure to crystal_bonds.html. If True, this function will return the plotly figure object</span>
+<span class="sd">            only_prim_atoms (bool): If True, only the atoms within the primitive cell are plotted.</span>
+<span class="sd">                If False, atoms are added outside the primitive cell if the atom has a bond to an atom</span>
+<span class="sd">                inside the primtive cell that meets energy_cutoff and bond_max criteria.</span>
+<span class="sd">                Default is set in code False if self.numAtoms &lt; 30, otherwise set to True</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: Depend on return_fig parameter.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">only_prim_atoms</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">numAtoms</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
@@ -4341,9 +4382,10 @@
 <span class="sd">                radius (float): Radius of the cylinder.</span>
 <span class="sd">                resolution (int): Number of segments along the circle.</span>
 
-<span class="sd">                        Returns:</span>
-<span class="sd">                        s: </span>
-<span class="sd">                            (x, y, z): Mesh coordinates for the cylinder.</span>
+<span class="sd">            Returns:</span>
+
+<span class="sd">                s: </span>
+<span class="sd">                (x, y, z): Mesh coordinates for the cylinder.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="c1"># Vector along the cylinder&#39;s axis</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point1</span><span class="p">)</span>
@@ -4382,9 +4424,10 @@
 <span class="sd">                radius: Radius of the cylinder.</span>
 <span class="sd">                resolution: Number of points along the circle.</span>
 
-<span class="sd">                        Returns:</span>
-<span class="sd">                        s: </span>
-<span class="sd">                            (x, y, z, text): Coordinates and hover labels for the midsection points.</span>
+<span class="sd">            Returns:</span>
+
+<span class="sd">                s: </span>
+<span class="sd">                (x, y, z, text): Coordinates and hover labels for the midsection points.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="c1"># Calculate the midpoint of the cylinder</span>
             <span class="n">midpoint</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point2</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
@@ -4992,31 +5035,33 @@
 <span class="sd">        Each line should also be hoverable to reveal the number and amounts that are s-s,s-p, and p-p</span>
 <span class="sd">        The charge and magnetic moment will also be plotted acording to auto_label</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                energy_cutoff (float): This is the minimum bond magnitude that will be plotted</span>
-<span class="sd">                iso_max (float): The positive isosurface for plotting the bonds.</span>
-<span class="sd">                iso_min (float): The negative isosurface for plotting the bonds.</span>
-<span class="sd">                elem_colors (list): Colors for the elements based on order in tb_input. Length of list should be the number of</span>
-<span class="sd">                        unique elements. Can either be integer list to reference the default colors or list of</span>
-<span class="sd">                        plotly compatable colors.</span>
-<span class="sd">                atom_colors (list): Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
-<span class="sd">                        atoms in the primitive cell. Can either be integer list to reference the default colors or</span>
-<span class="sd">                        list of plotly compatable colors. If not set defaults to elem_colors.</span>
-<span class="sd">                atom_labels (list): List of atom labels as a string.</span>
-<span class="sd">                auto_label (str): Different options for plotting includes: (can include multiple in the string)</span>
-<span class="sd">                        &quot;mulliken&quot; - plots the onsite charge and mag (if spin_polar) on atoms by mulliken population (overrides atom_labels)</span>
-<span class="sd">                        &quot;full&quot; - plots the charge and magnetics moments (if spin_polar) on atoms and bonds (overrides atom_labels)</span>
-<span class="sd">                        &quot;color&quot; - colors the atoms and bonds based on their charge (overrides atom_colors or elem_colors)</span>
-<span class="sd">                        &quot;color mag&quot; - colors the atoms and bonds based on their magnetic moments (overrides atom_colors or elem_colors)</span>
-<span class="sd">                        NOTE: Only use &quot;mulliken&quot; OR &quot;full&quot;, NOT both</span>
-<span class="sd">                plot_atom (int): Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
-<span class="sd">                one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False</span>
-<span class="sd">                bond_max (float): The maximum bond distance that will be plotted outside the primitive cell</span>
-<span class="sd">                fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
-<span class="sd">                        Set between 3 (for close to orthographic) and 30 (for good perspective depth).</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: Nothing, but saves plotly figure to &#39;crystal_bonds.html&#39;</span>
+<span class="sd">            energy_cutoff (float): This is the minimum bond magnitude that will be plotted</span>
+<span class="sd">            iso_max (float): The positive isosurface for plotting the bonds.</span>
+<span class="sd">            iso_min (float): The negative isosurface for plotting the bonds.</span>
+<span class="sd">            elem_colors (list): Colors for the elements based on order in tb_input. Length of list should be the number of</span>
+<span class="sd">                unique elements. Can either be integer list to reference the default colors or list of</span>
+<span class="sd">                plotly compatable colors.</span>
+<span class="sd">            atom_colors (list): Colors for the atoms based on order in tb_input. Length of list should be the number of</span>
+<span class="sd">                atoms in the primitive cell. Can either be integer list to reference the default colors or</span>
+<span class="sd">                list of plotly compatable colors. If not set defaults to elem_colors.</span>
+<span class="sd">            atom_labels (list): List of atom labels as a string.</span>
+<span class="sd">            auto_label (str): Different options for plotting includes: (can include multiple in the string)</span>
+<span class="sd">                &quot;mulliken&quot; - plots the onsite charge and mag (if spin_polar) on atoms by mulliken population (overrides atom_labels)</span>
+<span class="sd">                &quot;full&quot; - plots the charge and magnetics moments (if spin_polar) on atoms and bonds (overrides atom_labels)</span>
+<span class="sd">                &quot;color&quot; - colors the atoms and bonds based on their charge (overrides atom_colors or elem_colors)</span>
+<span class="sd">                &quot;color mag&quot; - colors the atoms and bonds based on their magnetic moments (overrides atom_colors or elem_colors)</span>
+<span class="sd">                NOTE: Only use &quot;mulliken&quot; OR &quot;full&quot;, NOT both</span>
+<span class="sd">            plot_atom (int): Set with one_atom=True, plots only one atom and it&#39;s bonds, this passes the atom number to plot</span>
+<span class="sd">            one_atom (bool): Whether only the atom defined in plot_atom should be plotted; default is False</span>
+<span class="sd">            bond_max (float): The maximum bond distance that will be plotted outside the primitive cell</span>
+<span class="sd">            fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+<span class="sd">                Set between 3 (for close to orthographic) and 30 (for good perspective depth).</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: Nothing, but saves plotly figure to &#39;crystal_bonds.html&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
         <span class="kn">from</span><span class="w"> </span><span class="nn">skimage.measure</span><span class="w"> </span><span class="kn">import</span> <span class="n">marching_cubes</span>
@@ -5427,9 +5472,10 @@
 <span class="sd">                radius (float): Radius of the cylinder.</span>
 <span class="sd">                resolution (int): Number of segments along the circle.</span>
 
-<span class="sd">                        Returns:</span>
-<span class="sd">                        s: </span>
-<span class="sd">                            (x, y, z): Mesh coordinates for the cylinder.</span>
+<span class="sd">            Returns:</span>
+
+<span class="sd">                s: </span>
+<span class="sd">                (x, y, z): Mesh coordinates for the cylinder.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="c1"># Vector along the cylinder&#39;s axis</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point1</span><span class="p">)</span>
@@ -5468,9 +5514,10 @@
 <span class="sd">                radius: Radius of the cylinder.</span>
 <span class="sd">                resolution: Number of points along the circle.</span>
 
-<span class="sd">                        Returns:</span>
-<span class="sd">                        s: </span>
-<span class="sd">                            (x, y, z, text): Coordinates and hover labels for the midsection points.</span>
+<span class="sd">            Returns:</span>
+
+<span class="sd">                s: </span>
+<span class="sd">                (x, y, z, text): Coordinates and hover labels for the midsection points.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
             <span class="c1"># Calculate the midpoint of the cylinder</span>
             <span class="n">midpoint</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point2</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
@@ -6793,19 +6840,21 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The will plot the crystal bond plot on the left with interactivity to a COHP DOS plot on the right</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                energy_cutoff (float): This is the minimum bond magnitude that will be plotted</span>
-<span class="sd">                bond_max (float): The maximum bond distance that will be plotted outside the primitive cell</span>
-<span class="sd">                auto_label (str): Different options for plotting includes: (can include multiple in the string)</span>
-<span class="sd">                        &quot;mulliken&quot; - plots the onsite charge and mag (if spin_polar) on atoms by mulliken population (overrides atom_labels)</span>
-<span class="sd">                        &quot;full&quot; - plots the charge and magnetics moments (if spin_polar) on atoms and bonds (overrides atom_labels)</span>
-<span class="sd">                        &quot;color&quot; - colors the atoms and bonds based on their charge (overrides atom_colors or elem_colors)</span>
-<span class="sd">                        &quot;color mag&quot; - colors the atoms and bonds based on their magnetic moments (overrides atom_colors or elem_colors)</span>
-<span class="sd">                        NOTE: Only use &quot;mulliken&quot; OR &quot;full&quot;, NOT both</span>
-<span class="sd">                fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: Nothing, but saved to &#39;bond_cohp_plot.html&#39;</span>
+<span class="sd">            energy_cutoff (float): This is the minimum bond magnitude that will be plotted</span>
+<span class="sd">            bond_max (float): The maximum bond distance that will be plotted outside the primitive cell</span>
+<span class="sd">            auto_label (str): Different options for plotting includes: (can include multiple in the string)</span>
+<span class="sd">                &quot;mulliken&quot; - plots the onsite charge and mag (if spin_polar) on atoms by mulliken population (overrides atom_labels)</span>
+<span class="sd">                &quot;full&quot; - plots the charge and magnetics moments (if spin_polar) on atoms and bonds (overrides atom_labels)</span>
+<span class="sd">                &quot;color&quot; - colors the atoms and bonds based on their charge (overrides atom_colors or elem_colors)</span>
+<span class="sd">                &quot;color mag&quot; - colors the atoms and bonds based on their magnetic moments (overrides atom_colors or elem_colors)</span>
+<span class="sd">                NOTE: Only use &quot;mulliken&quot; OR &quot;full&quot;, NOT both</span>
+<span class="sd">            fovy (float): field of view in the vertical direction. Use this tag to adjust depth perception in crystal.</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: Nothing, but saved to &#39;bond_cohp_plot.html&#39;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">fig1</span><span class="p">,</span> <span class="n">post_script</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bonds_charge_figure</span><span class="p">(</span><span class="n">energy_cutoff</span><span class="o">=</span><span class="n">energy_cutoff</span><span class="p">,</span> <span class="n">bond_max</span><span class="o">=</span><span class="n">bond_max</span><span class="p">,</span> <span class="n">auto_label</span><span class="o">=</span><span class="n">auto_label</span><span class="p">,</span><span class="n">fovy</span><span class="o">=</span><span class="n">fovy</span><span class="p">,</span><span class="n">return_fig</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -7311,8 +7360,9 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This class deals with all post-processing band structure analysis</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                TB_model (object): requires an object of the class COGITO_TB_Model</span>
+<span class="sd">        Args:</span>
+
+<span class="sd">            TB_model (object): requires an object of the class COGITO_TB_Model</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># copy all attributes of the TB_model</span>
         <span class="n">attributes</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">TB_model</span><span class="p">)</span>
@@ -7333,11 +7383,13 @@
 <span class="sd">        The function automatically generates a kpath using pymatgen and kpathseek</span>
 <span class="sd">        Then calculates the band energies and vectors for the kpath</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                num_kpts (int): The number of kpoints between EACH kpath</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                None: Nothing</span>
+<span class="sd">            num_kpts (int): The number of kpoints between EACH kpath</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            None: Nothing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">pymat_struc</span> <span class="o">=</span> <span class="n">struc</span><span class="o">.</span><span class="n">Structure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">primAtoms</span><span class="p">)</span>
@@ -7383,11 +7435,13 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plots bandstructure (or projected bandstructure) using plotly graph_objects</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                ylim (unknown): Limits on the y-axis of plot</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                object: plotly figure with bandstructure plotted</span>
+<span class="sd">            ylim (unknown): Limits on the y-axis of plot</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            object: plotly figure with bandstructure plotted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1">#reformat data to find nodes and stop repeating them</span>
@@ -7475,13 +7529,15 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">plotBS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">selectedDot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">plotnew</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd">                Args:</span>
-<span class="sd">                ax (unknown): (matplotlib.pyplot axis): axis to save the bandstructure to, otherwise generate new axis</span>
-<span class="sd">                selectedDot (unknown): (1D integer array): gives kpoint and band index of the dot selected to make green circle</span>
-<span class="sd">                        eg: [3,4]</span>
+<span class="sd">        Args:</span>
 
-<span class="sd">                Returns:</span>
-<span class="sd">                unknown: matplotlib.pyplot axis with bandstructure plotted</span>
+<span class="sd">            ax (unknown): (matplotlib.pyplot axis): axis to save the bandstructure to, otherwise generate new axis</span>
+<span class="sd">            selectedDot (unknown): (1D integer array): gives kpoint and band index of the dot selected to make green circle</span>
+<span class="sd">                eg: [3,4]</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            unknown: matplotlib.pyplot axis with bandstructure plotted</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">fermi_energy</span> <span class="o">=</span> <span class="mf">4.619735</span><span class="c1">#2.5529#4.619735  # best si: 7.089 #used to set the valence band maximum to zero</span>
         <span class="c1">#print(&quot;tick info:&quot;, self.k_node, self.k_label)</span>
@@ -8102,13 +8158,15 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">_red_to_cart</span><span class="p">(</span><span class="n">prim_vec</span><span class="p">,</span><span class="n">prim_coord</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd">        Args:</span>
+<span class="sd">    Args:</span>
+
 <span class="sd">        prim_vec (unknown): three float tuples representing the primitive vectors</span>
 <span class="sd">        prim_coord (unknown): list of float tuples for primitive coordinates</span>
 
-<span class="sd">        Returns:</span>
+<span class="sd">    Returns:</span>
+
 <span class="sd">        unknown: list of float tuples for cartesian coordinates</span>
-<span class="sd">                    ex: cart_coord = _red_to_cart((a1,a2,a3),prim_coord)</span>
+<span class="sd">                ex: cart_coord = _red_to_cart((a1,a2,a3),prim_coord)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">a3</span><span class="p">)</span><span class="o">=</span><span class="n">prim_vec</span>
     <span class="n">prim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prim_coord</span><span class="p">)</span>

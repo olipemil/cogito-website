@@ -5,10 +5,109 @@ nav_order: 4
 parent: API Documentation
 ---
 
+<style>
+.docs-layout {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 200px);
+}
 
-<link rel="stylesheet" href="{{ '/docs/_static/api-docs.css' | relative_url }}">
+.docs-content {
+    flex: 1;
+    min-width: 0;
+}
 
-# COGITOico module
+.docs-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    background: #f8f9fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.iframe-container {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+}
+
+.sidebar-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #f8f9fa;
+}
+
+.iframe-fallback {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Hide ReadTheDocs sidebar in main content iframe */
+.iframe-container iframe {
+    margin-left: -300px;
+    width: calc(100% + 300px);
+}
+
+@media (max-width: 768px) {
+    .docs-layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .docs-sidebar {
+        width: 100%;
+        height: 200px;
+        order: -1;
+    }
+
+    .iframe-container iframe {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+</style>
+
+<div class="docs-layout">
+    <div class="docs-content">
+        <div class="iframe-container">
+            <iframe src="{{ '/docs/_build/html/COGITOico.html' | relative_url }}"
+                    title="COGITOico API Documentation"
+                    onload="this.style.opacity='1';"
+                    style="opacity:0; transition: opacity 0.3s;">
+            </iframe>
+            <div class="iframe-fallback">
+                Loading COGITOico documentation...
+                <br><br>
+                If this doesn't load, you can access it directly at:
+                <a href="{{ '/docs/_build/html/COGITOico.html' | relative_url }}">COGITOico Documentation</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="docs-sidebar">
+        <iframe src="{{ '/docs/_build/html/COGITOico.html' | relative_url }}"
+                class="sidebar-iframe"
+                title="COGITOico Documentation Sidebar"
+                onload="this.contentDocument.body.style.overflow='hidden';
+                        var content = this.contentDocument.querySelector('.wy-grid-for-nav .wy-nav-content-wrap');
+                        if(content) content.style.display='none';
+                        var sidebar = this.contentDocument.querySelector('.wy-nav-side');
+                        if(sidebar) { sidebar.style.width='100%'; sidebar.style.left='0'; }">
+        </iframe>
+    </div>
+</div>
 
 ### *class* COGITOico.COGITO_ICO(directory, verbose=0, file_suffix='', orbs_orth=False, spin_polar=False)
 

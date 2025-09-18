@@ -8,63 +8,50 @@ Bases: `object`
 
 intialize the calculation
 
-**Parameters:**
-: wavecar_dir (str): The directory with all the VASP output files
-  readmode (bool): If true, the code should have been run with readmode=False to generate output files;
-  <br/>
-  > will not read VASP output files or run orbital convergence and projection
+* **Parameters:**
+  * **wavecar_dir** (`str`) – The directory with all the VASP output files
+  * **readmode** (`bool`) – If true, the code should have been run with readmode=False to generate output files;
+    will not read VASP output files or run orbital convergence and projection
 
-#### generate_TBmodel(irreducible_grid=True, verbose=0, include_excited=1, save_orb_data=True, save_orb_figs=False, plot_orbs=False, plot_projBS=False, plot_projDOS=False, calc_nrms=False, orbs=None, orbfactor=1.0, num_steps=50, num_outer=3, tag='', min_proj=0.02, band_opt=True, orb_opt=True, orb_orth=False, start_from_orbnpy=False, minimum_orb_energy=-60, min_duplicate_energy=-60)
+#### generate_TBmodel(irreducible_grid=True, verbose=0, include_excited=1, save_orb_data=True, save_orb_figs=False, plot_orbs=False, plot_projBS=False, plot_projDOS=False, calc_nrms=False, orbs=None, orbfactor=1.0, num_steps=50, num_outer=3, tag='', min_proj=0.02, band_opt=True, orb_opt=True, orb_orth=False, start_from_orbnpy=False, minimum_orb_energy: float = -60, min_duplicate_energy: float = -60)
 
 Runs all the functions neccessary to generate the TB interpolation.
 REQUIRES UNIFORM KPT GRID WITH NO SYMMETRY OR FULL SYMMETRY FOR TB MODEL
 
-**Parameters:**
-: irreducible_grid (bool): Whether or not the kpoint grid is irreducible. True for ISYM=1|2|3; False for ISYM=-1 (does not work with ISYM=0)
-  verbose (str): how much to ouput, includes 0,1,2,3. Higher numbers result in more output
-  include_excited (int): how much to include excited orbital states, includes 0, 1, 2. To do this best avoid using POTCARs with semi-core states.
-  <br/>
-  > 0 includes no excited orbital states (only ones which are partially occupied in isolated atom)
-  > 1 includes some excited states (if the POTCAR has the excited states + another higher one of the same l) (generally includes p orbital for d block)
-  > 2 includes maximally recommended states (condition of 1 + if the energy listed is the same as in isolated atom) (generally includes p orbitals for 1&2nd row)
-  <br/>
-  plot_orbs (bool): Plot the radial converged orbital being fit to Gaussian functions
-  plot_projBS (bool): Plot the orbital projected bandstructure (not BS if the kpt grid is uniform)
-  plot_projDOS (bool): Plot the orbital projected density of states (not correct DOS unless kpt grid is uniform)
-  orbs (dictionary): The orbitals to plot the projection of. Defaults to all orbitals.
-  <br/>
-  > FORMAT: {“element1”:[orbital types]} e.g. {“Si”:[“s”,”p”],”C”:[“s”,”p”]}
-  <br/>
-  minimum_orb_energy (float): The lower limit to add semi-core states in the POTCAR into the COGITO basis. Uses the atomic orbital energy listed in POTCAR.
-  min_duplicate_energy (float): The lower limit to add semi-core states when there is another valence state of the same l quantum number in the POTCAR into the COGITO basis. Uses the atomic orbital energy listed in POTCAR.
-  <br/>
-  Usage:
-  new_model = COGITO(“silicon/”)
+* **Parameters:**
+  * **irreducible_grid** (`bool`) – Whether or not the kpoint grid is irreducible. True for ISYM=1|2|3; False for ISYM=-1 (does not work with ISYM=0)
+  * **verbose** (`str`) – how much to ouput, includes 0,1,2,3. Higher numbers result in more output
+  * **include_excited** (`int`) – how much to include excited orbital states, includes 0, 1, 2. To do this best avoid using POTCARs with semi-core states.
+    0 includes no excited orbital states (only ones which are partially occupied in isolated atom)
+    1 includes some excited states (if the POTCAR has the excited states + another higher one of the same l) (generally includes p orbital for d block)
+    2 includes maximally recommended states (condition of 1 + if the energy listed is the same as in isolated atom) (generally includes p orbitals for 1&2nd row)
+  * **plot_orbs** (`bool`) – Plot the radial converged orbital being fit to Gaussian functions
+  * **plot_projBS** (`bool`) – Plot the orbital projected bandstructure (not BS if the kpt grid is uniform)
+  * **plot_projDOS** (`bool`) – Plot the orbital projected density of states (not correct DOS unless kpt grid is uniform)
+  * **orbs** (`dictionary`) – The orbitals to plot the projection of. Defaults to all orbitals.
+    FORMAT: {“element1”:[orbital types]} e.g. {“Si”:[“s”,”p”],”C”:[“s”,”p”]}
+  * **minimum_orb_energy** (`float`) – The lower limit to add semi-core states in the POTCAR into the COGITO basis. Uses the atomic orbital energy listed in POTCAR.
+  * **min_duplicate_energy** (`float`) – The lower limit to add semi-core states when there is another valence state of the same l quantum number in the POTCAR into the COGITO basis. Uses the atomic orbital energy listed in POTCAR.
+
+Usage:
+: new_model = COGITO(“silicon/”)
   new_model.generate_TBmodel(plot_orbs=True)
 
-* **Parameters:**
-  * **minimum_orb_energy** (*float*)
-  * **min_duplicate_energy** (*float*)
-
-#### test_initialorbs(verbose=0, plot_orbs=False, include_excited=1, low_factor=0.8, high_factor=1.2, num_fac=9, num_outer=2, tag='', min_proj=0.02, num_steps=50, minimum_orb_energy=-60, min_duplicate_energy=-60)
+#### test_initialorbs(verbose=0, plot_orbs=False, include_excited=1, low_factor=0.8, high_factor=1.2, num_fac=9, num_outer=2, tag='', min_proj=0.02, num_steps=50, minimum_orb_energy: float = -60, min_duplicate_energy: float = -60)
 
 Tests dependance of orbital radius and quality on the size of initial orbitals.
 Only runs the convergence of the orbitals without projecting them or generating the TB model
 
-**Parameters:**
-: verbose (str): how much to ouput, includes 0,1,2,3. Higher numbers result in more output
-  plot_orbs (bool): Plot the radial converged orbital being fit to Gaussian functions
-  low_factor (float): minimum to multiply the orbital size by; Default is 80%
-  high_factor (float): maximum to multiply the orbital size by; Default is 120%
-  num_fac (int): the number of steps between low_factor and high_factor to try
-  <br/>
-  Usage:
-  new_model = COGITO(“silicon/”)
-  new_model.generate_TBmodel(plot_orbs=True)
-
 * **Parameters:**
-  * **minimum_orb_energy** (*float*)
-  * **min_duplicate_energy** (*float*)
+  * **verbose** (`str`) – how much to ouput, includes 0,1,2,3. Higher numbers result in more output
+  * **plot_orbs** (`bool`) – Plot the radial converged orbital being fit to Gaussian functions
+  * **low_factor** (`float`) – minimum to multiply the orbital size by; Default is 80%
+  * **high_factor** (`float`) – maximum to multiply the orbital size by; Default is 120%
+  * **num_fac** (`int`) – the number of steps between low_factor and high_factor to try
+
+Usage:
+: new_model = COGITO(“silicon/”)
+  new_model.generate_TBmodel(plot_orbs=True)
 
 #### get_WFdata_fromPOT()
 
@@ -80,8 +67,8 @@ self.atmPsuedoAeData [=] {“element”,[radial_grid, {“orbtypes”:[pseudo_ra
 Creates the 3D initial orbitals in real space from the pseudo radial orbitals.
 Also sets the amount of orbitals by looping through atoms and their orbitals, thus intializes many orbital-dependent variables
 
-**Parameters:**
-: orbfactor (float): multipled by the radial part of the pseudo radial orbital to either shrink or grow them
+* **Parameters:**
+  **orbfactor** (`float`) – multipled by the radial part of the pseudo radial orbital to either shrink or grow them
 
 #### get_coefficients(orbitalWF, crystalWF, overlap_matrix, recip=False, band=None)
 
@@ -89,15 +76,16 @@ Find the coefficients for the amount of each pseudo orbital (Φ) in the pseudo w
 If the overlap is identity, the coefficients would just be the integral of the orbital-wavefunction overlap: Φa\*Ψn = O_an
 When the overlap is not identity S_ab, obtaining the coefficients (C_bn) requires solving the linear problem S_ab\*C_bn = O_an
 
+* **Parameters:**
+  * **orbitalWF** (`dict`) – of length M: All the orbital functions in a dictionary. The orbital may be defined in real 3D space on reciprocal G vectors
+  * **crystalWF** (`dict`) – of length N: All the DFT wavefunctions in a dictionary. The wavefunction is defined on the same space as orbitalWF
+  * **overlap_matrix** (`MxM`) – matrix of complex float: The overlap of the orbitals. NOTE: The orbitals and their overlaps have a k-dependence
+  * **recip** (`bool`) – Whether the wavefunctions are defined in real or reciprocal space
+  * **band** (`int`) – If the coefficents of only one band in the crystalWF dict is needed, pass that band as an integer here.
 * **Returns:**
   The coefficients C_an of orbital a in band n
-
-**Parameters:**
-: orbitalWF (dict): of length M: All the orbital functions in a dictionary. The orbital may be defined in real 3D space on reciprocal G vectors
-  crystalWF (dict): of length N: All the DFT wavefunctions in a dictionary. The wavefunction is defined on the same space as orbitalWF
-  overlap_matrix (MxM): matrix of complex float: The overlap of the orbitals. NOTE: The orbitals and their overlaps have a k-dependence
-  recip (bool): Whether the wavefunctions are defined in real or reciprocal space
-  band (int): If the coefficents of only one band in the crystalWF dict is needed, pass that band as an integer here.
+* **Return type:**
+  unknown
 
 #### get_aecoefficients(orbitalWF, crystalWF, aeoverlap_matrix, kpt, recip=False, band=None, full_kpt=False, prints=False, gpnts=None, set_gpnts=False)
 
@@ -106,53 +94,57 @@ If the overlap is identity, the coefficients would just be the integral of the o
 When the overlap is not identity S_ab, obtaining the coefficients (C_bn) requires solving the linear problem S_ab\*C_bn = O_an
 The orbital-wavefunction overlap is modified from the pseudo overlap using standard PAW methods
 
+* **Parameters:**
+  * **orbitalWF** (`dict`) – of length M: All the pseudo orbital functions in a dictionary. The orbital may be defined in real 3D space on reciprocal G vectors
+  * **crystalWF** (`dict`) – of length N: All the pseudo DFT wavefunctions in a dictionary. The wavefunction is defined on the same space as orbitalWF
+  * **aeoverlap_matrix** (`MxM`) – matrix of complex float: The overlap of the ae orbitals. NOTE: The orbitals and their overlaps have a k-dependence
+  * **recip** (`bool`) – Whether the wavefunctions are defined in real or reciprocal space
+  * **band** (`int`) – If the coefficents of only one band in the crystalWF dict is needed, pass that band as an integer here.
 * **Returns:**
   The coefficients C_na of orbital a in band n
-
-**Parameters:**
-: orbitalWF (dict): of length M: All the pseudo orbital functions in a dictionary. The orbital may be defined in real 3D space on reciprocal G vectors
-  crystalWF (dict): of length N: All the pseudo DFT wavefunctions in a dictionary. The wavefunction is defined on the same space as orbitalWF
-  aeoverlap_matrix (MxM): matrix of complex float: The overlap of the ae orbitals. NOTE: The orbitals and their overlaps have a k-dependence
-  recip (bool): Whether the wavefunctions are defined in real or reciprocal space
-  band (int): If the coefficents of only one band in the crystalWF dict is needed, pass that band as an integer here.
+* **Return type:**
+  unknown
 
 #### get_ae_overlap_matrix(orbitalWF, secondWF=None, secondisarray=False, recip=True, kpt=0)
 
 Finds the overlap matrix S_ab = Φa\*φb. If secondWF is not defined, φ = Φ
 
+* **Parameters:**
+  * **orbitalWF** (`dict`) – of length M: All the orbital functions in a dictionary. The orbital may be defined in real 3D space on reciprocal G vectors
+  * **secondWF** (`dict`) – of length N: The second orbital functions in a dictionary. Defined on the same space as orbitalWF
+  * **recip** (`bool`) – Whether the orbitals are defined in real or reciprocal space
 * **Returns:**
   The overlap matrix S_ab for orbitals a and b
-
-**Parameters:**
-: orbitalWF (dict): of length M: All the orbital functions in a dictionary. The orbital may be defined in real 3D space on reciprocal G vectors
-  secondWF (dict): of length N: The second orbital functions in a dictionary. Defined on the same space as orbitalWF
-  recip (bool): Whether the orbitals are defined in real or reciprocal space
+* **Return type:**
+  unknown
 
 #### get_overlap_matrix(orbitalWF, secondWF=None, secondisarray=False, recip=False)
 
 Finds the overlap matrix S_ab = Φa\*φb. If secondWF is not defined, φ = Φ
 
+* **Parameters:**
+  * **orbitalWF** (`dict`) – of length M: All the orbital functions in a dictionary. The orbital may be defined in real 3D space on reciprocal G vectors
+  * **secondWF** (`dict`) – of length N: The second orbital functions in a dictionary. Defined on the same space as orbitalWF
+  * **recip** (`bool`) – Whether the orbitals are defined in real or reciprocal space
 * **Returns:**
   The overlap matrix S_ab for orbitals a and b
-
-**Parameters:**
-: orbitalWF (dict): of length M: All the orbital functions in a dictionary. The orbital may be defined in real 3D space on reciprocal G vectors
-  secondWF (dict): of length N: The second orbital functions in a dictionary. Defined on the same space as orbitalWF
-  recip (bool): Whether the orbitals are defined in real or reciprocal space
+* **Return type:**
+  unknown
 
 #### lowdin_orth(low_orbitals, set_overlap=False, overlap=None, recip=False)
 
 Orthogonalized the orbital based on the Lowdin scheme.
 The new orbitals Ψ are defined by the original orbitals Φ as Ψ_b = conj(S_ab)^(-1/2)\*Φ_a
 
+* **Parameters:**
+  * **low_orbitals** (`dict`) – of length M: All the orbital functions in a dictionary. The orbital may be defined in real 3D space on reciprocal G vectors
+  * **set_overlap** (`bool`) – Whether the orbital overlap is being passed to the function (True) or should be calculated (False)
+  * **overlap** (`MxM`) – matrix of complex float: The overlap of the orbitals. NOTE: The orbitals and their overlaps have a k-dependence
+  * **recip** (`bool`) – Whether the orbitals are defined in real or reciprocal space
 * **Returns:**
   Lowdin orthogonalized orbitals
-
-**Parameters:**
-: low_orbitals (dict): of length M: All the orbital functions in a dictionary. The orbital may be defined in real 3D space on reciprocal G vectors
-  set_overlap (bool): Whether the orbital overlap is being passed to the function (True) or should be calculated (False)
-  overlap (MxM): matrix of complex float: The overlap of the orbitals. NOTE: The orbitals and their overlaps have a k-dependence
-  recip (bool): Whether the orbitals are defined in real or reciprocal space
+* **Return type:**
+  unknown
 
 #### converge_orbs_recip(num_steps=50)
 
@@ -161,28 +153,28 @@ This procedes by \_\_\_\_
 
 creates global variable one_orbitalWF which is referenced in the Bloch to atomic orbital fitting
 
-**Parameters:**
-: num_steps (int): Maximum number of steps to perform the convergence;
-  : Setting equal to 0 with run the standard direct algorithm where 
-    <br/>
-    ```
-    |
-    ```
-    <br/>
-    X_a> = sum_n(c_na 
-    <br/>
-    ```
-    |
-    ```
-    <br/>
-    Y_n>)
-    Where 
-    <br/>
-    ```
-    |
-    ```
-    <br/>
-    Y_n> are the set of band (equal to number of orbitals) of the highest projection
+* **Parameters:**
+  **num_steps** (`int`) – Maximum number of steps to perform the convergence;
+  Setting equal to 0 with run the standard direct algorithm where 
+
+  ```
+  |
+  ```
+
+  X_a> = sum_n(c_na 
+
+  ```
+  |
+  ```
+
+  Y_n>)
+  Where 
+
+  ```
+  |
+  ```
+
+  Y_n> are the set of band (equal to number of orbitals) of the highest projection
 
 #### fit_to_atomic_orb(plot_orbs=False)
 
@@ -202,9 +194,6 @@ creates global variable one_orbitalWF which is referenced in the Bloch to atomic
 
 #### optimize_band_set(band_opt=True, orb_opt=True, orb_orth=False)
 
-* **Returns:**
-  set of band which minimizes the difference between the orbital states left after and the band set orbital states;   maybe later: also minimize overlap between Lowdin orthogonalized band sets
-
 outline:
 start by finding the lowest band with projectibilty < 0.8
 keep and lowdin orthogonailze everything beneath that band
@@ -212,6 +201,11 @@ discard any band with projectibility < 0.2
 calculate 1-orbital states over all the good states > 0.8
 calculate orbital states of each possible band
 run through optimization
+
+* **Returns:**
+  set of band which minimizes the difference between the orbital states left after and the band set orbital states;   maybe later: also minimize overlap between Lowdin orthogonalized band sets
+* **Return type:**
+  unknown
 
 #### expand_irred_kgrid()
 
@@ -292,26 +286,28 @@ This function is to symmetrize the iterated orbitals to decrease orbital mixing 
 Extracts orbital magnitude along a line passing through p1 and p2 in a non-Cartesian 3D grid.
 
 * **Parameters:**
-  * **grid** (*numpy.ndarray*) – 3D array of orbital magnitudes.
-  * **gridXYZ** (*numpy.ndarray*) – 2D array (3, num_points) of real-space coordinates.
-  * **p1** (*tuple*) – First point (x1, y1, z1) in real space.
-  * **p2** (*tuple*) – Second point (x2, y2, z2) in real space.
-  * **tolerance** (*float*) – Distance threshold to include points near the line.
+  * **grid** (`numpy.ndarray`) – 3D array of orbital magnitudes.
+  * **gridXYZ** (`numpy.ndarray`) – 2D array (3, num_points) of real-space coordinates.
+  * **p1** (`tuple`) – First point (x1, y1, z1) in real space.
+  * **p2** (`tuple`) – Second point (x2, y2, z2) in real space.
+  * **tolerance** (`float`) – Distance threshold to include points near the line.
 * **Returns:**
-  Distances along the line.
+  distances (numpy.ndarray): Distances along the line.
   magnitudes (numpy.ndarray): Orbital magnitudes at corresponding distances.
 * **Return type:**
-  distances (numpy.ndarray)
+  s
 
 ### COGITO.combine_and_save_plots(plots, filename='combined_plot.png', layout=None)
 
 Combines multiple Matplotlib plots into a single figure and saves to a file.
 
 * **Parameters:**
-  * **plots** (*list* *of* *matplotlib.figure.Figure*) – List of Matplotlib figures.
-  * **filename** (*str*) – Output filename (supports .png, .pdf, .svg, etc.).
-  * **layout** (*tuple* *or* *str*) – (rows, cols) for custom layout or “auto” for automatic grid.
+  * **plots** (`list of matplotlib.figure.Figure`) – List of Matplotlib figures.
+  * **filename** (`str`) – Output filename (supports .png, .pdf, .svg, etc.).
+  * **layout** (`tuple or str`) – (rows, cols) for custom layout or “auto” for automatic grid.
 * **Returns:**
   None
+* **Return type:**
+  s
 
 ### COGITO.plot_matrix(matrix, low_center=0.2, high_center=0.85, filename='matrix.png')
