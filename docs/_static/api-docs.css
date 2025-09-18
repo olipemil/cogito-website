@@ -1,101 +1,157 @@
-/* Custom CSS for COGITO API Documentation - Jekyll Integration */
+/* COGITO API Documentation - ReadTheDocs styling for content only */
 
-/* Base API section styling that matches Jekyll theme */
-.api-container {
-    max-width: 100%;
-    margin: 0 auto;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-}
-
-/* Module headers */
-.api-module-header {
-    background: linear-gradient(135deg, #2c5aa0 0%, #1a365d 100%);
-    color: white;
-    padding: 20px 25px;
-    margin: 30px 0 20px 0;
-    border-radius: 8px;
-    font-size: 24px;
-    font-weight: 600;
-    box-shadow: 0 2px 8px rgba(44, 90, 160, 0.2);
-}
-
-/* Class/Function sections */
-.api-section {
-    margin: 25px 0;
-    border: 1px solid #e1e4e8;
-    border-radius: 8px;
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.api-header {
-    background: #f6f8fa;
-    padding: 16px 20px;
-    border-bottom: 1px solid #e1e4e8;
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: #2c5aa0;
-}
-
-/* Function/method signatures */
-.api-signature {
-    background: #f8f9fa;
-    padding: 15px 20px;
-    border: 1px solid #e9ecef;
-    border-radius: 6px;
-    margin: 15px 20px;
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: 13px;
-    overflow-x: auto;
-    color: #2c5aa0;
-    font-weight: 500;
-}
-
-/* Parameters section styling */
-.api-parameters {
-    background: #fafbfc;
-    padding: 20px 25px;
-    border-top: 1px solid #f0f0f0;
-}
-
-.api-parameters h4,
-.api-parameters h5 {
-    color: #2c5aa0;
+/* Only apply to content within Jekyll's main section */
+section {
+    /* ReadTheDocs-style typography */
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
-    font-weight: 600;
-    margin: 0 0 15px 0;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #2c5aa0;
-    display: inline-block;
+    line-height: 1.5;
+    color: #404040;
 }
 
-/* Parameter lists */
-.api-parameters ul {
-    margin: 12px 0;
-    padding-left: 0;
-    list-style: none;
+/* ReadTheDocs headers within content */
+section h1 {
+    font-size: 2.5em !important;
+    font-weight: 700 !important;
+    margin: 0 0 24px 0 !important;
+    color: #2980b9 !important;
+    border-bottom: 1px solid #e1e4e8 !important;
+    padding-bottom: 8px !important;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif !important;
 }
 
-.api-parameters li {
-    margin: 12px 0;
-    padding: 12px 16px;
-    background: white;
-    border-radius: 6px;
-    border-left: 4px solid #2c5aa0;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+section h2 {
+    font-size: 2em !important;
+    font-weight: 700 !important;
+    margin: 24px 0 16px 0 !important;
+    color: #2980b9 !important;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif !important;
 }
 
-.api-parameters li strong {
-    color: #2c5aa0;
-    font-weight: 600;
-    display: inline-block;
-    min-width: 120px;
+section h3 {
+    font-size: 1.5em !important;
+    font-weight: 700 !important;
+    margin: 20px 0 12px 0 !important;
+    color: #2980b9 !important;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif !important;
 }
 
-/* Jekyll content integration */
-.content .api-container {
-    margin-top: 0;
+section h4 {
+    font-size: 1.25em !important;
+    font-weight: 700 !important;
+    margin: 16px 0 8px 0 !important;
+    color: #404040 !important;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* ReadTheDocs code styling */
+section code {
+    color: #e74c3c !important;
+    background: #f8f8f8 !important;
+    border: 1px solid #e1e4e8 !important;
+    border-radius: 3px !important;
+    padding: 2px 4px !important;
+    font-size: 0.9em !important;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+}
+
+section pre {
+    background: #f8f8f8 !important;
+    border: 1px solid #e1e4e8 !important;
+    border-radius: 4px !important;
+    padding: 12px !important;
+    overflow-x: auto !important;
+    font-size: 0.9em !important;
+    line-height: 1.4 !important;
+    color: #404040 !important;
+    margin: 16px 0 !important;
+}
+
+section pre code {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    color: inherit !important;
+}
+
+/* ReadTheDocs links */
+section a {
+    color: #2980b9 !important;
+    text-decoration: none !important;
+}
+
+section a:hover {
+    color: #3498db !important;
+    text-decoration: underline !important;
+}
+
+/* ReadTheDocs text formatting */
+section strong, section b {
+    color: #2c3e50 !important;
+    font-weight: bold !important;
+}
+
+section em, section i {
+    color: #555 !important;
+    font-style: italic !important;
+}
+
+/* ReadTheDocs lists and parameters */
+section ul {
+    line-height: 1.6 !important;
+    color: #404040 !important;
+}
+
+section li {
+    margin: 8px 0 !important;
+    line-height: 1.6 !important;
+}
+
+/* ReadTheDocs blockquotes */
+section blockquote {
+    background: #f8f9fa !important;
+    border-left: 4px solid #2980b9 !important;
+    margin: 16px 0 !important;
+    padding: 12px 16px !important;
+    color: #555 !important;
+    font-style: italic !important;
+}
+
+/* Parameter styling for API docs */
+section ul li strong {
+    color: #2980b9 !important;
+    font-weight: 600 !important;
+}
+
+/* Function signatures */
+section h3 code, section h4 code {
+    background: #f8f9fa !important;
+    color: #c7254e !important;
+    font-weight: bold !important;
+    border: 1px solid #e9ecef !important;
+}
+
+/* Tables */
+section table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin: 16px 0 !important;
+}
+
+section th, section td {
+    border: 1px solid #e1e4e8 !important;
+    padding: 8px 12px !important;
+    text-align: left !important;
+}
+
+section th {
+    background: #f8f9fa !important;
+    font-weight: bold !important;
+    color: #2c3e50 !important;
+}
+
+/* Keep the content background light */
+section {
+    background: #fcfcfc !important;
+    min-height: 100vh;
 }

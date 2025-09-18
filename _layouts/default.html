@@ -17,6 +17,28 @@
       .enhanced-sidebar {
         margin-top: 20px;
         font-size: 14px;
+        height: calc(100vh - 200px); /* Adjust for header space */
+        overflow-y: auto;
+        padding-right: 10px;
+      }
+
+      /* Scrollbar styling for sidebar */
+      .enhanced-sidebar::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .enhanced-sidebar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+      }
+
+      .enhanced-sidebar::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+      }
+
+      .enhanced-sidebar::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
       }
 
       .nav-section {
@@ -183,6 +205,7 @@
               <span class="nav-toggle" onclick="toggleSection('api', '{{ site.baseurl }}/api/')">API Documentation</span>
             </div>
             <div class="nav-subsection" id="api-section">
+              <a href="{{ site.baseurl }}/api/index.html" class="nav-sub">Overview</a>
               <a href="{{ site.baseurl }}/api/cogito.html" class="nav-sub">COGITO Core</a>
               <a href="{{ site.baseurl }}/api/cogitopost.html" class="nav-sub">COGITOpost</a>
               <a href="{{ site.baseurl }}/api/cogitoico.html" class="nav-sub">COGITOico</a>
