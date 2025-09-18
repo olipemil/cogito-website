@@ -92,14 +92,31 @@ layout: default
   border-radius: 3px;
 }
 <style>
-/* --- Section headers --- */
-.rtd-main h1, 
-.rtd-main h2, 
-.rtd-main h3 {
-  padding: 0.3em 0.6em;
-  background-color: #eef3f7;
-  border-left: 4px solid #2980b9;
-  margin-top: 1.5em;
+/* --- Function blocks --- */
+.rtd-main dl.py.function {
+  background-color: #2980b9; /* deep blue */
+  border: 1px solid #1f5f85;
+  padding: 0.8em;
+  margin: 1.2em 0;
+  border-radius: 6px;
+  color: #dfefff; /* light text inside */
+  border-left: 6px solid #1c4e6e; /* vertical blue bar */
+}
+
+/* --- Function signature line --- */
+.rtd-main dl.py.function > dt {
+  font-family: monospace;
+  font-weight: bold;
+  font-style: normal; /* not italic */
+  color: #ffffff; /* function name in white/bright */
+  background: transparent;
+  padding: 0.4em 0;
+  border-radius: 0;
+}
+
+/* --- Inside function text (params, etc.) --- */
+.rtd-main dl.py.function dd {
+  color: #dfefff; /* lighter blue for details */
 }
 
 /* --- Class blocks --- */
@@ -109,38 +126,34 @@ layout: default
   padding: 0.8em;
   margin: 1.2em 0;
   border-radius: 6px;
+  position: relative;
 }
 
-/* --- Method blocks --- */
-.rtd-main dl.py.method {
-  background-color: #f9f9f9; /* light gray */
-  border: 1px solid #ddd;
-  padding: 0.6em;
-  margin: 1em 0;
-  border-radius: 6px;
+/* --- Solid blue bar across top of class --- */
+.rtd-main dl.py.class::before {
+  content: "";
+  display: block;
+  height: 6px;
+  background-color: #2980b9; /* deep blue */
+  border-radius: 6px 6px 0 0;
+  margin: -0.8em -0.8em 0 -0.8em; /* extend across container */
 }
 
-/* --- Function blocks (if any are top-level) --- */
-.rtd-main dl.py.function {
-  background-color: #fff8f2; /* soft orange */
-  border: 1px solid #f5d6a0;
-  padding: 0.8em;
-  margin: 1.2em 0;
-  border-radius: 6px;
-}
-
-/* --- Signature line (class, function, method name) --- */
-.rtd-main dl.py.class > dt,
-.rtd-main dl.py.method > dt,
-.rtd-main dl.py.function > dt {
+/* --- Class signature line --- */
+.rtd-main dl.py.class > dt {
   font-family: monospace;
   font-weight: bold;
-  background-color: #e9ecef;
-  padding: 0.4em;
-  border-radius: 4px 4px 0 0;
+  font-style: normal;
+  color: #000000; /* class name black */
+  background: transparent;
+  padding: 0.4em 0;
+}
+
+/* --- Variables in class definition (parameters after name) --- */
+.rtd-main dl.py.class > dt .sig-param {
+  color: #1c4e6e; /* lighter deep blue */
 }
 </style>
-
 
 </style>
 
