@@ -91,5 +91,56 @@ layout: default
   padding: 0.1em 0.3em;
   border-radius: 3px;
 }
+<style>
+/* --- Section headers --- */
+.rtd-main h1, 
+.rtd-main h2, 
+.rtd-main h3 {
+  padding: 0.3em 0.6em;
+  background-color: #eef3f7;
+  border-left: 4px solid #2980b9;
+  margin-top: 1.5em;
+}
+
+/* --- Class blocks --- */
+.rtd-main dl.py.class {
+  background-color: #f2f9ff; /* light blue */
+  border: 1px solid #cce5ff;
+  padding: 0.8em;
+  margin: 1.2em 0;
+  border-radius: 6px;
+}
+
+/* --- Method blocks --- */
+.rtd-main dl.py.method {
+  background-color: #f9f9f9; /* light gray */
+  border: 1px solid #ddd;
+  padding: 0.6em;
+  margin: 1em 0;
+  border-radius: 6px;
+}
+
+/* --- Function blocks (if any are top-level) --- */
+.rtd-main dl.py.function {
+  background-color: #fff8f2; /* soft orange */
+  border: 1px solid #f5d6a0;
+  padding: 0.8em;
+  margin: 1.2em 0;
+  border-radius: 6px;
+}
+
+/* --- Signature line (class, function, method name) --- */
+.rtd-main dl.py.class > dt,
+.rtd-main dl.py.method > dt,
+.rtd-main dl.py.function > dt {
+  font-family: monospace;
+  font-weight: bold;
+  background-color: #e9ecef;
+  padding: 0.4em;
+  border-radius: 4px 4px 0 0;
+}
+</style>
+
+
 </style>
 
