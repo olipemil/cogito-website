@@ -117,17 +117,22 @@ layout: default
   color: #768760; /* light green text */
   font-size: 0.8em;
 }
-/* --- Field lists and bullets in API docs --- */
-.rtd-main dl.field-list.simple,
-.rtd-main dl.field-list.simple dd ul.simple,
-.rtd-main dl.field-list.simple dd li {
-    margin: 0;         /* remove extra vertical space */
-    padding: 0;        /* remove extra padding */
-    line-height: 1.2;  /* tighten line spacing */
+/* --- Tighten spacing for parameter lists and bullets --- */
+.rtd-main dl.field-list.simple dd {
+    margin: 0;           /* remove default vertical margin of <dd> */
+    padding-left: 1em;   /* keep proper indent from the <dt> label */
 }
 
-.rtd-main dl.field-list.simple dd li {
-    margin: 0.1em 0;   /* small spacing between list items */
+.rtd-main dl.field-list.simple dd ul.simple {
+    margin: 0.2em 0;     /* vertical spacing between bullet group and surrounding text */
+    padding-left: 1.2em; /* standard bullet indent */
+    line-height: 1.2;    /* tighten line spacing */
 }
+
+.rtd-main dl.field-list.simple dd ul.simple li {
+    margin: 0.1em 0;     /* spacing between individual bullets */
+    padding-left: 0;     /* no extra padding inside li */
+}
+
 </style>
 
