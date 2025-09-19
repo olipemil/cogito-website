@@ -28,11 +28,15 @@ layout: default
 
 /* --- Main content area (properly aligned with default layout) --- */
 .rtd-main {
-  flex: 1;
-  margin-right: 240px; /* space for right sidebar */
-  padding: 0 20px 0 0; /* minimal padding, default handles left margin */
-  max-width: none;
   line-height: 1.4;
+}
+
+/* Only apply right margin when right sidebar is visible */
+@media (min-width: 1201px) {
+  .rtd-main {
+    margin-right: 240px; /* space for right sidebar */
+    padding: 0 20px 0 0; /* minimal padding, default handles left margin */
+  }
 }
 
 /* --- Right sidebar - Table of Contents --- */
@@ -49,14 +53,10 @@ layout: default
   z-index: 50;
 }
 
-/* Responsive behavior for narrow screens */
-@media (max-width: 900px) {
+/* Hide right sidebar on narrow screens */
+@media (max-width: 1200px) {
   #toc-sidebar {
-    display: none; /* Hide right sidebar when left sidebar also disappears */
-  }
-
-  .rtd-main {
-    margin-right: 0; /* Remove right margin when sidebar is hidden */
+    display: none;
   }
 }
 
