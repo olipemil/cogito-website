@@ -282,7 +282,7 @@ layout: default
   font-style: normal;
 }
 
-/* Fixed width approach for consistent alignment - target both field-odd AND field-even */
+/* Simple inline approach for all field types */
 .rtd-main dl.py.method .field-list dt.field-odd,
 .rtd-main dl.py.method .field-list dt.field-even {
   display: inline-block;
@@ -304,20 +304,9 @@ layout: default
   vertical-align: top;
 }
 
-/* Force line breaks between sections - target both classes */
-.rtd-main dl.py.method .field-list dt.field-odd:not(:first-child),
+/* Add spacing between sections */
 .rtd-main dl.py.method .field-list dt.field-even {
-  margin-top: 12px;
-  display: block;
-  width: 100px;
-}
-
-.rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) + dd.field-odd,
-.rtd-main dl.py.method .field-list dt.field-even + dd.field-even {
-  display: inline-block;
-  width: calc(100% - 110px);
-  margin-left: -100%;
-  padding-left: 110px;
+  margin-top: 8px;
 }
 
 /* Parameter list items - remove extra margins */
