@@ -309,6 +309,18 @@ layout: default
   margin-top: 8px;
 }
 
+/* Fix Returns/Return type content alignment */
+.rtd-main dl.py.method .field-list dd.field-even {
+  margin-top: 8px; /* Match the dt margin to align properly */
+}
+
+/* Align Returns/Return type content with parameter bullets (not text) */
+.rtd-main dl.py.method .field-list dd.field-even,
+.rtd-main dl.py.method .field-list dd.field-odd:not(:has(ul.simple)) {
+  padding-left: 20px; /* Align with bullet position instead of text */
+  width: calc(100% - 130px); /* Adjust width for the padding */
+}
+
 /* Parameter list items - remove extra margins */
 .rtd-main dl.py.method .field-list dd.field-odd ul.simple {
   margin: 0;
