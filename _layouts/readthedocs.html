@@ -282,7 +282,7 @@ layout: default
   font-style: normal;
 }
 
-/* Go back to what was working - treat each field as a flex container */
+/* Field labels - float left for inline layout */
 .rtd-main dl.py.method .field-list dt.field-odd {
   float: left;
   margin: 0;
@@ -290,9 +290,10 @@ layout: default
   font-style: normal;
   font-weight: bold;
   margin-right: 8px;
-  clear: left;
+  clear: both; /* Clear both to avoid interference from previous sections */
 }
 
+/* Field content - flows next to floated label */
 .rtd-main dl.py.method .field-list dd.field-odd {
   margin: 0;
   padding: 0;
@@ -300,9 +301,22 @@ layout: default
   overflow: hidden; /* Creates new block formatting context */
 }
 
-/* Add spacing between field sections */
+/* Add spacing and proper clearing between field sections */
 .rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) {
-  margin-top: 8px;
+  margin-top: 12px; /* Slightly more space */
+  clear: both; /* Ensure complete clearing from previous section */
+}
+
+/* Ensure parameter lists don't interfere with subsequent sections */
+.rtd-main dl.py.method .field-list dd.field-odd ul.simple {
+  margin-bottom: 0; /* Remove bottom margin that might interfere */
+}
+
+/* Add clearfix after each field section to prevent interference */
+.rtd-main dl.py.method .field-list dd.field-odd::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Parameter list items - remove extra margins */
