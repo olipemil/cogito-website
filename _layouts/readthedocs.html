@@ -282,29 +282,43 @@ layout: default
   font-style: normal;
 }
 
-/* Make the entire field-list use inline layout */
+/* Each field item (dt+dd pair) uses inline layout */
 .rtd-main dl.py.method .field-list.simple {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: block; /* Overall container is block */
 }
 
-/* Parameter label (dt) styling */
+/* Each dt+dd pair should be inline */
 .rtd-main dl.py.method .field-list dt.field-odd {
+  display: inline-block;
   margin: 0;
   padding: 0;
   font-style: normal;
   font-weight: bold;
-  flex-shrink: 0;
   margin-right: 8px;
+  vertical-align: top;
 }
 
-/* Parameter content (dd) styling */
 .rtd-main dl.py.method .field-list dd.field-odd {
+  display: inline-block;
   margin: 0;
   padding: 0;
   font-style: normal;
-  flex: 1;
+  vertical-align: top;
+  width: calc(100% - 120px); /* Leave space for dt */
+}
+
+/* Ensure each new field starts on a new line */
+.rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) {
+  margin-top: 8px;
+  clear: both;
+  display: block;
+  width: 100%;
+}
+
+.rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) + dd.field-odd {
+  display: block;
+  width: 100%;
+  margin-left: 120px; /* Indent to align with first line */
 }
 
 /* Parameter list items - remove extra margins */
