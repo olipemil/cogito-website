@@ -282,40 +282,31 @@ layout: default
   font-style: normal;
 }
 
-/* Each field item (dt+dd pair) uses inline layout */
-.rtd-main dl.py.method .field-list.simple {
-  display: block; /* Overall container is block */
-}
-
-/* All field items use consistent inline layout */
+/* Simple inline layout for all field items */
 .rtd-main dl.py.method .field-list dt.field-odd {
-  display: inline-block;
+  display: inline;
   margin: 0;
   padding: 0;
   font-style: normal;
   font-weight: bold;
   margin-right: 8px;
-  vertical-align: top;
-  width: 80px; /* Fixed width for consistent alignment */
 }
 
 .rtd-main dl.py.method .field-list dd.field-odd {
-  display: inline-block;
+  display: inline;
   margin: 0;
   padding: 0;
   font-style: normal;
-  vertical-align: top;
-  width: calc(100% - 88px); /* Account for dt width + margin */
 }
 
-/* Ensure proper spacing between field sections */
+/* Start new field types on new lines */
 .rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) {
+  display: block;
   margin-top: 8px;
 }
 
-/* Reset dd alignment for subsequent fields */
 .rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) + dd.field-odd {
-  /* Keep inline-block for consistent alignment */
+  display: inline;
 }
 
 /* Parameter list items - remove extra margins */
