@@ -282,31 +282,27 @@ layout: default
   font-style: normal;
 }
 
-/* Simple inline layout for all field items */
+/* Go back to what was working - treat each field as a flex container */
 .rtd-main dl.py.method .field-list dt.field-odd {
-  display: inline;
+  float: left;
   margin: 0;
   padding: 0;
   font-style: normal;
   font-weight: bold;
   margin-right: 8px;
+  clear: left;
 }
 
 .rtd-main dl.py.method .field-list dd.field-odd {
-  display: inline;
   margin: 0;
   padding: 0;
   font-style: normal;
+  overflow: hidden; /* Creates new block formatting context */
 }
 
-/* Start new field types on new lines */
+/* Add spacing between field sections */
 .rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) {
-  display: block;
   margin-top: 8px;
-}
-
-.rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) + dd.field-odd {
-  display: inline;
 }
 
 /* Parameter list items - remove extra margins */
