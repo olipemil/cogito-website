@@ -2,38 +2,9 @@
 layout: default
 ---
 
-<div id="content-wrapper">
-  <!-- Left Sidebar - Main Navigation -->
-  <aside id="sidebar" role="navigation">
-    <h2 class="site-title">{{ site.title | default: site.github.repository_name }}</h2>
-
-    <!-- Main Navigation -->
-    <nav class="site-nav">
-      <ul>
-        {% for item in site.data.navigation %}
-        <li>
-          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-        </li>
-        {% endfor %}
-      </ul>
-    </nav>
-
-    <!-- API Documentation Section -->
-    <div class="api-nav">
-      <h3>API Reference</h3>
-      <ul class="api-modules">
-        {% assign api_pages = site.pages | where_exp: "page", "page.path contains 'api/'" | where_exp: "page", "page.name != 'index.md'" | sort: "nav_order" %}
-        {% for api_page in api_pages %}
-          <li class="{% if page.url == api_page.url %}current{% endif %}">
-            <a href="{{ api_page.url | relative_url }}">{{ api_page.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </aside>
-
-  <!-- Main content -->
-  <main id="main-content" role="main" class="rtd-main">
+<!-- Main content with right sidebar -->
+<div class="rtd-content-wrapper">
+  <main class="rtd-main">
     {{ content }}
   </main>
 
@@ -49,95 +20,17 @@ layout: default
 </div>
 
 <style>
-/* --- Three-column layout --- */
-#content-wrapper {
+/* --- Content wrapper with right sidebar --- */
+.rtd-content-wrapper {
   display: flex;
   position: relative;
 }
 
-/* --- Left sidebar --- */
-#sidebar {
-  width: 220px;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-right: 1px solid #ddd;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  overflow-y: auto;
-  z-index: 100;
-}
-
-#sidebar .site-nav ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-#sidebar .site-nav li {
-  margin: 0.4em 0;
-}
-
-#sidebar .site-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-/* --- API Navigation --- */
-.api-nav {
-  margin-top: 20px;
-  border-top: 1px solid #ddd;
-  padding-top: 15px;
-}
-
-.api-nav h3 {
-  font-size: 14px;
-  font-weight: bold;
-  color: #555;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.api-modules {
-  list-style: none;
-  padding-left: 0;
-}
-
-.api-modules > li {
-  margin: 5px 0;
-}
-
-.api-modules > li.current {
-  background-color: #e8f4f8;
-  border-radius: 3px;
-  padding: 2px 5px;
-}
-
-.api-modules > li.current > a {
-  color: #2980b9;
-  font-weight: bold;
-}
-
-.api-modules a {
-  text-decoration: none;
-  color: #333;
-  font-size: 13px;
-  display: block;
-  padding: 3px 0;
-}
-
-.api-modules a:hover {
-  color: #2980b9;
-}
-
-/* --- Main content area --- */
+/* --- Main content area (properly aligned with default layout) --- */
 .rtd-main {
   flex: 1;
-  margin-left: 260px; /* left sidebar width + padding */
-  margin-right: 240px; /* right sidebar width + padding */
-  padding: 30px;
+  margin-right: 240px; /* space for right sidebar */
+  padding: 0 20px 0 0; /* minimal padding, default handles left margin */
   max-width: none;
   line-height: 1.4;
 }
@@ -153,7 +46,7 @@ layout: default
   right: 0;
   height: 100vh;
   overflow-y: auto;
-  z-index: 100;
+  z-index: 50;
 }
 
 .toc-container h3 {
@@ -161,14 +54,14 @@ layout: default
   font-weight: bold;
   color: #555;
   margin-bottom: 15px;
-  margin-top: 60px; /* space from top */
+  margin-top: 20px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 5px;
 }
 
-/* --- Table of Contents --- */
+/* --- Table of Contents with Dropdown --- */
 .toc-list {
   list-style: none;
   padding-left: 0;
@@ -177,16 +70,16 @@ layout: default
 }
 
 .toc-list li {
-  margin: 3px 0;
+  margin: 2px 0;
 }
 
 .toc-list a {
   color: #666;
   text-decoration: none;
-  padding: 2px 0;
+  padding: 3px 8px;
   display: block;
   border-radius: 2px;
-  padding-left: 8px;
+  transition: all 0.2s ease;
 }
 
 .toc-list a:hover {
@@ -194,16 +87,64 @@ layout: default
   background-color: #f0f7ff;
 }
 
-.toc-list .toc-class {
+/* Class entries with dropdown toggle */
+.toc-class-item {
+  position: relative;
+}
+
+.toc-class {
   font-weight: bold;
   color: #1c4e6e;
   margin-top: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  background-color: #f5f6f7;
+  border-radius: 3px;
+  border: 1px solid #e1e5e9;
 }
 
-.toc-list .toc-method {
-  padding-left: 20px;
+.toc-class:hover {
+  background-color: #e8f4f8;
+  color: #2980b9;
+}
+
+.toc-class-toggle {
+  font-size: 10px;
+  transition: transform 0.2s ease;
+  color: #666;
+}
+
+.toc-class-toggle.expanded {
+  transform: rotate(90deg);
+}
+
+/* Methods list under classes */
+.toc-methods {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  margin-left: 10px;
+  border-left: 2px solid #e8f4f8;
+  padding-left: 8px;
+}
+
+.toc-methods.expanded {
+  max-height: 300px;
+}
+
+.toc-method {
   color: #555;
   font-size: 11px;
+  padding: 2px 8px;
+  margin: 1px 0;
+}
+
+.toc-method:hover {
+  color: #2980b9;
+  background-color: #f8f9fa;
 }
 
 <style>
@@ -315,7 +256,7 @@ layout: default
 
 </style>
 
-<!-- JavaScript for dynamic table of contents -->
+<!-- JavaScript for dynamic table of contents with dropdown -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const tocContainer = document.getElementById('page-toc');
@@ -326,45 +267,65 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Find all class and method definitions
     const classElements = mainContent.querySelectorAll('dl.py.class');
-    const methodElements = mainContent.querySelectorAll('dl.py.method');
 
     let tocHTML = '';
+    let classStructure = {};
 
-    // Process classes
+    // Build class structure with methods
     classElements.forEach(function(classEl) {
         const classHeader = classEl.querySelector('dt');
         if (classHeader) {
             const className = classHeader.textContent.split('(')[0].split('.').pop();
             const classId = classHeader.id || 'class-' + className.toLowerCase();
 
-            tocHTML += `<li><a href="#${classId}" class="toc-class">${className}</a></li>`;
+            classStructure[className] = {
+                id: classId,
+                methods: []
+            };
 
-            // Find methods within this class
-            let nextEl = classEl.nextElementSibling;
-            while (nextEl && nextEl.classList.contains('py') && nextEl.classList.contains('method')) {
-                const methodHeader = nextEl.querySelector('dt');
-                if (methodHeader) {
-                    const methodName = methodHeader.querySelector('.sig-name');
-                    if (methodName) {
-                        const methodId = methodHeader.id || 'method-' + methodName.textContent.toLowerCase();
-                        tocHTML += `<li><a href="#${methodId}" class="toc-method">${methodName.textContent}</a></li>`;
+            // Find all methods in the class's dd container
+            const classDd = classEl.querySelector('dd');
+            if (classDd) {
+                const methodElements = classDd.querySelectorAll('dl.py.method');
+                methodElements.forEach(function(methodEl) {
+                    const methodHeader = methodEl.querySelector('dt');
+                    if (methodHeader) {
+                        const methodName = methodHeader.querySelector('.sig-name');
+                        if (methodName) {
+                            const methodId = methodHeader.id || 'method-' + methodName.textContent.toLowerCase();
+                            classStructure[className].methods.push({
+                                name: methodName.textContent,
+                                id: methodId
+                            });
+                        }
                     }
-                }
-                nextEl = nextEl.nextElementSibling;
+                });
             }
         }
     });
 
-    // Process standalone methods (not within classes)
-    methodElements.forEach(function(methodEl) {
-        const methodHeader = methodEl.querySelector('dt');
-        if (methodHeader) {
-            const methodName = methodHeader.querySelector('.sig-name');
-            if (methodName) {
-                const methodId = methodHeader.id || 'method-' + methodName.textContent.toLowerCase();
-                tocHTML += `<li><a href="#${methodId}" class="toc-method">${methodName.textContent}</a></li>`;
-            }
-        }
+    // Generate HTML with dropdown structure
+    Object.keys(classStructure).forEach(function(className) {
+        const classData = classStructure[className];
+        const classId = 'toc-class-' + className.toLowerCase();
+
+        tocHTML += `
+            <li class="toc-class-item">
+                <div class="toc-class" onclick="toggleClassMethods('${classId}')">
+                    <a href="#${classData.id}" onclick="event.stopPropagation()">${className}</a>
+                    <span class="toc-class-toggle" id="${classId}-toggle">▶</span>
+                </div>
+                <ul class="toc-methods" id="${classId}-methods">
+        `;
+
+        classData.methods.forEach(function(method) {
+            tocHTML += `<li><a href="#${method.id}" class="toc-method">${method.name}</a></li>`;
+        });
+
+        tocHTML += `
+                </ul>
+            </li>
+        `;
     });
 
     if (tocHTML) {
@@ -383,5 +344,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Function to toggle class methods dropdown
+function toggleClassMethods(classId) {
+    const methodsList = document.getElementById(classId + '-methods');
+    const toggle = document.getElementById(classId + '-toggle');
+
+    if (methodsList && toggle) {
+        if (methodsList.classList.contains('expanded')) {
+            methodsList.classList.remove('expanded');
+            toggle.classList.remove('expanded');
+        } else {
+            methodsList.classList.add('expanded');
+            toggle.classList.add('expanded');
+        }
+    }
+}
 </script>
 
