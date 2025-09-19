@@ -285,18 +285,27 @@ layout: default
 .rtd-main dl.py.method .field-list .field-odd {
   margin-bottom: 0;
   font-style: normal; /* Ensure normal text, not italic */
+  display: flex; /* Use flexbox for inline layout */
+  align-items: flex-start;
 }
 
-/* Parameter list items */
+/* Parameter label styling */
+.rtd-main dl.py.method .field-list .field-odd .field-name {
+  flex-shrink: 0; /* Don't shrink the label */
+  margin-right: 10px; /* Space between label and content */
+}
+
+/* Parameter list items - inline with label */
 .rtd-main dl.py.method .field-odd ul.simple {
-  margin: 5px 0 0 0; /* Reduced top margin */
-  padding-left: 15px; /* Reduce left indentation */
+  margin: 0; /* Remove top margin to align with label */
+  padding-left: 15px; /* Standard bullet indentation */
   line-height: 1.3; /* Spacing between bullet points */
   font-style: normal; /* Ensure normal text, not italic */
+  flex: 1; /* Take remaining space */
 }
 
 .rtd-main dl.py.method .field-odd ul.simple li {
-  margin: 3px 0; /* Spacing between parameter items (1.3 relative) */
+  margin: 3px 0; /* Spacing between parameter items */
   padding: 0;
   line-height: 1.1; /* Line spacing within each bullet item */
   font-style: normal; /* Ensure normal text, not italic */
