@@ -31,7 +31,7 @@ layout: default
   flex: 1;
   margin-right: 240px; /* space for right sidebar */
   padding: 0 20px 0 0; /* minimal padding, default handles left margin */
-  max-width: none;
+  max-width: calc(100vw - 240px - 260px); /* Adjust to window width minus both sidebars */
   line-height: 1.4;
 }
 
@@ -47,6 +47,25 @@ layout: default
   height: 100vh;
   overflow-y: auto;
   z-index: 50;
+}
+
+/* Responsive behavior for narrow screens */
+@media (max-width: 1100px) {
+  #toc-sidebar {
+    display: none; /* Hide right sidebar on narrow screens */
+  }
+
+  .rtd-main {
+    margin-right: 0; /* Remove right margin when sidebar is hidden */
+    max-width: none; /* Allow full width when sidebar is hidden */
+  }
+}
+
+/* Additional responsive adjustment for medium screens */
+@media (min-width: 1101px) and (max-width: 1400px) {
+  .rtd-main {
+    max-width: calc(100vw - 240px - 280px); /* Tighter spacing on medium screens */
+  }
 }
 
 .toc-container h3 {
@@ -184,6 +203,12 @@ layout: default
   font-size: 0.9em;
 }
 
+/* Class prefix styling (e.g., 'class') */
+.rtd-main dl.py.class > dt .property {
+  color: #666; /* gray color */
+  font-size: 0.95em;
+}
+
 /* --- Method blocks --- */
 .rtd-main dl.py.method {
   background-color: transparent;
@@ -204,12 +229,41 @@ layout: default
   border-left: 5px solid #4c7791;
   margin-bottom: 5px; /* Small gap between method signature and description */
   line-height: 1.05;
+  display: inline-block; /* Only background up to text width */
+  width: auto; /* Don't stretch to full width */
 }
 
 /* Function inner details */
 .rtd-main dl.py.method > dt .sig-param {
   color: #768760; /* light green text */
   font-size: 0.9em;
+}
+
+/* Method prefix styling (e.g., 'static', 'classmethod') */
+.rtd-main dl.py.method > dt .property {
+  color: #666; /* gray color */
+  font-size: 0.95em;
+}
+
+/* Source callout styling */
+.rtd-main .viewcode-link {
+  font-size: 0.9em;
+  margin-left: 15px; /* Space further from end */
+}
+
+.rtd-main dl.py.class > dt .viewcode-link {
+  font-size: 0.9em;
+  margin-left: 15px; /* Space further from end */
+}
+
+.rtd-main dl.py.method > dt .viewcode-link {
+  font-size: 0.9em;
+  margin-left: 15px; /* Space further from end */
+}
+
+/* Hide extra square symbol after [source] links */
+.rtd-main .headerlink {
+  display: none; /* Remove the extra square symbol */
 }
 
 /* Method description content */
