@@ -282,41 +282,38 @@ layout: default
   font-style: normal;
 }
 
-/* Field labels - float left for inline layout */
+/* Fixed width approach for consistent alignment */
 .rtd-main dl.py.method .field-list dt.field-odd {
-  float: left;
+  display: inline-block;
+  width: 100px;
   margin: 0;
   padding: 0;
   font-style: normal;
   font-weight: bold;
-  margin-right: 8px;
-  clear: both; /* Clear both to avoid interference from previous sections */
+  vertical-align: top;
 }
 
-/* Field content - flows next to floated label */
 .rtd-main dl.py.method .field-list dd.field-odd {
+  display: inline-block;
+  width: calc(100% - 110px);
   margin: 0;
   padding: 0;
   font-style: normal;
-  overflow: hidden; /* Creates new block formatting context */
+  vertical-align: top;
 }
 
-/* Add spacing and proper clearing between field sections */
+/* Force line breaks between sections */
 .rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) {
-  margin-top: 12px; /* Slightly more space */
-  clear: both; /* Ensure complete clearing from previous section */
+  margin-top: 12px;
+  display: block;
+  width: 100px;
 }
 
-/* Ensure parameter lists don't interfere with subsequent sections */
-.rtd-main dl.py.method .field-list dd.field-odd ul.simple {
-  margin-bottom: 0; /* Remove bottom margin that might interfere */
-}
-
-/* Add clearfix after each field section to prevent interference */
-.rtd-main dl.py.method .field-list dd.field-odd::after {
-  content: "";
-  display: table;
-  clear: both;
+.rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) + dd.field-odd {
+  display: inline-block;
+  width: calc(100% - 110px);
+  margin-left: -100%;
+  padding-left: 110px;
 }
 
 /* Parameter list items - remove extra margins */
