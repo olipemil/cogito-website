@@ -282,8 +282,9 @@ layout: default
   font-style: normal;
 }
 
-/* Fixed width approach for consistent alignment */
-.rtd-main dl.py.method .field-list dt.field-odd {
+/* Fixed width approach for consistent alignment - target both field-odd AND field-even */
+.rtd-main dl.py.method .field-list dt.field-odd,
+.rtd-main dl.py.method .field-list dt.field-even {
   display: inline-block;
   width: 100px;
   margin: 0;
@@ -293,7 +294,8 @@ layout: default
   vertical-align: top;
 }
 
-.rtd-main dl.py.method .field-list dd.field-odd {
+.rtd-main dl.py.method .field-list dd.field-odd,
+.rtd-main dl.py.method .field-list dd.field-even {
   display: inline-block;
   width: calc(100% - 110px);
   margin: 0;
@@ -302,14 +304,16 @@ layout: default
   vertical-align: top;
 }
 
-/* Force line breaks between sections */
-.rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) {
+/* Force line breaks between sections - target both classes */
+.rtd-main dl.py.method .field-list dt.field-odd:not(:first-child),
+.rtd-main dl.py.method .field-list dt.field-even {
   margin-top: 12px;
   display: block;
   width: 100px;
 }
 
-.rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) + dd.field-odd {
+.rtd-main dl.py.method .field-list dt.field-odd:not(:first-child) + dd.field-odd,
+.rtd-main dl.py.method .field-list dt.field-even + dd.field-even {
   display: inline-block;
   width: calc(100% - 110px);
   margin-left: -100%;
