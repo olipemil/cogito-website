@@ -31,7 +31,7 @@ layout: default
   flex: 1;
   margin-right: 240px; /* space for right sidebar */
   padding: 0 20px 0 0; /* minimal padding, default handles left margin */
-  max-width: calc(100vw - 240px - 260px); /* Adjust to window width minus both sidebars */
+  max-width: calc(100vw - 500px); /* Conservative width to avoid overlap (left + right + padding) */
   line-height: 1.4;
 }
 
@@ -49,22 +49,38 @@ layout: default
   z-index: 50;
 }
 
-/* Responsive behavior for narrow screens */
-@media (max-width: 1100px) {
+/* Wide screens - both sidebars present */
+@media (min-width: 1200px) {
+  .rtd-main {
+    max-width: calc(100vw - 500px); /* Plenty of space for both sidebars */
+  }
+}
+
+/* Medium screens - both sidebars but tighter spacing */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .rtd-main {
+    max-width: calc(100vw - 480px); /* Tighter but safe spacing */
+  }
+}
+
+/* Left sidebar disappears, right sidebar stays */
+@media (max-width: 899px) {
+  .rtd-main {
+    margin-left: 20px; /* Move closer to left when left sidebar is gone */
+    max-width: calc(100vw - 260px); /* Just account for right sidebar */
+  }
+}
+
+/* Right sidebar finally disappears on very narrow screens */
+@media (max-width: 700px) {
   #toc-sidebar {
-    display: none; /* Hide right sidebar on narrow screens */
+    display: none; /* Hide right sidebar on very narrow screens */
   }
 
   .rtd-main {
     margin-right: 0; /* Remove right margin when sidebar is hidden */
-    max-width: none; /* Allow full width when sidebar is hidden */
-  }
-}
-
-/* Additional responsive adjustment for medium screens */
-@media (min-width: 1101px) and (max-width: 1400px) {
-  .rtd-main {
-    max-width: calc(100vw - 240px - 280px); /* Tighter spacing on medium screens */
+    margin-left: 20px; /* Keep close to left */
+    max-width: calc(100vw - 40px); /* Just account for margins */
   }
 }
 
