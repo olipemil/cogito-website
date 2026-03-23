@@ -151,7 +151,7 @@ Crystal Orbital Guided Iteration To atomic-Orbitals (COGITO) is a tool for obtai
 
 <div class="main-navigation">
     <div class="nav-card">
-        <h3><a href="{{ site.baseurl }}/tutorial/">📚 Tutorial</a></h3>
+        <h3><a href="{{ site.baseurl }}/tutorial/">Tutorial</a></h3>
         <p>Step-by-step guide to using COGITO</p>
         <div class="nav-features">
             <span>Installation</span>
@@ -161,7 +161,7 @@ Crystal Orbital Guided Iteration To atomic-Orbitals (COGITO) is a tool for obtai
     </div>
 
     <div class="nav-card">
-        <h3><a href="{{ site.baseurl }}/api/">🔧 API Documentation</a></h3>
+        <h3><a href="{{ site.baseurl }}/api/">API Documentation</a></h3>
         <p>Complete reference for all COGITO functions</p>
         <div class="nav-features">
             <span>COGITO Core</span>
@@ -171,7 +171,7 @@ Crystal Orbital Guided Iteration To atomic-Orbitals (COGITO) is a tool for obtai
     </div>
 
     <div class="nav-card">
-        <h3><a href="{{ site.baseurl }}/examples/">💻 Examples</a></h3>
+        <h3><a href="{{ site.baseurl }}/examples/">Examples</a></h3>
         <p>Interactive Jupyter notebook examples</p>
         <div class="nav-features">
             <span>Workflows</span>
@@ -211,9 +211,8 @@ Click images for detailed tutorials or use the links below to jump directly to A
 </div>
 
 <div class="api-links">
-    📖 <a href="{{ site.baseurl }}/tutorial/#compareDFT">Tutorial</a> |
-    🔧 <a href="{{ site.baseurl }}/api/cogitopost.html#compare_to_dft">API: compare_to_DFT</a> |
-    💻 <a href="{{ site.baseurl }}/examples/cogito_example.html">Example Notebook</a>
+    <a href="{{ site.baseurl }}/tutorial/#compareDFT">Tutorial</a> |
+    <a href="{{ site.baseurl }}/api/cogitopost.html#compare_to_dft">API: compare_to_DFT</a>
 </div>
 
 <h3 id="bandstruc">Plot with band structure k-grid</h3>
@@ -234,9 +233,8 @@ Click images for detailed tutorials or use the links below to jump directly to A
 </div>
 
 <div class="api-links">
-    📖 <a href="{{ site.baseurl }}/tutorial/#COHPBS">Tutorial</a> |
-    🔧 <a href="{{ site.baseurl }}/api/cogitopost.html#get_cohp">API: get_COHP</a>, <a href="{{ site.baseurl }}/api/cogitopost.html#get_projectedbs">get_projectedBS</a> |
-    💻 <a href="{{ site.baseurl }}/examples/band_structure_analysis.html">Example Notebook</a>
+    <a href="{{ site.baseurl }}/tutorial/#COHPBS">Tutorial</a> |
+    <a href="{{ site.baseurl }}/api/cogitopost.html#get_cohp">API: get_COHP</a>, <a href="{{ site.baseurl }}/api/cogitopost.html#get_projectedbs">get_projectedBS</a>
 </div>
 
 <h3 id="uniform">Plot with uniform k-grid</h3>
@@ -261,8 +259,7 @@ Click images for detailed tutorials or use the links below to jump directly to A
 </div>
 
 <div class="api-links">
-    📖 <a href="{{ site.baseurl }}/tutorial/#projectDOS">Tutorial</a> |
-    🔧 <a href="{{ site.baseurl }}/api/cogitopost.html#get_projecteddos">API: get_projectedDOS</a>, <a href="{{ site.baseurl }}/api/cogitopost.html#get_bonds_figure">get_bonds_figure</a> |
-    💻 <a href="{{ site.baseurl }}/examples/crystal_bonding_visualization.html">Example Notebook</a>
+    <a href="{{ site.baseurl }}/tutorial/#projectDOS">Tutorial</a> |
+    <a href="{{ site.baseurl }}/api/cogitopost.html#get_projecteddos">API: get_projectedDOS</a>, <a href="{{ site.baseurl }}/api/cogitopost.html#get_bonds_figure">get_bonds_figure</a>
 </div>  
 
