@@ -148,7 +148,7 @@ title: COGITO - Home
 ## Welcome to COGITO!
 
 
-**This website repository is now deprecated!**
+**This website is now deprecated!**
 
 Check the new code repo at [https://github.com/olipemil/COGITO-dft](https://github.com/olipemil/COGITO-dft).
 
