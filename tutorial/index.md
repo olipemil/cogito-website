@@ -1,5 +1,12 @@
 # COGITO Tutorials
 
+**This website is now deprecated!**
+
+Check the new code repo at [https://github.com/olipemil/COGITO-dft](https://github.com/olipemil/COGITO-dft).
+
+Check the new website at [https://cogito-dft.readthedocs.io/](https://cogito-dft.readthedocs.io/).
+
+
 These tutorials cover installing the COGITO code, running the main COGITO code, and analyzing bonding with 
 the COGITO tight binding model. The workflow below provides the general outline. Click the section labels to quickly get to each section. 
 
