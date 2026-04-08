@@ -5,9 +5,9 @@
 
 **This website repository is now deprecated!**
 
-Check the new code repo at (https://github.com/olipemil/COGITO-dft)[https://github.com/olipemil/COGITO-dft].
+Check the new code repo at [https://github.com/olipemil/COGITO-dft](https://github.com/olipemil/COGITO-dft).
 
-Check the new website at (https://cogito-dft.readthedocs.io/)[https://cogito-dft.readthedocs.io/].
+Check the new website at [https://cogito-dft.readthedocs.io/](https://cogito-dft.readthedocs.io/).
 
 
 **Visit the old website:** [**cogito-website.github.io**](https://olipemil.github.io/cogito-website)
